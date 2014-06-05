@@ -48,8 +48,8 @@ class PNLineChart: UIView{
                 
                 
                 var labelY = self.chartCavanHeight - (index * yStepHeight)
-                var label: PNChartLabel = PNChartLabel(frame: CGRect(x: 3.0, y: CGFloat(labelY), width: CGFloat(self.chartMargin + 5.0), height: CGFloat(self.yLabelHeight) ) )
-                label.textAlignment = NSTextAlignment.Left
+                var label: PNChartLabel = PNChartLabel(frame: CGRect(x: 0.0, y: CGFloat(labelY), width: CGFloat(self.chartMargin + 5.0), height: CGFloat(self.yLabelHeight) ) )
+                label.textAlignment = NSTextAlignment.Right
                 label.text = NSString(format:self.yLabelFormat, self.yValueMin + (yStep * index))
                 ++index
                 self.addSubview(label)
@@ -158,7 +158,7 @@ class PNLineChart: UIView{
     
     var chartCavanWidth:CGFloat!
     
-    var chartMargin:CGFloat = 20.0
+    var chartMargin:CGFloat = 25.0
     
     var showLabel: Bool = true
     
@@ -186,6 +186,8 @@ class PNLineChart: UIView{
     var chartPaths: NSMutableArray = []     // Array of line path, one for each line.
     var pointPaths: NSMutableArray = []       // Array of point path, one for each line
     
+    var delegate:PNChartDelegate?
+    
 
     func setDefaultValues() {
         self.backgroundColor = UIColor.whiteColor()
@@ -200,11 +202,13 @@ class PNLineChart: UIView{
     }
     
     override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!) {
+
         self.touchPoint(touches, withEvent: event)
         self.touchKeyPoint(touches, withEvent: event)
     }
     
     override func touchesMoved(touches: NSSet!, withEvent event: UIEvent!) {
+
         self.touchPoint(touches, withEvent: event)
         self.touchKeyPoint(touches, withEvent: event)
     }
@@ -217,22 +221,27 @@ class PNLineChart: UIView{
             var linePointsArray = linePoints as NSArray
             
             for var i:NSInteger = 0; i < (linePointsArray.count - 1); i += 1{
-                var p1:CGPoint = linePointsArray[i].CGPointValue()
-                var p2:CGPoint = linePointsArray[i + 1].CGPointValue()
+
+                var p1:CGPoint = (linePointsArray[i] as PNValue).point
+                var p2:CGPoint = (linePointsArray[i+1] as PNValue).point
+                
+
                 
                 // Closest distance from point to line
                 var distance:CGFloat = fabsf(((p2.x - p1.x) * (touchPoint.y - p1.y)) - ((p1.x - touchPoint.x) * (p1.y - p2.y)))
                 distance =  distance /  hypotf( p2.x - p1.x,  p1.y - p2.y )
                 
+
                 if distance <= 5.0 {
                     // Conform to delegate parameters, figure out what bezier path this CGPoint belongs to.
 
                     for path : AnyObject in self.chartPaths {
-                        var pointContainsPath:Bool = CGPathContainsPoint(path.CGPath, nil, p1, false)
                         
-                        if (pointContainsPath) {
-//                            [self.delegate userClickedOnLinePoint:touchPoint lineIndex:[_chartPath indexOfObject:path]];
-//                            return;
+                        var pointContainsPath:Bool = CGPathContainsPoint((path as UIBezierPath).CGPath, nil, p1, false)
+
+                        if pointContainsPath {
+
+                            self.delegate?.userClickedOnLinePoint(touchPoint , lineIndex: self.chartPaths.indexOfObject(path))
                         }
                     }
                 }
@@ -253,19 +262,17 @@ class PNLineChart: UIView{
             var linePointsArray: NSArray = self.pathPoints as NSArray
             
             for var i:NSInteger = 0; i < (linePointsArray.count - 1); i += 1{
-                var p1:CGPoint = linePointsArray[i].CGPointValue()
-                var p2:CGPoint = linePointsArray[i + 1].CGPointValue()
+                var p1:CGPoint = (linePointsArray[i] as PNValue).point
+                var p2:CGPoint = (linePointsArray[i+1] as PNValue).point
                 
                 var distanceToP1: CGFloat = fabsf( CGFloat( hypotf( touchPoint.x - p1.x , touchPoint.y - p1.y ) ))
                 var distanceToP2: CGFloat = hypotf( touchPoint.x - p2.x, touchPoint.y - p2.y)
                 
                 var distance: CGFloat = fminf(distanceToP1, distanceToP2)
-                
+
                 if distance <= 10.0 {
-//                    [_delegate userClickedOnLineKeyPoint:touchPoint
-//                        lineIndex:p
-//                        andPointIndex:(distance == distanceToP2 ? i + 1 : i)];
-//                    return;
+
+                    self.delegate?.userClickedOnLineKeyPoint(touchPoint , lineIndex: self.pathPoints.indexOfObject(linePoints) ,keyPointIndex:(distance == distanceToP2 ? i + 1 : i) )
                 }
             }
         }
@@ -391,12 +398,13 @@ class PNLineChart: UIView{
                     progressline.moveToPoint(CGPointMake(x, y))
                 }
                 
-                var toPushPointer = CGPointMake(x, y)
-                linePointsArray.addObject(NSValue.valueWithBytes( &toPushPointer , objCType: "CGPoint" ))
+                
+                linePointsArray.addObject(PNValue(point: CGPointMake(x, y)))
+                
                 
             }
             
-            self.pathPoints.addObject(linePointsArray.copy())
+            self.pathPoints.addObject(linePointsArray)
             
             // setup the color of the chart line
             if chartData.color != nil {

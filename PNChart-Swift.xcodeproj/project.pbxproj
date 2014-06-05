@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0A1942BC193E999500DA7F81 /* PNChartLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1942BB193E999500DA7F81 /* PNChartLabel.swift */; };
 		0A1A87F1193FC42100A132DD /* PNChartConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A87F0193FC42100A132DD /* PNChartConfig.swift */; };
+		0A1A87F3193FD86700A132DD /* PNChartDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A87F2193FD86700A132DD /* PNChartDelegate.swift */; };
+		0A1A87F5193FE5FE00A132DD /* PNValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A87F4193FE5FE00A132DD /* PNValue.swift */; };
 		0A7CDE7C193F92BE00585D8D /* PNLineChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7CDE7B193F92BE00585D8D /* PNLineChartData.swift */; };
 		0AADA0C2193E5A320063B15C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AADA0C1193E5A320063B15C /* AppDelegate.swift */; };
 		0AADA0C4193E5A320063B15C /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AADA0C3193E5A320063B15C /* MasterViewController.swift */; };
@@ -32,6 +34,8 @@
 /* Begin PBXFileReference section */
 		0A1942BB193E999500DA7F81 /* PNChartLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNChartLabel.swift; path = PNChart/PNLineChart/PNChartLabel.swift; sourceTree = "<group>"; };
 		0A1A87F0193FC42100A132DD /* PNChartConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNChartConfig.swift; path = PNChart/PNChartConfig.swift; sourceTree = "<group>"; };
+		0A1A87F2193FD86700A132DD /* PNChartDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNChartDelegate.swift; path = PNChart/PNChartDelegate.swift; sourceTree = "<group>"; };
+		0A1A87F4193FE5FE00A132DD /* PNValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNValue.swift; path = PNChart/PNValue.swift; sourceTree = "<group>"; };
 		0A7CDE7B193F92BE00585D8D /* PNLineChartData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNLineChartData.swift; path = PNChart/PNLineChart/PNLineChartData.swift; sourceTree = "<group>"; };
 		0AADA0BC193E5A320063B15C /* PNChart-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PNChart-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AADA0C0193E5A320063B15C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -128,6 +132,7 @@
 			children = (
 				0AADA0E3193E5B2F0063B15C /* PNLineChart */,
 				0A1A87F0193FC42100A132DD /* PNChartConfig.swift */,
+				0A1A87F2193FD86700A132DD /* PNChartDelegate.swift */,
 			);
 			name = PNChart;
 			sourceTree = "<group>";
@@ -138,6 +143,7 @@
 				0AADA0E5193E60200063B15C /* PNLineChart.swift */,
 				0A1942BB193E999500DA7F81 /* PNChartLabel.swift */,
 				0A7CDE7B193F92BE00585D8D /* PNLineChartData.swift */,
+				0A1A87F4193FE5FE00A132DD /* PNValue.swift */,
 			);
 			name = PNLineChart;
 			sourceTree = "<group>";
@@ -252,9 +258,11 @@
 				0AADA0E6193E60200063B15C /* PNLineChart.swift in Sources */,
 				0AADA0C6193E5A320063B15C /* DetailViewController.swift in Sources */,
 				0A7CDE7C193F92BE00585D8D /* PNLineChartData.swift in Sources */,
+				0A1A87F3193FD86700A132DD /* PNChartDelegate.swift in Sources */,
 				0A1A87F1193FC42100A132DD /* PNChartConfig.swift in Sources */,
 				0A1942BC193E999500DA7F81 /* PNChartLabel.swift in Sources */,
 				0AADA0C4193E5A320063B15C /* MasterViewController.swift in Sources */,
+				0A1A87F5193FE5FE00A132DD /* PNValue.swift in Sources */,
 				0AADA0C2193E5A320063B15C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

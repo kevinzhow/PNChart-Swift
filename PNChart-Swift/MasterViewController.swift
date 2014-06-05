@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController {
+class MasterViewController: UITableViewController, PNChartDelegate {
 
 
     override func awakeFromNib() {
@@ -38,6 +38,7 @@ class MasterViewController: UITableViewController {
             lineChart.backgroundColor = UIColor.clearColor()
             lineChart.xLabels = ["SEP 1","SEP 2","SEP 3","SEP 4","SEP 5","SEP 6","SEP 7"]
             lineChart.showCoordinateAxis = true
+            lineChart.delegate = self
             
             // Line Chart Nr.1
             var data01Array: CGFloat[] = [60.1, 160.1, 126.4, 262.2, 186.2, 127.2, 176.2]
@@ -61,6 +62,17 @@ class MasterViewController: UITableViewController {
             viewController.view.addSubview(lineChartLabel)
         }
     }
+    
+    func userClickedOnLineKeyPoint(point: CGPoint, lineIndex: Int, keyPointIndex: Int)
+    {
+        println("Click Key on line \(point.x), \(point.y) line index is \(lineIndex) and point index is \(keyPointIndex)")
+    }
+    
+    func userClickedOnLinePoint(point: CGPoint, lineIndex: Int)
+    {
+        println("Click Key on line \(point.x), \(point.y) line index is \(lineIndex)")
+    }
+    
 
 
 
