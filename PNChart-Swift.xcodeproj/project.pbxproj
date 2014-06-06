@@ -11,6 +11,8 @@
 		0A1A87F1193FC42100A132DD /* PNChartConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A87F0193FC42100A132DD /* PNChartConfig.swift */; };
 		0A1A87F3193FD86700A132DD /* PNChartDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A87F2193FD86700A132DD /* PNChartDelegate.swift */; };
 		0A1A87F5193FE5FE00A132DD /* PNValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A87F4193FE5FE00A132DD /* PNValue.swift */; };
+		0A3B87AF1941E67A007C2D8B /* PNBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B87AE1941E67A007C2D8B /* PNBarChart.swift */; };
+		0A3B87B21941E6A9007C2D8B /* PNBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B87B11941E6A9007C2D8B /* PNBar.swift */; };
 		0A7CDE7C193F92BE00585D8D /* PNLineChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7CDE7B193F92BE00585D8D /* PNLineChartData.swift */; };
 		0AADA0C2193E5A320063B15C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AADA0C1193E5A320063B15C /* AppDelegate.swift */; };
 		0AADA0C4193E5A320063B15C /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AADA0C3193E5A320063B15C /* MasterViewController.swift */; };
@@ -36,6 +38,8 @@
 		0A1A87F0193FC42100A132DD /* PNChartConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNChartConfig.swift; path = PNChart/PNChartConfig.swift; sourceTree = "<group>"; };
 		0A1A87F2193FD86700A132DD /* PNChartDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNChartDelegate.swift; path = PNChart/PNChartDelegate.swift; sourceTree = "<group>"; };
 		0A1A87F4193FE5FE00A132DD /* PNValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNValue.swift; path = PNChart/PNValue.swift; sourceTree = "<group>"; };
+		0A3B87AE1941E67A007C2D8B /* PNBarChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNBarChart.swift; path = PNChart/PNBarChart/PNBarChart.swift; sourceTree = "<group>"; };
+		0A3B87B11941E6A9007C2D8B /* PNBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNBar.swift; path = PNChart/PNBarChart/PNBar.swift; sourceTree = "<group>"; };
 		0A7CDE7B193F92BE00585D8D /* PNLineChartData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNLineChartData.swift; path = PNChart/PNLineChart/PNLineChartData.swift; sourceTree = "<group>"; };
 		0AADA0BC193E5A320063B15C /* PNChart-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PNChart-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AADA0C0193E5A320063B15C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -69,6 +73,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A3B87B01941E67F007C2D8B /* PNBarChart */ = {
+			isa = PBXGroup;
+			children = (
+				0A3B87AE1941E67A007C2D8B /* PNBarChart.swift */,
+				0A3B87B11941E6A9007C2D8B /* PNBar.swift */,
+			);
+			name = PNBarChart;
+			sourceTree = "<group>";
+		};
 		0AADA0B3193E5A320063B15C = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +146,7 @@
 				0AADA0E3193E5B2F0063B15C /* PNLineChart */,
 				0A1A87F0193FC42100A132DD /* PNChartConfig.swift */,
 				0A1A87F2193FD86700A132DD /* PNChartDelegate.swift */,
+				0A3B87B01941E67F007C2D8B /* PNBarChart */,
 			);
 			name = PNChart;
 			sourceTree = "<group>";
@@ -255,6 +269,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A3B87AF1941E67A007C2D8B /* PNBarChart.swift in Sources */,
+				0A3B87B21941E6A9007C2D8B /* PNBar.swift in Sources */,
 				0AADA0E6193E60200063B15C /* PNLineChart.swift in Sources */,
 				0AADA0C6193E5A320063B15C /* DetailViewController.swift in Sources */,
 				0A7CDE7C193F92BE00585D8D /* PNLineChartData.swift in Sources */,

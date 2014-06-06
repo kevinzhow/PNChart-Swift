@@ -15,20 +15,20 @@ class PNLineChart: UIView{
     var xLabels: NSArray = []{
         didSet{
             
-            if self.showLabel {
+            if showLabel {
                 
-                self.xLabelWidth = self.chartCavanWidth! / CGFloat(self.xLabels.count)
+                xLabelWidth = chartCavanWidth! / CGFloat(xLabels.count)
                 
-                for var index = 0;index < self.xLabels.count; ++index {
-                    var labelText = self.xLabels[index] as NSString
-                    var labelX = 2.0 * self.chartMargin +  ( CGFloat(index) * self.xLabelWidth) - (self.xLabelWidth / 2.0)
-                    var label:PNChartLabel = PNChartLabel(frame: CGRect(x:  labelX, y: self.chartMargin + self.chartCavanHeight!, width: self.xLabelWidth, height: self.chartMargin))
+                for var index = 0;index < xLabels.count; ++index {
+                    var labelText = xLabels[index] as NSString
+                    var labelX = 2.0 * chartMargin +  ( CGFloat(index) * xLabelWidth) - (xLabelWidth / 2.0)
+                    var label:PNChartLabel = PNChartLabel(frame: CGRect(x:  labelX, y: chartMargin + chartCavanHeight!, width: xLabelWidth, height: chartMargin))
                     label.textAlignment = NSTextAlignment.Center
                     label.text = labelText
-                    self.addSubview(label)
+                    addSubview(label)
                 }
             }else {
-                self.xLabelWidth = self.frame.size.width / CGFloat(self.xLabels.count)
+                xLabelWidth = frame.size.width / CGFloat(xLabels.count)
             }
         }
     }
@@ -36,23 +36,23 @@ class PNLineChart: UIView{
     var yLabels: NSArray = []{
         didSet{
 
-            self.yLabelNum = CGFloat(self.yLabels.count)
-            var yStep:CGFloat = (self.yValueMax - self.yValueMin) / CGFloat(self.yLabelNum)
-            var yStepHeight:CGFloat  = self.chartCavanHeight! / CGFloat(self.yLabelNum)
+            yLabelNum = CGFloat(yLabels.count)
+            var yStep:CGFloat = (yValueMax - yValueMin) / CGFloat(yLabelNum)
+            var yStepHeight:CGFloat  = chartCavanHeight! / CGFloat(yLabelNum)
             
             var index:CGFloat = 0
-            var num:CGFloat  = self.yLabelNum + 1
+            var num:CGFloat  = yLabelNum + 1
             
-            for count : AnyObject in self.yLabels
+            for count : AnyObject in yLabels
             {
                 
                 
-                var labelY = self.chartCavanHeight - (index * yStepHeight)
-                var label: PNChartLabel = PNChartLabel(frame: CGRect(x: 0.0, y: CGFloat(labelY), width: CGFloat(self.chartMargin + 5.0), height: CGFloat(self.yLabelHeight) ) )
+                var labelY = chartCavanHeight - (index * yStepHeight)
+                var label: PNChartLabel = PNChartLabel(frame: CGRect(x: 0.0, y: CGFloat(labelY), width: CGFloat(chartMargin + 5.0), height: CGFloat(yLabelHeight) ) )
                 label.textAlignment = NSTextAlignment.Right
-                label.text = NSString(format:self.yLabelFormat, self.yValueMin + (yStep * index))
+                label.text = NSString(format:yLabelFormat, yValueMin + (yStep * index))
                 ++index
-                self.addSubview(label)
+                addSubview(label)
             }
         }
     }
@@ -63,27 +63,27 @@ class PNLineChart: UIView{
     
     var chartData: NSArray = []{
         didSet{
-            var yLabelsArray:NSMutableArray = NSMutableArray(capacity: self.chartData.count)
+            var yLabelsArray:NSMutableArray = NSMutableArray(capacity: chartData.count)
             var yMax:CGFloat = 0.0
             var yMin:CGFloat = MAXFLOAT
             var yValue:CGFloat!
             
             // remove all shape layers before adding new ones
-            for layer : AnyObject in self.chartLineArray{
+            for layer : AnyObject in chartLineArray{
                 (layer as CALayer).removeFromSuperlayer()
             }
-            for layer : AnyObject in self.chartPointArray {
+            for layer : AnyObject in chartPointArray {
                 (layer as CALayer).removeFromSuperlayer()
             }
             
-            self.chartLineArray = NSMutableArray(capacity: self.chartData.count)
-            self.chartPointArray = NSMutableArray(capacity: self.chartData.count)
+            chartLineArray = NSMutableArray(capacity: chartData.count)
+            chartPointArray = NSMutableArray(capacity: chartData.count)
             
             // set for point stoken
             var circle_stroke_width:CGFloat = 2.0
             var line_width:CGFloat = 3.0
             
-            for chart : AnyObject in self.chartData{
+            for chart : AnyObject in chartData{
                 // create as many chart line layers as there are data-lines
                 var chartObj = chart as PNLineChartData
                 var chartLine:CAShapeLayer = CAShapeLayer()
@@ -92,8 +92,8 @@ class PNLineChart: UIView{
                 chartLine.fillColor     = UIColor.whiteColor().CGColor
                 chartLine.lineWidth     = line_width
                 chartLine.strokeEnd     = 0.0
-                self.layer.addSublayer(chartLine)
-                self.chartLineArray.addObject(chartLine)
+                layer.addSublayer(chartLine)
+                chartLineArray.addObject(chartLine)
                 
                 // create point
                 var pointLayer:CAShapeLayer = CAShapeLayer()
@@ -102,8 +102,8 @@ class PNLineChart: UIView{
                 pointLayer.lineJoin      = kCALineJoinBevel
                 pointLayer.fillColor     = nil
                 pointLayer.lineWidth     = circle_stroke_width
-                self.layer.addSublayer(pointLayer)
-                self.chartPointArray.addObject(pointLayer)
+                layer.addSublayer(pointLayer)
+                chartPointArray.addObject(pointLayer)
                 
                 for var i = 0; i < chartObj.itemCount; ++i{
                     yValue = CGFloat(chartObj.getData(i).y)
@@ -122,16 +122,16 @@ class PNLineChart: UIView{
                 yMin = 0.0
             }
             
-            self.yValueMin = yMin;
-            self.yValueMax = yMax;
+            yValueMin = yMin;
+            yValueMax = yMax;
 
             
-            if self.showLabel {
+            if showLabel {
                 println("show y label")
-                self.yLabels = yLabelsArray as NSArray
+                yLabels = yLabelsArray as NSArray
             }
             
-            self.setNeedsDisplay()
+            setNeedsDisplay()
             
         }
     }
@@ -190,34 +190,34 @@ class PNLineChart: UIView{
     
 
     func setDefaultValues() {
-        self.backgroundColor = UIColor.whiteColor()
-        self.clipsToBounds = true
-        self.chartLineArray = NSMutableArray()
-        self.showLabel = false
-        self.pathPoints = NSMutableArray()
-        self.userInteractionEnabled = true
+        backgroundColor = UIColor.whiteColor()
+        clipsToBounds = true
+        chartLineArray = NSMutableArray()
+        showLabel = false
+        pathPoints = NSMutableArray()
+        userInteractionEnabled = true
         
-        self.chartCavanWidth = self.frame.size.width - (self.chartMargin * 2.0)
-        self.chartCavanHeight = self.frame.size.height - (self.chartMargin * 2.0)
+        chartCavanWidth = frame.size.width - (chartMargin * 2.0)
+        chartCavanHeight = frame.size.height - (chartMargin * 2.0)
     }
     
     override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!) {
 
-        self.touchPoint(touches, withEvent: event)
-        self.touchKeyPoint(touches, withEvent: event)
+        touchPoint(touches, withEvent: event)
+        touchKeyPoint(touches, withEvent: event)
     }
     
     override func touchesMoved(touches: NSSet!, withEvent event: UIEvent!) {
 
-        self.touchPoint(touches, withEvent: event)
-        self.touchKeyPoint(touches, withEvent: event)
+        touchPoint(touches, withEvent: event)
+        touchKeyPoint(touches, withEvent: event)
     }
     
     func touchPoint(touches: NSSet!, withEvent event: UIEvent!){
         var touch:UITouch = touches.anyObject() as UITouch
         var touchPoint = touch.locationInView(self)
         
-        for linePoints:AnyObject in self.pathPoints {
+        for linePoints:AnyObject in pathPoints {
             var linePointsArray = linePoints as NSArray
             
             for var i:NSInteger = 0; i < (linePointsArray.count - 1); i += 1{
@@ -235,13 +235,13 @@ class PNLineChart: UIView{
                 if distance <= 5.0 {
                     // Conform to delegate parameters, figure out what bezier path this CGPoint belongs to.
 
-                    for path : AnyObject in self.chartPaths {
+                    for path : AnyObject in chartPaths {
                         
                         var pointContainsPath:Bool = CGPathContainsPoint((path as UIBezierPath).CGPath, nil, p1, false)
 
                         if pointContainsPath {
 
-                            self.delegate?.userClickedOnLinePoint(touchPoint , lineIndex: self.chartPaths.indexOfObject(path))
+                            delegate?.userClickedOnLinePoint(touchPoint , lineIndex: chartPaths.indexOfObject(path))
                         }
                     }
                 }
@@ -258,8 +258,8 @@ class PNLineChart: UIView{
         var touch:UITouch = touches.anyObject() as UITouch
         var touchPoint = touch.locationInView(self)
         
-        for linePoints: AnyObject in self.pathPoints {
-            var linePointsArray: NSArray = self.pathPoints as NSArray
+        for linePoints: AnyObject in pathPoints {
+            var linePointsArray: NSArray = pathPoints as NSArray
             
             for var i:NSInteger = 0; i < (linePointsArray.count - 1); i += 1{
                 var p1:CGPoint = (linePointsArray[i] as PNValue).point
@@ -272,7 +272,7 @@ class PNLineChart: UIView{
 
                 if distance <= 10.0 {
 
-                    self.delegate?.userClickedOnLineKeyPoint(touchPoint , lineIndex: self.pathPoints.indexOfObject(linePoints) ,keyPointIndex:(distance == distanceToP2 ? i + 1 : i) )
+                    delegate?.userClickedOnLineKeyPoint(touchPoint , lineIndex: pathPoints.indexOfObject(linePoints) ,keyPointIndex:(distance == distanceToP2 ? i + 1 : i) )
                 }
             }
         }
@@ -284,19 +284,19 @@ class PNLineChart: UIView{
     */
     
     func strokeChart(){
-        self.chartPaths = NSMutableArray()
-        self.pointPaths = NSMutableArray()
+        chartPaths = NSMutableArray()
+        pointPaths = NSMutableArray()
             
             //Draw each line
-        for var lineIndex = 0; lineIndex < self.chartData.count; lineIndex++ {
+        for var lineIndex = 0; lineIndex < chartData.count; lineIndex++ {
             var chartData:PNLineChartData = self.chartData[lineIndex] as PNLineChartData
-            var chartLine:CAShapeLayer = self.chartLineArray[lineIndex] as CAShapeLayer
-            var pointLayer:CAShapeLayer = self.chartPointArray[lineIndex] as CAShapeLayer
+            var chartLine:CAShapeLayer = chartLineArray[lineIndex] as CAShapeLayer
+            var pointLayer:CAShapeLayer = chartPointArray[lineIndex] as CAShapeLayer
                 
             var yValue:CGFloat?
             var innerGrade:CGFloat?
                 
-            UIGraphicsBeginImageContext(self.frame.size)
+            UIGraphicsBeginImageContext(frame.size)
                 
             var progressline:UIBezierPath = UIBezierPath()
             progressline.lineWidth = chartData.lineWidth
@@ -305,14 +305,14 @@ class PNLineChart: UIView{
                 
             var pointPath:UIBezierPath = UIBezierPath()
             pointPath.lineWidth = chartData.lineWidth
-            self.chartPaths.addObject(progressline)
-            self.pointPaths.addObject(pointPath)
+            chartPaths.addObject(progressline)
+            pointPaths.addObject(pointPath)
                 
-            if !self.showLabel {
-                self.chartCavanHeight = self.frame.size.height - 2 * self.yLabelHeight
-                self.chartCavanWidth = self.frame.size.width
-                self.chartMargin = 0.0
-                self.xLabelWidth = (self.chartCavanWidth! / CGFloat(self.xLabels.count - 1))
+            if !showLabel {
+                chartCavanHeight = frame.size.height - 2 * yLabelHeight
+                chartCavanWidth = frame.size.width
+                chartMargin = 0.0
+                xLabelWidth = (chartCavanWidth! / CGFloat(xLabels.count - 1))
             }
             
             var linePointsArray:NSMutableArray = NSMutableArray()
@@ -324,21 +324,22 @@ class PNLineChart: UIView{
             for var i:Int = 0; i < chartData.itemCount; i++ {
                 yValue = CGFloat(chartData.getData(i).y)
                     
-                innerGrade = (yValue! - self.yValueMin) / (self.yValueMax - self.yValueMin)
+                innerGrade = (yValue! - yValueMin) / (yValueMax - yValueMin)
                     
-                var x:CGFloat = 2.0 * self.chartMargin +  (CGFloat(i) * self.xLabelWidth)
-                var y:CGFloat = self.chartCavanHeight! - (innerGrade! * self.chartCavanHeight!) + (self.yLabelHeight / 2.0)
+                var x:CGFloat = 2.0 * chartMargin +  (CGFloat(i) * xLabelWidth)
+                var y:CGFloat = chartCavanHeight! - (innerGrade! * chartCavanHeight!) + (yLabelHeight / 2.0)
                     
                 // cycle style point
-                if chartData.inflexionPointStyle == PNLineChartData.PNLineChartPointStyle.PNLineChartPointStyleCycle{
+                switch chartData.inflexionPointStyle{
+                case PNLineChartData.PNLineChartPointStyle.PNLineChartPointStyleCycle:
                     
                     var circleRect:CGRect = CGRectMake(x-inflexionWidth/2.0, y-inflexionWidth/2.0, inflexionWidth,inflexionWidth)
                     var circleCenter:CGPoint = CGPointMake(circleRect.origin.x + (circleRect.size.width / 2.0), circleRect.origin.y + (circleRect.size.height / 2.0))
                     pointPath.moveToPoint(CGPointMake(circleCenter.x + (inflexionWidth/2), circleCenter.y))
-
+                    
                     pointPath.addArcWithCenter(circleCenter, radius: CGFloat(inflexionWidth/2.0), startAngle: 0.0, endAngle:CGFloat(2.0*M_PI), clockwise: true)
                     
-
+                    
                     if i != 0 {
                         
                         // calculate the point for line
@@ -352,9 +353,9 @@ class PNLineChart: UIView{
                     }
                     last_x = x
                     last_y = y
-                }
-                // Square style point
-                else if chartData.inflexionPointStyle == PNLineChartData.PNLineChartPointStyle.PNLineChartPointStyleSquare{
+                    
+                    // Square style point
+                case PNLineChartData.PNLineChartPointStyle.PNLineChartPointStyleSquare:
                     
                     var squareRect:CGRect = CGRectMake(x-inflexionWidth/2, y-inflexionWidth/2, inflexionWidth,inflexionWidth)
                     var squareCenter:CGPoint = CGPointMake(squareRect.origin.x + (squareRect.size.width / 2), squareRect.origin.y + (squareRect.size.height / 2))
@@ -380,23 +381,26 @@ class PNLineChart: UIView{
                     
                     last_x = x
                     last_y = y
-                }
-                // Triangle style point
-                else if (chartData.inflexionPointStyle == PNLineChartData.PNLineChartPointStyle.PNLineChartPointStyleTriangle) {
+                    
+                    // Triangle style point
+                case PNLineChartData.PNLineChartPointStyle.PNLineChartPointStyleTriangle:
                     
                     if i != 0 {
                         progressline.addLineToPoint(CGPointMake(x, y))
                     }
                     
                     progressline.moveToPoint(CGPointMake(x, y))
-                } else {
+                    
+                default:
                     
                     if i != 0 {
                         progressline.addLineToPoint(CGPointMake(x, y))
                     }
                     
                     progressline.moveToPoint(CGPointMake(x, y))
-                }
+                    }
+
+                
                 
                 
                 linePointsArray.addObject(PNValue(point: CGPointMake(x, y)))
@@ -404,7 +408,7 @@ class PNLineChart: UIView{
                 
             }
             
-            self.pathPoints.addObject(linePointsArray)
+            pathPoints.addObject(linePointsArray)
             
             // setup the color of the chart line
             if chartData.color != nil {
@@ -446,28 +450,28 @@ class PNLineChart: UIView{
     
     override func drawRect(rect: CGRect)
     {
-        if self.showCoordinateAxis {
+        if showCoordinateAxis {
             
             var yAsixOffset:CGFloat = 10.0
             
             var ctx:CGContextRef = UIGraphicsGetCurrentContext()
             UIGraphicsPushContext(ctx)
-            CGContextSetLineWidth(ctx, self.axisWidth)
-            CGContextSetStrokeColorWithColor(ctx, self.axisColor.CGColor)
+            CGContextSetLineWidth(ctx, axisWidth)
+            CGContextSetStrokeColorWithColor(ctx, axisColor.CGColor)
             
-            var xAxisWidth:CGFloat = CGRectGetWidth(rect) - self.chartMargin/2.0
-            var yAxisHeight:CGFloat = self.chartMargin + self.chartCavanHeight!
+            var xAxisWidth:CGFloat = CGRectGetWidth(rect) - chartMargin/2.0
+            var yAxisHeight:CGFloat = chartMargin + chartCavanHeight!
             
             // draw coordinate axis
-            CGContextMoveToPoint(ctx, self.chartMargin + yAsixOffset, 0)
-            CGContextAddLineToPoint(ctx, self.chartMargin + yAsixOffset, yAxisHeight)
+            CGContextMoveToPoint(ctx, chartMargin + yAsixOffset, 0)
+            CGContextAddLineToPoint(ctx, chartMargin + yAsixOffset, yAxisHeight)
             CGContextAddLineToPoint(ctx, xAxisWidth, yAxisHeight)
             CGContextStrokePath(ctx)
             
             // draw y axis arrow
-            CGContextMoveToPoint(ctx, self.chartMargin + yAsixOffset - 3, 6)
-            CGContextAddLineToPoint(ctx, self.chartMargin + yAsixOffset, 0)
-            CGContextAddLineToPoint(ctx, self.chartMargin + yAsixOffset + 3, 6)
+            CGContextMoveToPoint(ctx, chartMargin + yAsixOffset - 3, 6)
+            CGContextAddLineToPoint(ctx, chartMargin + yAsixOffset, 0)
+            CGContextAddLineToPoint(ctx, chartMargin + yAsixOffset + 3, 6)
             CGContextStrokePath(ctx);
             
             // draw x axis arrow
@@ -476,21 +480,21 @@ class PNLineChart: UIView{
             CGContextAddLineToPoint(ctx, xAxisWidth - 6, yAxisHeight + 3);
             CGContextStrokePath(ctx)
             
-            if self.showLabel{
+            if showLabel{
                 
                 // draw x axis separator
                 var point:CGPoint!
-                for var i:Int = 0; i < self.xLabels.count; ++i {
-                    point = CGPointMake(2 * self.chartMargin +  ( CGFloat(i) * self.xLabelWidth), self.chartMargin + self.chartCavanHeight!)
+                for var i:Int = 0; i < xLabels.count; ++i {
+                    point = CGPointMake(2 * chartMargin +  ( CGFloat(i) * xLabelWidth), chartMargin + chartCavanHeight!)
                     CGContextMoveToPoint(ctx, point.x, point.y - 2)
                     CGContextAddLineToPoint(ctx, point.x, point.y)
                     CGContextStrokePath(ctx)
                 }
                 
                 // draw y axis separator
-                var yStepHeight:CGFloat = self.chartCavanHeight! / CGFloat(self.yLabelNum)
-                for var i:Int = 0; i < self.xLabels.count; ++i {
-                    point = CGPointMake(self.chartMargin + yAsixOffset, (self.chartCavanHeight! - CGFloat(i) * yStepHeight + self.yLabelHeight/2.0
+                var yStepHeight:CGFloat = chartCavanHeight! / CGFloat(yLabelNum)
+                for var i:Int = 0; i < xLabels.count; ++i {
+                    point = CGPointMake(chartMargin + yAsixOffset, (chartCavanHeight! - CGFloat(i) * yStepHeight + yLabelHeight/2.0
                         ))
                     CGContextMoveToPoint(ctx, point.x, point.y)
                     CGContextAddLineToPoint(ctx, point.x + 2, point.y)
@@ -500,17 +504,17 @@ class PNLineChart: UIView{
             
             var font:UIFont = UIFont.systemFontOfSize(11)
             // draw y unit
-            if self.yUnit != nil{
-                var height:CGFloat = self.heightOfString(self.yUnit, width: 30.0, font: font)
-                var drawRect:CGRect = CGRectMake(self.chartMargin + 10 + 5, 0, 30.0, height)
-                self.drawTextInContext(ctx, text:self.yUnit, rect:drawRect, font:font)
+            if yUnit != nil{
+                var height:CGFloat = heightOfString(yUnit, width: 30.0, font: font)
+                var drawRect:CGRect = CGRectMake(chartMargin + 10 + 5, 0, 30.0, height)
+                drawTextInContext(ctx, text:yUnit, rect:drawRect, font:font)
             }
             
             // draw x unit
-            if self.xUnit != nil {
-                var height:CGFloat = self.heightOfString(self.yUnit, width:30.0, font:font)
-                var drawRect:CGRect = CGRectMake(CGRectGetWidth(rect) - self.chartMargin + 5, self.chartMargin + self.chartCavanHeight! - height/2, 25.0, height)
-                self.drawTextInContext(ctx, text:self.yUnit, rect:drawRect, font:font)
+            if xUnit != nil {
+                var height:CGFloat = heightOfString(yUnit, width:30.0, font:font)
+                var drawRect:CGRect = CGRectMake(CGRectGetWidth(rect) - chartMargin + 5, chartMargin + chartCavanHeight! - height/2, 25.0, height)
+                drawTextInContext(ctx, text:yUnit, rect:drawRect, font:font)
             }
         }
         
@@ -539,7 +543,7 @@ class PNLineChart: UIView{
     
     init(frame: CGRect){
         super.init(frame: frame)
-        self.setDefaultValues()
+        setDefaultValues()
     }
     
 }
