@@ -20,4 +20,10 @@ protocol PNChartDelegate {
     *
     */
     func userClickedOnLineKeyPoint(point: CGPoint, lineIndex:Int, keyPointIndex:Int)
+    
+    /**
+    * When user click on a chart bar
+    *
+    */
+    func userClickedOnBarCharIndex(barIndex:Int)
 }

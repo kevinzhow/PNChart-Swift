@@ -81,7 +81,7 @@ class MasterViewController: UITableViewController, PNChartDelegate {
             barChart.yValues = [1,24,12,18,30,10,21]
             barChart.strokeChart()
             
-//            barChart.delegate = self
+            barChart.delegate = self
             
             viewController.view.addSubview(ChartLabel)
             viewController.view.addSubview(barChart)
@@ -104,8 +104,10 @@ class MasterViewController: UITableViewController, PNChartDelegate {
         println("Click Key on line \(point.x), \(point.y) line index is \(lineIndex)")
     }
     
-
-
+    func userClickedOnBarCharIndex(barIndex: Int)
+    {
+        println("Click  on bar \(barIndex)")
+    }
 
 }
 

@@ -356,4 +356,21 @@ class PNBarChart: UIView {
         }
     
     }
+    
+    override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!) 
+    {
+        touchPoint(touches, withEvent: event)
+        super.touchesBegan(touches, withEvent: event)
+    }
+    
+    func touchPoint(touches: NSSet!, withEvent event: UIEvent!){
+        var touch:UITouch = touches.anyObject() as UITouch
+        var touchPoint = touch.locationInView(self)
+        var subview:UIView = hitTest(touchPoint, withEvent: nil)
+        
+
+        self.delegate?.userClickedOnBarCharIndex(subview.tag)
+    }
+    
+    
 }
