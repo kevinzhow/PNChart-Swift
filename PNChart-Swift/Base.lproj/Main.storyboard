@@ -69,6 +69,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="Ah7-4n-0Wa" kind="show" identifier="barChart" id="DvP-Ca-csR"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell appearanceType="aqua" contentMode="scaleToFill" ambiguous="YES" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="jJ5-AB-qj6" style="IBUITableViewCellStyleDefault" id="eas-ym-yrR">
                                         <rect key="frame" x="0.0" y="86" width="320" height="44"/>
@@ -141,4 +144,7 @@
             <point key="canvasLocation" x="1208" y="64"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="DvP-Ca-csR"/>
+    </inferredMetricsTieBreakers>
 </document>

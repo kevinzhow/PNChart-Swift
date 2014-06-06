@@ -166,7 +166,7 @@ class PNLineChart: UIView{
     
     // For Axis
     
-    var axisColor:UIColor = PNGrey
+    var axisColor:UIColor = PNGreyColor
     
     var axisWidth:CGFloat = 1.0
     
@@ -336,9 +336,7 @@ class PNLineChart: UIView{
                     var circleRect:CGRect = CGRectMake(x-inflexionWidth/2.0, y-inflexionWidth/2.0, inflexionWidth,inflexionWidth)
                     var circleCenter:CGPoint = CGPointMake(circleRect.origin.x + (circleRect.size.width / 2.0), circleRect.origin.y + (circleRect.size.height / 2.0))
                     pointPath.moveToPoint(CGPointMake(circleCenter.x + (inflexionWidth/2), circleCenter.y))
-                    
                     pointPath.addArcWithCenter(circleCenter, radius: CGFloat(inflexionWidth/2.0), startAngle: 0.0, endAngle:CGFloat(2.0*M_PI), clockwise: true)
-                    
                     
                     if i != 0 {
                         
@@ -354,7 +352,7 @@ class PNLineChart: UIView{
                     last_x = x
                     last_y = y
                     
-                    // Square style point
+                // Square style point
                 case PNLineChartData.PNLineChartPointStyle.PNLineChartPointStyleSquare:
                     
                     var squareRect:CGRect = CGRectMake(x-inflexionWidth/2, y-inflexionWidth/2, inflexionWidth,inflexionWidth)
@@ -382,7 +380,7 @@ class PNLineChart: UIView{
                     last_x = x
                     last_y = y
                     
-                    // Triangle style point
+                // Triangle style point
                 case PNLineChartData.PNLineChartPointStyle.PNLineChartPointStyleTriangle:
                     
                     if i != 0 {
@@ -398,10 +396,7 @@ class PNLineChart: UIView{
                     }
                     
                     progressline.moveToPoint(CGPointMake(x, y))
-                    }
-
-                
-                
+                }
                 
                 linePointsArray.addObject(PNValue(point: CGPointMake(x, y)))
                 

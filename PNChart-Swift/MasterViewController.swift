@@ -24,13 +24,16 @@ class MasterViewController: UITableViewController, PNChartDelegate {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         var viewController:UIViewController = segue.destinationViewController as UIViewController
-        if segue.identifier == "lineChart" {
+        var ChartLabel:UILabel = UILabel(frame: CGRectMake(0, 90, 320.0, 30))
+        
+        ChartLabel.textColor = PNGreenColor
+        ChartLabel.font = UIFont(name: "Avenir-Medium", size:23.0)
+        ChartLabel.textAlignment = NSTextAlignment.Center
+        
+        switch segue.identifier as NSString {
+        case "lineChart":
             //Add LineChart
-            var lineChartLabel:UILabel = UILabel(frame: CGRectMake(0, 90, 320.0, 30))
-            lineChartLabel.text = "Line Chart"
-            lineChartLabel.textColor = PNGreenColor
-            lineChartLabel.font = UIFont(name: "Avenir-Medium", size:23.0)
-            lineChartLabel.textAlignment = NSTextAlignment.Center
+            ChartLabel.text = "Line Chart"
             
             var lineChart:PNLineChart = PNLineChart(frame: CGRectMake(0, 135.0, 320, 200.0))
             lineChart.yLabelFormat = "%1.1f"
@@ -59,8 +62,36 @@ class MasterViewController: UITableViewController, PNChartDelegate {
             //        lineChart.delegate = self
             
             viewController.view.addSubview(lineChart)
-            viewController.view.addSubview(lineChartLabel)
+            viewController.view.addSubview(ChartLabel)
+            viewController.title = "Line Chart"
+        
+        case "barChart":
+            //Add BarChart
+            ChartLabel.text = "Bar Chart"
+            
+            var barChart = PNBarChart(frame: CGRectMake(0, 135.0, 320.0, 200.0))
+            barChart.backgroundColor = UIColor.clearColor()
+            barChart.yLabelFormatter = ({(yValue: CGFloat) -> NSString in
+                var yValueParsed:CGFloat = yValue
+                var labelText:NSString = NSString(format:"%1.f",yValueParsed)
+                return labelText;
+            })
+            barChart.labelMarginTop = 5.0
+            barChart.xLabels = ["SEP 1","SEP 2","SEP 3","SEP 4","SEP 5","SEP 6","SEP 7"]
+            barChart.yValues = [1,24,12,18,30,10,21]
+            barChart.strokeChart()
+            
+//            barChart.delegate = self
+            
+            viewController.view.addSubview(ChartLabel)
+            viewController.view.addSubview(barChart)
+            
+            viewController.title = "Bar Chart"
+            
+        default:
+            println("Hello Chart")
         }
+        
     }
     
     func userClickedOnLineKeyPoint(point: CGPoint, lineIndex: Int, keyPointIndex: Int)

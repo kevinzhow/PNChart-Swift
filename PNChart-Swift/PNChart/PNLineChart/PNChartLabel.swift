@@ -13,7 +13,7 @@ class PNChartLabel: UILabel {
     init(frame: CGRect) {
         super.init(frame: frame)
         font = UIFont.boldSystemFontOfSize(10.0)
-        textColor = PNGrey
+        textColor = PNGreyColor
         backgroundColor = UIColor.clearColor()
         textAlignment = NSTextAlignment.Center
         userInteractionEnabled = true
