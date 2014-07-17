@@ -65,7 +65,7 @@ class PNLineChart: UIView{
         didSet{
             var yLabelsArray:NSMutableArray = NSMutableArray(capacity: chartData.count)
             var yMax:CGFloat = 0.0
-            var yMin:CGFloat = MAXFLOAT
+            var yMin:CGFloat = CGFLOAT_MAX
             var yValue:CGFloat!
             
             // remove all shape layers before adding new ones
@@ -108,8 +108,8 @@ class PNLineChart: UIView{
                 for var i = 0; i < chartObj.itemCount; ++i{
                     yValue = CGFloat(chartObj.getData(i).y)
                     yLabelsArray.addObject(NSString(format: "%2f", yValue))
-                    yMax = fmaxf(yMax, yValue)
-                    yMin = fminf(yMin, yValue)
+                    yMax = fmax(yMax, yValue)
+                    yMin = fmin(yMin, yValue)
                 }
             }
             
@@ -228,8 +228,8 @@ class PNLineChart: UIView{
 
                 
                 // Closest distance from point to line
-                var distance:CGFloat = fabsf(((p2.x - p1.x) * (touchPoint.y - p1.y)) - ((p1.x - touchPoint.x) * (p1.y - p2.y)))
-                distance =  distance /  hypotf( p2.x - p1.x,  p1.y - p2.y )
+                var distance:CGFloat = fabs(((p2.x - p1.x) * (touchPoint.y - p1.y)) - ((p1.x - touchPoint.x) * (p1.y - p2.y)))
+                distance =  distance /  hypot( p2.x - p1.x,  p1.y - p2.y )
                 
 
                 if distance <= 5.0 {
@@ -265,10 +265,10 @@ class PNLineChart: UIView{
                 var p1:CGPoint = (linePointsArray[i] as PNValue).point
                 var p2:CGPoint = (linePointsArray[i+1] as PNValue).point
                 
-                var distanceToP1: CGFloat = fabsf( CGFloat( hypotf( touchPoint.x - p1.x , touchPoint.y - p1.y ) ))
-                var distanceToP2: CGFloat = hypotf( touchPoint.x - p2.x, touchPoint.y - p2.y)
+                var distanceToP1: CGFloat = fabs( CGFloat( hypot( touchPoint.x - p1.x , touchPoint.y - p1.y ) ))
+                var distanceToP2: CGFloat = hypot( touchPoint.x - p2.x, touchPoint.y - p2.y)
                 
-                var distance: CGFloat = fminf(distanceToP1, distanceToP2)
+                var distance: CGFloat = fmin(distanceToP1, distanceToP2)
 
                 if distance <= 10.0 {
 
@@ -341,7 +341,7 @@ class PNLineChart: UIView{
                     if i != 0 {
                         
                         // calculate the point for line
-                        var distance:CGFloat = sqrtf( powf( x-last_x, 2.0) + powf( y-last_y,2.0) )
+                        var distance:CGFloat = sqrt( pow( x-last_x, 2.0) + pow( y-last_y,2.0) )
                         var last_x1:CGFloat = last_x + (inflexionWidth/2) / distance * (x-last_x)
                         var last_y1:CGFloat = last_y + (inflexionWidth/2) / distance * (y-last_y)
                         var x1:CGFloat = x - (inflexionWidth/2) / distance * (x-last_x)
@@ -367,7 +367,7 @@ class PNLineChart: UIView{
                     if i != 0{
                         
                         // calculate the point for line
-                        var distance:CGFloat = sqrtf( powf(x-last_x, 2) + powf(y-last_y,2) )
+                        var distance:CGFloat = sqrt( pow(x-last_x, 2) + pow(y-last_y,2) )
                         var last_x1:CGFloat = last_x + (inflexionWidth/2)
                         var last_y1:CGFloat = last_y + (inflexionWidth/2) / distance * (y-last_y)
                         var x1:CGFloat = x - (inflexionWidth/2)
@@ -518,7 +518,7 @@ class PNLineChart: UIView{
     
     func heightOfString(text: NSString!, width: CGFloat, font: UIFont) -> CGFloat{
         var ch:CGFloat!
-        var size:CGSize = CGSizeMake(width, MAXFLOAT)
+        var size:CGSize = CGSizeMake(width, CGFLOAT_MAX)
 
         var tdic:NSDictionary = NSDictionary(objects: [font, NSFontAttributeName], forKeys: nil)
         size = text.boundingRectWithSize(size, options: NSStringDrawingOptions.UsesFontLeading , attributes: tdic, context: nil).size

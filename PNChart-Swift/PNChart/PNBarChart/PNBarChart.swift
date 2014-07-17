@@ -194,7 +194,7 @@ class PNBarChart: UIView {
         
         for valueObj: AnyObject in yValues{
             var valueString = valueObj as NSNumber
-            var value:CGFloat = valueString.floatValue
+            var value:CGFloat = CGFloat(valueString.floatValue)
             
             var grade = value / yValueMax
             
@@ -346,7 +346,7 @@ class PNBarChart: UIView {
     }
     
     func getYValueMax(yLabels:NSArray) {
-        var max:CGFloat = yLabels.valueForKeyPath("@max.floatValue").floatValue
+        var max:CGFloat = CGFloat(yLabels.valueForKeyPath("@max.floatValue").floatValue)
         
         
         if max == 0 {
