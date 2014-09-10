@@ -44,7 +44,7 @@ class MasterViewController: UITableViewController, PNChartDelegate {
             lineChart.delegate = self
             
             // Line Chart Nr.1
-            var data01Array: CGFloat[] = [60.1, 160.1, 126.4, 262.2, 186.2, 127.2, 176.2]
+            var data01Array: [CGFloat] = [60.1, 160.1, 126.4, 262.2, 186.2, 127.2, 176.2]
             var data01:PNLineChartData = PNLineChartData()
             data01.color = PNGreenColor
             data01.itemCount = data01Array.count
