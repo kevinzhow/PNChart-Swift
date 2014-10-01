@@ -48,7 +48,7 @@ class PNBar:UIView {
             }) )
     }
     
-    init(frame: CGRect)
+    override init(frame: CGRect)
     {
         super.init(frame: frame)
         chartLine              = CAShapeLayer()
@@ -61,13 +61,17 @@ class PNBar:UIView {
         layer.addSublayer(chartLine)
         barRadius = 2.0
     }
+
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func drawRect(rect: CGRect)
     {
         //Draw BG
         var context: CGContextRef = UIGraphicsGetCurrentContext()
         
-        CGContextSetFillColorWithColor(context, self.backgroundColor.CGColor)
+        CGContextSetFillColorWithColor(context, self.backgroundColor?.CGColor)
         CGContextFillRect(context, rect)
     }
 

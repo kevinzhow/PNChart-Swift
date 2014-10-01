@@ -17,9 +17,15 @@ class MasterViewController: UITableViewController, PNChartDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // Do any additional setup after loading the view.
     }
-
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
     // #pragma mark - Segues
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -71,11 +77,11 @@ class MasterViewController: UITableViewController, PNChartDelegate {
             
             var barChart = PNBarChart(frame: CGRectMake(0, 135.0, 320.0, 200.0))
             barChart.backgroundColor = UIColor.clearColor()
-            barChart.yLabelFormatter = ({(yValue: CGFloat) -> NSString in
-                var yValueParsed:CGFloat = yValue
-                var labelText:NSString = NSString(format:"%1.f",yValueParsed)
-                return labelText;
-            })
+//            barChart.yLabelFormatter = ({(yValue: CGFloat) -> NSString in
+//                var yValueParsed:CGFloat = yValue
+//                var labelText:NSString = NSString(format:"%1.f",yValueParsed)
+//                return labelText;
+//            })
             barChart.labelMarginTop = 5.0
             barChart.xLabels = ["SEP 1","SEP 2","SEP 3","SEP 4","SEP 5","SEP 6","SEP 7"]
             barChart.yValues = [1,24,12,18,30,10,21]

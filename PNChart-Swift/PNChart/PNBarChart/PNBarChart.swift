@@ -12,24 +12,25 @@ import QuartzCore
 class PNBarChart: UIView {
     
     var xLabels: NSArray = [] {
-    didSet{
-        if showLabel {
-            xLabelWidth = (self.frame.size.width - chartMargin * 2.0) / CGFloat(self.xLabels.count)
+        
+        didSet{
+            if showLabel {
+                xLabelWidth = (self.frame.size.width - chartMargin * 2.0) / CGFloat(self.xLabels.count)
+            }
         }
-    }
     }
     var labels: NSMutableArray = []
     var yLabels: NSArray = []
     var yValues: NSArray = [] {
-    didSet{
-        if yMaxValue {
-            yValueMax = yMaxValue
-        }else{
-            self.getYValueMax(yValues)
+        didSet{
+            if (yMaxValue != nil) {
+                yValueMax = yMaxValue
+            }else{
+                self.getYValueMax(yValues)
+            }
+            
+            xLabelWidth = (self.frame.size.width - chartMargin * 2.0) / CGFloat(yValues.count)
         }
-        
-        xLabelWidth = (self.frame.size.width - chartMargin * 2.0) / CGFloat(yValues.count)
-    }
     }
     
     var bars: NSMutableArray = []
@@ -49,9 +50,9 @@ class PNBarChart: UIView {
     yLabelFormatter will format the ylabel text
     */
     
-    var yLabelFormatter = ({(index: CGFloat) -> NSString in
-        return ""
-    })
+//    var yLabelFormatter = ({(index: CGFloat) -> NSString in
+//        return ""
+//    })
     
     /*
     chartMargin changes chart margin
@@ -172,17 +173,17 @@ class PNBarChart: UIView {
             
             for var index:Int = 0; index < yLabelSum; ++index {
                 
-                var labelText:NSString = yLabelFormatter((yValueMax * ( CGFloat(yLabelSum - index) / CGFloat(yLabelSum) ) ))
-                    
-                    var label:PNChartLabel = PNChartLabel(frame: CGRectMake(0,yLabelSectionHeight * CGFloat(index) + chartMargin - yLabelHeight/2.0, yChartLabelWidth, yLabelHeight))
-                    
-                    label.font = labelFont
-                    label.textColor = labelTextColor
-                    label.textAlignment = NSTextAlignment.Right
-                    label.text = labelText
-                    
-                    labels.addObject(label)
-                    self.addSubview(label)
+//                var labelText:NSString = yLabelFormatter((yValueMax * ( CGFloat(yLabelSum - index) / CGFloat(yLabelSum) ) ))
+//                    
+//                    var label:PNChartLabel = PNChartLabel(frame: CGRectMake(0,yLabelSectionHeight * CGFloat(index) + chartMargin - yLabelHeight/2.0, yChartLabelWidth, yLabelHeight))
+//                    
+//                    label.font = labelFont
+//                    label.textColor = labelTextColor
+//                    label.textAlignment = NSTextAlignment.Right
+//                    label.text = labelText
+//                    
+//                    labels.addObject(label)
+//                    self.addSubview(label)
                 
             }
         }
@@ -197,10 +198,6 @@ class PNBarChart: UIView {
             var value:CGFloat = CGFloat(valueString.floatValue)
             
             var grade = value / yValueMax
-            
-            if grade == nil{
-                grade = 0
-            }
             
             var bar:PNBar!
             var barXPosition:CGFloat!
@@ -232,7 +229,7 @@ class PNBarChart: UIView {
             bar.backgroundColor = barBackgroundColor
             
             //Bar StrokColor First
-            if strokeColor != nil {
+            if strokeColor != UIColor.blackColor() {
                 bar.barColor = strokeColor
             }else{
                 bar.barColor = self.barColorAtIndex(index)
@@ -331,18 +328,26 @@ class PNBarChart: UIView {
     func viewCleanupForCollection( array:NSMutableArray )
     {
         if array.count > 0 {
-            array.makeObjectsPerformSelector("removeFromSuperview")
+            for object:AnyObject in array{
+                var view = object as UIView
+                view.removeFromSuperview()
+            }
+
             array.removeAllObjects()
         }
     }
     
     
-    init(frame: CGRect)
+    override init(frame: CGRect)
     {
         super.init(frame: frame)
         barBackgroundColor = PNLightGreyColor
         clipsToBounds = true
         
+    }
+
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     func getYValueMax(yLabels:NSArray) {
@@ -357,7 +362,7 @@ class PNBarChart: UIView {
     
     }
     
-    override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!) 
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent)
     {
         touchPoint(touches, withEvent: event)
         super.touchesBegan(touches, withEvent: event)
@@ -366,8 +371,7 @@ class PNBarChart: UIView {
     func touchPoint(touches: NSSet!, withEvent event: UIEvent!){
         var touch:UITouch = touches.anyObject() as UITouch
         var touchPoint = touch.locationInView(self)
-        var subview:UIView = hitTest(touchPoint, withEvent: nil)
-        
+        var subview:UIView = hitTest(touchPoint, withEvent: nil)!
 
         self.delegate?.userClickedOnBarCharIndex(subview.tag)
     }

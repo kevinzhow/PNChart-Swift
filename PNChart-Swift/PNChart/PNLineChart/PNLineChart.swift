@@ -65,7 +65,7 @@ class PNLineChart: UIView{
         didSet{
             var yLabelsArray:NSMutableArray = NSMutableArray(capacity: chartData.count)
             var yMax:CGFloat = 0.0
-            var yMin:CGFloat = CGFLOAT_MAX
+            var yMin:CGFloat = CGFloat.max
             var yValue:CGFloat!
             
             // remove all shape layers before adding new ones
@@ -201,13 +201,13 @@ class PNLineChart: UIView{
         chartCavanHeight = frame.size.height - (chartMargin * 2.0)
     }
     
-    override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!) {
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
 
         touchPoint(touches, withEvent: event)
         touchKeyPoint(touches, withEvent: event)
     }
     
-    override func touchesMoved(touches: NSSet!, withEvent event: UIEvent!) {
+    override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
 
         touchPoint(touches, withEvent: event)
         touchKeyPoint(touches, withEvent: event)
@@ -406,7 +406,7 @@ class PNLineChart: UIView{
             pathPoints.addObject(linePointsArray)
             
             // setup the color of the chart line
-            if chartData.color != nil {
+            if chartData.color != UIColor.blackColor() {
                 chartLine.strokeColor = chartData.color.CGColor
                 pointLayer.strokeColor = chartData.color.CGColor
             }
@@ -518,9 +518,9 @@ class PNLineChart: UIView{
     
     func heightOfString(text: NSString!, width: CGFloat, font: UIFont) -> CGFloat{
         var ch:CGFloat!
-        var size:CGSize = CGSizeMake(width, CGFLOAT_MAX)
+        var size:CGSize = CGSizeMake(width, CGFloat.max)
 
-        var tdic:NSDictionary = NSDictionary(objects: [font, NSFontAttributeName], forKeys: nil)
+        var tdic:NSDictionary = NSDictionary(objects: [font, NSFontAttributeName], forKeys: [])
         size = text.boundingRectWithSize(size, options: NSStringDrawingOptions.UsesFontLeading , attributes: tdic, context: nil).size
         ch = size.height
         return ch
@@ -536,9 +536,13 @@ class PNLineChart: UIView{
     }
     
     
-    init(frame: CGRect){
+    override init(frame: CGRect){
         super.init(frame: frame)
         setDefaultValues()
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
 }

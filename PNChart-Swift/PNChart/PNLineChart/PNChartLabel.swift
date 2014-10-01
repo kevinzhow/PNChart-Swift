@@ -10,13 +10,17 @@ import UIKit
 
 class PNChartLabel: UILabel {
     
-    init(frame: CGRect) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
         font = UIFont.boldSystemFontOfSize(10.0)
         textColor = PNGreyColor
         backgroundColor = UIColor.clearColor()
         textAlignment = NSTextAlignment.Center
         userInteractionEnabled = true
+    }
+
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
 }
