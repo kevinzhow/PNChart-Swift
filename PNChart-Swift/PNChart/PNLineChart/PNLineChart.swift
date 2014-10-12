@@ -34,7 +34,7 @@ class PNLineChart: UIView{
     }
     
     var yLabels: NSArray = []{
-        didSet {
+        didSet{
 
             yLabelNum = CGFloat(yLabels.count)
             var yStep:CGFloat = (yValueMax - yValueMin) / CGFloat(yLabelNum)
@@ -45,10 +45,12 @@ class PNLineChart: UIView{
             
             for count : AnyObject in yLabels
             {
+                
+                
                 var labelY = chartCavanHeight - (index * yStepHeight)
                 var label: PNChartLabel = PNChartLabel(frame: CGRect(x: 0.0, y: CGFloat(labelY), width: CGFloat(chartMargin + 5.0), height: CGFloat(yLabelHeight) ) )
                 label.textAlignment = NSTextAlignment.Right
-                label.text = String(format: yLabelFormat, Double(yValueMin + (yStep * index)))
+                label.text = NSString(format:yLabelFormat, yValueMin + (yStep * index))
                 ++index
                 addSubview(label)
             }
