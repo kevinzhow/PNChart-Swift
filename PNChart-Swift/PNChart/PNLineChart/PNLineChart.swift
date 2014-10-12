@@ -50,7 +50,7 @@ class PNLineChart: UIView{
                 var labelY = chartCavanHeight - (index * yStepHeight)
                 var label: PNChartLabel = PNChartLabel(frame: CGRect(x: 0.0, y: CGFloat(labelY), width: CGFloat(chartMargin + 5.0), height: CGFloat(yLabelHeight) ) )
                 label.textAlignment = NSTextAlignment.Right
-                label.text = NSString(format:yLabelFormat, yValueMin + (yStep * index))
+                label.text = String(format:yLabelFormat, Double(yValueMin + (yStep * index)))
                 ++index
                 addSubview(label)
             }
