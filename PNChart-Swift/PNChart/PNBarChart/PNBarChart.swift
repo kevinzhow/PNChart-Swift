@@ -351,7 +351,7 @@ class PNBarChart: UIView {
     }
     
     func getYValueMax(yLabels:NSArray) {
-        var max:CGFloat = CGFloat(yLabels.valueForKeyPath("@max.floatValue").floatValue)
+        var max:CGFloat = CGFloat(yLabels.valueForKeyPath("@max.floatValue") as Float)
         
         
         if max == 0 {
