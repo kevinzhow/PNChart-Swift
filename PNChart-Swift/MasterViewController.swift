@@ -36,7 +36,7 @@ class MasterViewController: UITableViewController, PNChartDelegate {
         ChartLabel.font = UIFont(name: "Avenir-Medium", size:23.0)
         ChartLabel.textAlignment = NSTextAlignment.Center
         
-        switch segue.identifier as NSString {
+        switch segue.identifier! as NSString {
         case "lineChart":
             //Add LineChart
             ChartLabel.text = "Line Chart"
