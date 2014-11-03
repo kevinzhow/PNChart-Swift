@@ -9,9 +9,11 @@
 import UIKit
 import QuartzCore
 
-class PNBarChart: UIView {
+public class PNBarChart: UIView {
     
-    var xLabels: NSArray = [] {
+    // MARK: Variables
+    
+    public  var xLabels: NSArray = [] {
         
         didSet{
             if showLabel {
@@ -21,7 +23,7 @@ class PNBarChart: UIView {
     }
     var labels: NSMutableArray = []
     var yLabels: NSArray = []
-    var yValues: NSArray = [] {
+    public var yValues: NSArray = [] {
         didSet{
             if (yMaxValue != nil) {
                 yValueMax = yMaxValue
@@ -34,112 +36,114 @@ class PNBarChart: UIView {
     }
     
     var bars: NSMutableArray = []
-    var xLabelWidth:CGFloat!
-    var yValueMax: CGFloat!
-    var strokeColor: UIColor = PNGreenColor
-    var strokeColors: NSArray = []
-    var xLabelHeight:CGFloat = 11.0
-    var yLabelHeight:CGFloat = 20.0
+    public var xLabelWidth:CGFloat!
+    public var yValueMax: CGFloat!
+    public var strokeColor: UIColor = PNGreenColor
+    public var strokeColors: NSArray = []
+    public var xLabelHeight:CGFloat = 11.0
+    public var yLabelHeight:CGFloat = 20.0
     
     /*
     chartMargin changes chart margin
     */
-    var yChartLabelWidth:CGFloat = 18.0
+    public var yChartLabelWidth:CGFloat = 18.0
     
     /*
     yLabelFormatter will format the ylabel text
     */
     
-//    var yLabelFormatter = ({(index: CGFloat) -> NSString in
-//        return ""
-//    })
+    //    var yLabelFormatter = ({(index: CGFloat) -> NSString in
+    //        return ""
+    //    })
     
     /*
     chartMargin changes chart margin
     */
-    var chartMargin:CGFloat = 15.0
+    public var chartMargin:CGFloat = 15.0
     
     /*
     showLabel if the Labels should be deplay
     */
     
-    var showLabel = true
+    public var showLabel = true
     
     /*
     showChartBorder if the chart border Line should be deplay
     */
     
-    var showChartBorder = false
+    public var showChartBorder = false
     
     /*
     chartBottomLine the Line at the chart bottom
     */
     
-    var chartBottomLine:CAShapeLayer = CAShapeLayer()
+    public var chartBottomLine:CAShapeLayer = CAShapeLayer()
     
     /*
     chartLeftLine the Line at the chart left
     */
     
-    var chartLeftLine:CAShapeLayer = CAShapeLayer()
+    public var chartLeftLine:CAShapeLayer = CAShapeLayer()
     
     /*
     barRadius changes the bar corner radius
     */
-    var barRadius:CGFloat = 0.0
+    public var barRadius:CGFloat = 0.0
     
     /*
     barWidth changes the width of the bar
     */
-    var barWidth:CGFloat!
+    public var barWidth:CGFloat!
     
     /*
     labelMarginTop changes the width of the bar
     */
-    var labelMarginTop: CGFloat = 0
+    public var labelMarginTop: CGFloat = 0
     
     /*
     barBackgroundColor changes the bar background color
     */
-    var barBackgroundColor:UIColor = UIColor.grayColor()
+    public var barBackgroundColor:UIColor = UIColor.grayColor()
     
     /*
     labelTextColor changes the bar label text color
     */
-    var labelTextColor: UIColor = PNGreyColor
+    public var labelTextColor: UIColor = PNGreyColor
     
     /*
     labelFont changes the bar label font
     */
-    var labelFont: UIFont = UIFont.systemFontOfSize(11.0)
+    public var labelFont: UIFont = UIFont.systemFontOfSize(11.0)
     
     /*
     xLabelSkip define the label skip number
     */
-    var xLabelSkip:Int = 1
+    public var xLabelSkip:Int = 1
     
     /*
     yLabelSum define the label skip number
     */
-    var yLabelSum:Int = 4
+    public var yLabelSum:Int = 4
     
     /*
     yMaxValue define the max value of the chart
     */
-    var yMaxValue:CGFloat!
+    public var yMaxValue:CGFloat!
     
     /*
     yMinValue define the min value of the chart
     */
-    var yMinValue:CGFloat!
+    public var yMinValue:CGFloat!
     
-    var delegate:PNChartDelegate!
+    public var delegate:PNChartDelegate!
     
     /**
     * This method will call and stroke the line in animation
     */
     
-    func strokeChart() {
+    // MARK: Functions
+    
+    public  func strokeChart() {
         self.viewCleanupForCollection(labels)
         
         if showLabel{
@@ -173,17 +177,17 @@ class PNBarChart: UIView {
             
             for var index:Int = 0; index < yLabelSum; ++index {
                 
-//                var labelText:NSString = yLabelFormatter((yValueMax * ( CGFloat(yLabelSum - index) / CGFloat(yLabelSum) ) ))
-//                    
-//                    var label:PNChartLabel = PNChartLabel(frame: CGRectMake(0,yLabelSectionHeight * CGFloat(index) + chartMargin - yLabelHeight/2.0, yChartLabelWidth, yLabelHeight))
-//                    
-//                    label.font = labelFont
-//                    label.textColor = labelTextColor
-//                    label.textAlignment = NSTextAlignment.Right
-//                    label.text = labelText
-//                    
-//                    labels.addObject(label)
-//                    self.addSubview(label)
+                //                var labelText:NSString = yLabelFormatter((yValueMax * ( CGFloat(yLabelSum - index) / CGFloat(yLabelSum) ) ))
+                //
+                //                    var label:PNChartLabel = PNChartLabel(frame: CGRectMake(0,yLabelSectionHeight * CGFloat(index) + chartMargin - yLabelHeight/2.0, yChartLabelWidth, yLabelHeight))
+                //
+                //                    label.font = labelFont
+                //                    label.textColor = labelTextColor
+                //                    label.textAlignment = NSTextAlignment.Right
+                //                    label.text = labelText
+                //
+                //                    labels.addObject(label)
+                //                    self.addSubview(label)
                 
             }
         }
@@ -323,7 +327,7 @@ class PNBarChart: UIView {
             return self.strokeColor as UIColor
         }
     }
-
+    
     
     func viewCleanupForCollection( array:NSMutableArray )
     {
@@ -332,22 +336,9 @@ class PNBarChart: UIView {
                 var view = object as UIView
                 view.removeFromSuperview()
             }
-
+            
             array.removeAllObjects()
         }
-    }
-    
-    
-    override init(frame: CGRect)
-    {
-        super.init(frame: frame)
-        barBackgroundColor = PNLightGreyColor
-        clipsToBounds = true
-        
-    }
-
-    required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     func getYValueMax(yLabels:NSArray) {
@@ -359,10 +350,10 @@ class PNBarChart: UIView {
         }else{
             yValueMax = max
         }
-    
+        
     }
     
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent)
+    override public func touchesBegan(touches: NSSet, withEvent event: UIEvent)
     {
         touchPoint(touches, withEvent: event)
         super.touchesBegan(touches, withEvent: event)
@@ -372,9 +363,23 @@ class PNBarChart: UIView {
         var touch:UITouch = touches.anyObject() as UITouch
         var touchPoint = touch.locationInView(self)
         var subview:UIView = hitTest(touchPoint, withEvent: nil)!
-
+        
         self.delegate?.userClickedOnBarCharIndex(subview.tag)
     }
     
+    // MARK: Init
+    
+    override public init(frame: CGRect)
+    {
+        super.init(frame: frame)
+        barBackgroundColor = PNLightGreyColor
+        clipsToBounds = true
+        
+    }
+    
+    required public init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     
 }

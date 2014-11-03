@@ -8,14 +8,21 @@
 
 import UIKit
 
-class PNLineChartDataItem{
+public class PNLineChartDataItem{
     var y:CGFloat = 0.0
+
+    public init(){
+    }
+
+    public init(y : CGFloat){
+        self.y = y;
+    }
 }
 
 
-class PNLineChartData{
+public  class PNLineChartData{
     
-    enum PNLineChartPointStyle:Int{
+    public enum PNLineChartPointStyle:Int{
         case PNLineChartPointStyleNone = 0
         case PNLineChartPointStyleCycle
         case PNLineChartPointStyleTriangle
@@ -28,13 +35,17 @@ class PNLineChartData{
     *  inflexionPointWidth long
     */
     
-    var getData = ({(index: Int) -> PNLineChartDataItem in
+    public var getData = ({(index: Int) -> PNLineChartDataItem in
         return PNLineChartDataItem()
     })
     
-    var inflexionPointStyle:PNLineChartPointStyle = PNLineChartPointStyle.PNLineChartPointStyleNone
-    var color:UIColor = UIColor.grayColor()
-    var itemCount:Int = 0
-    var lineWidth:CGFloat = 2.0
-    var inflexionPointWidth:CGFloat = 6.0
+    public var inflexionPointStyle:PNLineChartPointStyle = PNLineChartPointStyle.PNLineChartPointStyleNone
+    public var color:UIColor = UIColor.grayColor()
+    public var itemCount:Int = 0
+    public var lineWidth:CGFloat = 2.0
+    public var inflexionPointWidth:CGFloat = 6.0
+    
+    public init(){
+    
+    }
 }

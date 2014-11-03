@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol PNChartDelegate {
+public protocol PNChartDelegate {
     /**
     * When user click on the chart line
     *
