@@ -22,6 +22,23 @@
 		0AADA0CB193E5A320063B15C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AADA0CA193E5A320063B15C /* Images.xcassets */; };
 		0AADA0D7193E5A320063B15C /* PNChart_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AADA0D6193E5A320063B15C /* PNChart_SwiftTests.swift */; };
 		0AADA0E6193E60200063B15C /* PNLineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AADA0E5193E60200063B15C /* PNLineChart.swift */; };
+		12E6A9D01A0778B900B087DB /* PNChart.h in Headers */ = {isa = PBXBuildFile; fileRef = 12E6A9CF1A0778B900B087DB /* PNChart.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		12E6A9D61A0778B900B087DB /* PNChart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12E6A9CB1A0778B900B087DB /* PNChart.framework */; };
+		12E6A9DD1A0778B900B087DB /* PNChartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E6A9DC1A0778B900B087DB /* PNChartTests.swift */; };
+		12E6A9E41A0778CD00B087DB /* PNLineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AADA0E5193E60200063B15C /* PNLineChart.swift */; };
+		12E6A9E51A0778CD00B087DB /* PNChartLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1942BB193E999500DA7F81 /* PNChartLabel.swift */; };
+		12E6A9E61A0778CD00B087DB /* PNLineChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7CDE7B193F92BE00585D8D /* PNLineChartData.swift */; };
+		12E6A9E71A0778CD00B087DB /* PNValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A87F4193FE5FE00A132DD /* PNValue.swift */; };
+		12E6A9E81A0778CD00B087DB /* PNChartConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A87F0193FC42100A132DD /* PNChartConfig.swift */; };
+		12E6A9E91A0778CD00B087DB /* PNChartDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A87F2193FD86700A132DD /* PNChartDelegate.swift */; };
+		12E6A9EA1A0778CD00B087DB /* PNBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B87AE1941E67A007C2D8B /* PNBarChart.swift */; };
+		12E6A9EB1A0778CD00B087DB /* PNBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B87B11941E6A9007C2D8B /* PNBar.swift */; };
+		12E6A9EC1A0778CD00B087DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AADA0C1193E5A320063B15C /* AppDelegate.swift */; };
+		12E6A9ED1A0778CD00B087DB /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AADA0C3193E5A320063B15C /* MasterViewController.swift */; };
+		12E6A9EE1A0778CD00B087DB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AADA0C5193E5A320063B15C /* DetailViewController.swift */; };
+		12E6A9EF1A0778CD00B087DB /* view.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A840E3519DBDE2600D4C582 /* view.swift */; };
+		12E6A9F01A0778DE00B087DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AADA0C7193E5A320063B15C /* Main.storyboard */; };
+		12E6A9F11A0778DE00B087DB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AADA0CA193E5A320063B15C /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +48,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 0AADA0BB193E5A320063B15C;
 			remoteInfo = "PNChart-Swift";
+		};
+		12E6A9D71A0778B900B087DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0AADA0B4193E5A320063B15C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 12E6A9CA1A0778B900B087DB;
+			remoteInfo = PNChart;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -55,6 +79,12 @@
 		0AADA0D6193E5A320063B15C /* PNChart_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNChart_SwiftTests.swift; sourceTree = "<group>"; };
 		0AADA0E4193E600A0063B15C /* PNLineChartGround.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = PNLineChartGround.playground; path = PlayGrounds/PNLineChartGround.playground; sourceTree = "<group>"; };
 		0AADA0E5193E60200063B15C /* PNLineChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNLineChart.swift; path = PNChart/PNLineChart/PNLineChart.swift; sourceTree = "<group>"; };
+		12E6A9CB1A0778B900B087DB /* PNChart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PNChart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		12E6A9CE1A0778B900B087DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12E6A9CF1A0778B900B087DB /* PNChart.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PNChart.h; sourceTree = "<group>"; };
+		12E6A9D51A0778B900B087DB /* PNChartTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PNChartTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		12E6A9DB1A0778B900B087DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12E6A9DC1A0778B900B087DB /* PNChartTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNChartTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +99,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12E6A9C71A0778B900B087DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12E6A9D21A0778B900B087DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12E6A9D61A0778B900B087DB /* PNChart.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +134,8 @@
 			children = (
 				0AADA0BE193E5A320063B15C /* PNChart-Swift */,
 				0AADA0D3193E5A320063B15C /* PNChart-SwiftTests */,
+				12E6A9CC1A0778B900B087DB /* PNChart */,
+				12E6A9D91A0778B900B087DB /* PNChartTests */,
 				0AADA0BD193E5A320063B15C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -98,6 +145,8 @@
 			children = (
 				0AADA0BC193E5A320063B15C /* PNChart-Swift.app */,
 				0AADA0D0193E5A320063B15C /* PNChart-SwiftTests.xctest */,
+				12E6A9CB1A0778B900B087DB /* PNChart.framework */,
+				12E6A9D51A0778B900B087DB /* PNChartTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -173,7 +222,52 @@
 			name = PlayGrounds;
 			sourceTree = "<group>";
 		};
+		12E6A9CC1A0778B900B087DB /* PNChart */ = {
+			isa = PBXGroup;
+			children = (
+				12E6A9CF1A0778B900B087DB /* PNChart.h */,
+				12E6A9CD1A0778B900B087DB /* Supporting Files */,
+			);
+			path = PNChart;
+			sourceTree = "<group>";
+		};
+		12E6A9CD1A0778B900B087DB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				12E6A9CE1A0778B900B087DB /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		12E6A9D91A0778B900B087DB /* PNChartTests */ = {
+			isa = PBXGroup;
+			children = (
+				12E6A9DC1A0778B900B087DB /* PNChartTests.swift */,
+				12E6A9DA1A0778B900B087DB /* Supporting Files */,
+			);
+			path = PNChartTests;
+			sourceTree = "<group>";
+		};
+		12E6A9DA1A0778B900B087DB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				12E6A9DB1A0778B900B087DB /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		12E6A9C81A0778B900B087DB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12E6A9D01A0778B900B087DB /* PNChart.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		0AADA0BB193E5A320063B15C /* PNChart-Swift */ = {
@@ -211,6 +305,42 @@
 			productReference = 0AADA0D0193E5A320063B15C /* PNChart-SwiftTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		12E6A9CA1A0778B900B087DB /* PNChart */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 12E6A9E21A0778B900B087DB /* Build configuration list for PBXNativeTarget "PNChart" */;
+			buildPhases = (
+				12E6A9C61A0778B900B087DB /* Sources */,
+				12E6A9C71A0778B900B087DB /* Frameworks */,
+				12E6A9C81A0778B900B087DB /* Headers */,
+				12E6A9C91A0778B900B087DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PNChart;
+			productName = PNChart;
+			productReference = 12E6A9CB1A0778B900B087DB /* PNChart.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		12E6A9D41A0778B900B087DB /* PNChartTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 12E6A9E31A0778B900B087DB /* Build configuration list for PBXNativeTarget "PNChartTests" */;
+			buildPhases = (
+				12E6A9D11A0778B900B087DB /* Sources */,
+				12E6A9D21A0778B900B087DB /* Frameworks */,
+				12E6A9D31A0778B900B087DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				12E6A9D81A0778B900B087DB /* PBXTargetDependency */,
+			);
+			name = PNChartTests;
+			productName = PNChartTests;
+			productReference = 12E6A9D51A0778B900B087DB /* PNChartTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -226,6 +356,12 @@
 					0AADA0CF193E5A320063B15C = {
 						CreatedOnToolsVersion = 6.0;
 						TestTargetID = 0AADA0BB193E5A320063B15C;
+					};
+					12E6A9CA1A0778B900B087DB = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					12E6A9D41A0778B900B087DB = {
+						CreatedOnToolsVersion = 6.1;
 					};
 				};
 			};
@@ -244,6 +380,8 @@
 			targets = (
 				0AADA0BB193E5A320063B15C /* PNChart-Swift */,
 				0AADA0CF193E5A320063B15C /* PNChart-SwiftTests */,
+				12E6A9CA1A0778B900B087DB /* PNChart */,
+				12E6A9D41A0778B900B087DB /* PNChartTests */,
 			);
 		};
 /* End PBXProject section */
@@ -259,6 +397,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		0AADA0CE193E5A320063B15C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12E6A9C91A0778B900B087DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12E6A9F01A0778DE00B087DB /* Main.storyboard in Resources */,
+				12E6A9F11A0778DE00B087DB /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12E6A9D31A0778B900B087DB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -295,6 +449,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		12E6A9C61A0778B900B087DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12E6A9E41A0778CD00B087DB /* PNLineChart.swift in Sources */,
+				12E6A9E51A0778CD00B087DB /* PNChartLabel.swift in Sources */,
+				12E6A9E61A0778CD00B087DB /* PNLineChartData.swift in Sources */,
+				12E6A9E71A0778CD00B087DB /* PNValue.swift in Sources */,
+				12E6A9E81A0778CD00B087DB /* PNChartConfig.swift in Sources */,
+				12E6A9E91A0778CD00B087DB /* PNChartDelegate.swift in Sources */,
+				12E6A9EA1A0778CD00B087DB /* PNBarChart.swift in Sources */,
+				12E6A9EB1A0778CD00B087DB /* PNBar.swift in Sources */,
+				12E6A9EC1A0778CD00B087DB /* AppDelegate.swift in Sources */,
+				12E6A9ED1A0778CD00B087DB /* MasterViewController.swift in Sources */,
+				12E6A9EE1A0778CD00B087DB /* DetailViewController.swift in Sources */,
+				12E6A9EF1A0778CD00B087DB /* view.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12E6A9D11A0778B900B087DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12E6A9DD1A0778B900B087DB /* PNChartTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -302,6 +483,11 @@
 			isa = PBXTargetDependency;
 			target = 0AADA0BB193E5A320063B15C /* PNChart-Swift */;
 			targetProxy = 0AADA0D1193E5A320063B15C /* PBXContainerItemProxy */;
+		};
+		12E6A9D81A0778B900B087DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 12E6A9CA1A0778B900B087DB /* PNChart */;
+			targetProxy = 12E6A9D71A0778B900B087DB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -456,6 +642,86 @@
 			};
 			name = Release;
 		};
+		12E6A9DE1A0778B900B087DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PNChart/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		12E6A9DF1A0778B900B087DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = PNChart/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		12E6A9E01A0778B900B087DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PNChartTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		12E6A9E11A0778B900B087DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PNChartTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -485,6 +751,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		12E6A9E21A0778B900B087DB /* Build configuration list for PBXNativeTarget "PNChart" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12E6A9DE1A0778B900B087DB /* Debug */,
+				12E6A9DF1A0778B900B087DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		12E6A9E31A0778B900B087DB /* Build configuration list for PBXNativeTarget "PNChartTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12E6A9E01A0778B900B087DB /* Debug */,
+				12E6A9E11A0778B900B087DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
