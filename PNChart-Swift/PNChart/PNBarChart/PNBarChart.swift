@@ -50,9 +50,9 @@ class PNBarChart: UIView {
     yLabelFormatter will format the ylabel text
     */
     
-//    var yLabelFormatter = ({(index: CGFloat) -> NSString in
-//        return ""
-//    })
+    var yLabelFormatter = ({(index: CGFloat) -> NSString in
+        return ""
+    })
     
     /*
     chartMargin changes chart margin
@@ -173,17 +173,17 @@ class PNBarChart: UIView {
             
             for var index:Int = 0; index < yLabelSum; ++index {
                 
-//                var labelText:NSString = yLabelFormatter((yValueMax * ( CGFloat(yLabelSum - index) / CGFloat(yLabelSum) ) ))
-//                    
-//                    var label:PNChartLabel = PNChartLabel(frame: CGRectMake(0,yLabelSectionHeight * CGFloat(index) + chartMargin - yLabelHeight/2.0, yChartLabelWidth, yLabelHeight))
-//                    
-//                    label.font = labelFont
-//                    label.textColor = labelTextColor
-//                    label.textAlignment = NSTextAlignment.Right
-//                    label.text = labelText
-//                    
-//                    labels.addObject(label)
-//                    self.addSubview(label)
+                var labelText:NSString = yLabelFormatter((yValueMax * ( CGFloat(yLabelSum - index) / CGFloat(yLabelSum) ) ))
+                    
+                var label:PNChartLabel = PNChartLabel(frame: CGRectMake(0,yLabelSectionHeight * CGFloat(index) + chartMargin - yLabelHeight/2.0, yChartLabelWidth, yLabelHeight))
+                
+                label.font = labelFont
+                label.textColor = labelTextColor
+                label.textAlignment = NSTextAlignment.Right
+                label.text = labelText
+                
+                labels.addObject(label)
+                self.addSubview(label)
                 
             }
         }
@@ -351,7 +351,7 @@ class PNBarChart: UIView {
     }
     
     func getYValueMax(yLabels:NSArray) {
-        var max:CGFloat = CGFloat(yLabels.valueForKeyPath("@max.floatValue").floatValue)
+        var max:CGFloat = CGFloat(yLabels.valueForKeyPath("@max.floatValue")!.floatValue)
         
         
         if max == 0 {
