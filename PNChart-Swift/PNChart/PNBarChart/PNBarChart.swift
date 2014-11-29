@@ -51,10 +51,9 @@ public class PNBarChart: UIView {
     /*
     yLabelFormatter will format the ylabel text
     */
-    
-    //    var yLabelFormatter = ({(index: CGFloat) -> NSString in
-    //        return ""
-    //    })
+    var yLabelFormatter = ({(index: CGFloat) -> NSString in
+        return ""
+    })
     
     /*
     chartMargin changes chart margin
@@ -176,19 +175,17 @@ public class PNBarChart: UIView {
             var yLabelSectionHeight:CGFloat = (self.frame.size.height - chartMargin * 2.0 - xLabelHeight) / CGFloat(yLabelSum)
             
             for var index:Int = 0; index < yLabelSum; ++index {
+                var labelText:NSString = yLabelFormatter((yValueMax * ( CGFloat(yLabelSum - index) / CGFloat(yLabelSum) ) ))
+                    
+                var label:PNChartLabel = PNChartLabel(frame: CGRectMake(0,yLabelSectionHeight * CGFloat(index) + chartMargin - yLabelHeight/2.0, yChartLabelWidth, yLabelHeight))
                 
-                //                var labelText:NSString = yLabelFormatter((yValueMax * ( CGFloat(yLabelSum - index) / CGFloat(yLabelSum) ) ))
-                //
-                //                    var label:PNChartLabel = PNChartLabel(frame: CGRectMake(0,yLabelSectionHeight * CGFloat(index) + chartMargin - yLabelHeight/2.0, yChartLabelWidth, yLabelHeight))
-                //
-                //                    label.font = labelFont
-                //                    label.textColor = labelTextColor
-                //                    label.textAlignment = NSTextAlignment.Right
-                //                    label.text = labelText
-                //
-                //                    labels.addObject(label)
-                //                    self.addSubview(label)
+                label.font = labelFont
+                label.textColor = labelTextColor
+                label.textAlignment = NSTextAlignment.Right
+                label.text = labelText
                 
+                labels.addObject(label)
+                self.addSubview(label)
             }
         }
         
