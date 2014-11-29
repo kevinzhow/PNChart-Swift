@@ -10,9 +10,9 @@ import UIKit
 import QuartzCore
 
 
-class PNLineChart: UIView{
+public class PNLineChart: UIView{
     
-    var xLabels: NSArray = []{
+    public var xLabels: NSArray = []{
         didSet{
             
             if showLabel {
@@ -33,7 +33,7 @@ class PNLineChart: UIView{
         }
     }
     
-    var yLabels: NSArray = []{
+    public var yLabels: NSArray = []{
         didSet{
 
             yLabelNum = CGFloat(yLabels.count)
@@ -61,7 +61,7 @@ class PNLineChart: UIView{
     * Array of `LineChartData` objects, one for each line.
     */
     
-    var chartData: NSArray = []{
+    public var chartData: NSArray = []{
         didSet{
             var yLabelsArray:NSMutableArray = NSMutableArray(capacity: chartData.count)
             var yMax:CGFloat = 0.0
@@ -140,45 +140,45 @@ class PNLineChart: UIView{
     
     //For X
     
-    var xLabelWidth:CGFloat = 0.0
+    public var xLabelWidth:CGFloat = 0.0
     
     //For Y
     
-    var yValueMax:CGFloat = 10.0
+    public var yValueMax:CGFloat = 10.0
     
-    var yValueMin:CGFloat = 1.0
+    public var yValueMin:CGFloat = 1.0
     
-    var yLabelNum:CGFloat = 0.0
+    public var yLabelNum:CGFloat = 0.0
     
-    var yLabelHeight:CGFloat = 12.0
+    public var yLabelHeight:CGFloat = 12.0
     
     //For Chart
     
-    var chartCavanHeight:CGFloat!
+    public var chartCavanHeight:CGFloat!
     
-    var chartCavanWidth:CGFloat!
+    public var chartCavanWidth:CGFloat!
     
-    var chartMargin:CGFloat = 25.0
+    public var chartMargin:CGFloat = 25.0
     
-    var showLabel: Bool = true
+    public var showLabel: Bool = true
     
-    var showCoordinateAxis: Bool = true
+    public var showCoordinateAxis: Bool = true
     
     // For Axis
     
-    var axisColor:UIColor = PNGreyColor
+    public var axisColor:UIColor = PNGreyColor
     
-    var axisWidth:CGFloat = 1.0
+    public var axisWidth:CGFloat = 1.0
     
-    var xUnit: NSString!
+    public var xUnit: NSString!
     
-    var yUnit: NSString!
+    public var yUnit: NSString!
     
     /**
     *  String formatter for float values in y labels. If not set, defaults to @"%1.f"
     */
     
-    var yLabelFormat:NSString = "%1.f"
+    public var yLabelFormat:NSString = "%1.f"
     
     var chartLineArray: NSMutableArray = []  // Array[CAShapeLayer]
     var chartPointArray: NSMutableArray = [] // Array[CAShapeLayer] save the point layer
@@ -186,9 +186,11 @@ class PNLineChart: UIView{
     var chartPaths: NSMutableArray = []     // Array of line path, one for each line.
     var pointPaths: NSMutableArray = []       // Array of point path, one for each line
     
-    var delegate:PNChartDelegate?
+    public var delegate:PNChartDelegate?
     
 
+    // MARK: Functions 
+    
     func setDefaultValues() {
         backgroundColor = UIColor.whiteColor()
         clipsToBounds = true
@@ -201,13 +203,13 @@ class PNLineChart: UIView{
         chartCavanHeight = frame.size.height - (chartMargin * 2.0)
     }
     
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    override public func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
 
         touchPoint(touches, withEvent: event)
         touchKeyPoint(touches, withEvent: event)
     }
     
-    override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
+    override public func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
 
         touchPoint(touches, withEvent: event)
         touchKeyPoint(touches, withEvent: event)
@@ -283,7 +285,7 @@ class PNLineChart: UIView{
     * This method will call and troke the line in animation
     */
     
-    func strokeChart(){
+    public func strokeChart(){
         chartPaths = NSMutableArray()
         pointPaths = NSMutableArray()
             
@@ -443,7 +445,7 @@ class PNLineChart: UIView{
         
     }
     
-    override func drawRect(rect: CGRect)
+    override public func drawRect(rect: CGRect)
     {
         if showCoordinateAxis {
             
@@ -535,14 +537,15 @@ class PNLineChart: UIView{
         text.drawInRect(rect, withAttributes: [ NSParagraphStyleAttributeName:priceParagraphStyle, NSFontAttributeName:font] )
     }
     
-    
-    override init(frame: CGRect){
+    // MARK: Init
+
+    override public init(frame: CGRect){
         super.init(frame: frame)
         setDefaultValues()
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required public init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
 }
