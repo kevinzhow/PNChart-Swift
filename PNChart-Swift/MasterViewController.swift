@@ -82,6 +82,12 @@ class MasterViewController: UITableViewController, PNChartDelegate {
 //                var labelText:NSString = NSString(format:"%1.f",yValueParsed)
 //                return labelText;
 //            })
+            
+            
+            // remove for default animation (all bars animate at once)
+            barChart.animationType = .Waterfall
+            
+            
             barChart.labelMarginTop = 5.0
             barChart.xLabels = ["SEP 1","SEP 2","SEP 3","SEP 4","SEP 5","SEP 6","SEP 7"]
             barChart.yValues = [1,24,12,18,30,10,21]
