@@ -10,26 +10,49 @@ import UIKit
 import QuartzCore
 
 class PNBar:UIView {
+    
+    // Used to delay each bar animation for waterfall effect
+    func delay(delay:Double, closure:()->()) {
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(delay * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), closure)
+    }
+    
+    // Time before bar starts animating
+    var startAnimationTime = 0.0
+    
     var grade: CGFloat = 0.0 {
         didSet {
-            UIGraphicsBeginImageContext(frame.size)
             
-            var progressline:UIBezierPath = UIBezierPath()
-            progressline.moveToPoint(CGPointMake(frame.size.width / 2.0, frame.size.height))
-            progressline.addLineToPoint(CGPointMake(frame.size.width / 2.0, (1 - self.grade) * frame.size.height))
-            progressline.lineWidth = 1.0
-            progressline.lineCapStyle = kCGLineCapSquare
-            chartLine.path = progressline.CGPath
-            chartLine.strokeColor = barColor.CGColor
+            UIGraphicsBeginImageContext(self.frame.size)
+            
             var pathAnimation: CABasicAnimation = CABasicAnimation(keyPath: "strokeEnd")
             pathAnimation.duration = 1.0
             pathAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
             pathAnimation.fromValue = 0.0
             pathAnimation.toValue = 1.0
-            chartLine.addAnimation(pathAnimation, forKey:"strokeEndAnimation")
-            chartLine.strokeEnd = 1.0
+            self.chartLine.addAnimation(pathAnimation, forKey:"strokeEndAnimation")
+            self.chartLine.strokeEnd = 1.0
+            
+            
+            delay(self.startAnimationTime, {
+                
+                self.chartLine.addAnimation(pathAnimation, forKey:"strokeEndAnimation")
+                var progressline:UIBezierPath = UIBezierPath()
+                progressline.moveToPoint(CGPointMake(self.frame.size.width / 2.0, self.frame.size.height))
+                progressline.addLineToPoint(CGPointMake(self.frame.size.width / 2.0, (1 - self.grade) * self.frame.size.height))
+                progressline.lineWidth = 1.0
+                progressline.lineCapStyle = kCGLineCapSquare
+                self.chartLine.path = progressline.CGPath
+                self.chartLine.strokeColor = self.barColor.CGColor
+                
+            })
             
             UIGraphicsEndImageContext()
+
         }
     }
     var chartLine: CAShapeLayer!

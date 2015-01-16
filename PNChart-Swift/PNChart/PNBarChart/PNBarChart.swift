@@ -9,6 +9,11 @@
 import UIKit
 import QuartzCore
 
+enum AnimationType {
+    case Default
+    case Waterfall
+}
+
 public class PNBarChart: UIView {
     
     // MARK: Variables
@@ -134,6 +139,12 @@ public class PNBarChart: UIView {
     */
     public var yMinValue:CGFloat!
     
+    /*
+    animationType defines the type of animation for the bars
+    Default (All bars at once) / Waterfall (bars in sequence)
+    */
+    var animationType : AnimationType = .Default
+    
     public var delegate:PNChartDelegate!
     
     /**
@@ -234,6 +245,17 @@ public class PNBarChart: UIView {
                 bar.barColor = strokeColor
             }else{
                 bar.barColor = self.barColorAtIndex(index)
+            }
+            
+            if(self.animationType ==  .Waterfall)
+            {
+                var indexDouble : Double = Double(index)
+                
+                // Time before each bar starts animating
+                var barStartTime = indexDouble-(0.9*indexDouble)
+                
+                bar.startAnimationTime = barStartTime
+                
             }
             
             //Height Of Bar
