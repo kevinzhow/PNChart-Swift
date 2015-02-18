@@ -8,7 +8,7 @@
 
 import XCTest
 import Foundation
-import PNChart_Swift
+import PNChartSwift
 
 class PNChart_SwiftTests: XCTestCase {
     

@@ -7,21 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0AADA0D7193E5A320063B15C /* PNChart_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AADA0D6193E5A320063B15C /* PNChart_SwiftTests.swift */; };
+		0AADA0D7193E5A320063B15C /* PNChartSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AADA0D6193E5A320063B15C /* PNChartSwiftTests.swift */; };
 		12E6A9F11A0778DE00B087DB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AADA0CA193E5A320063B15C /* Images.xcassets */; };
-		9C35F7B61A9515F900B293F0 /* PNChart-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C35F7B51A9515F900B293F0 /* PNChart-Swift.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9C35F7B81A951C5400B293F0 /* FrameworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C35F7B71A951C5400B293F0 /* FrameworkTests.swift */; };
-		9C35F7C31A9523DC00B293F0 /* PNChart-Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12E6A9CB1A0778B900B087DB /* PNChart-Swift.framework */; };
+		9C35F7B61A9515F900B293F0 /* PNChartSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C35F7B51A9515F900B293F0 /* PNChartSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9C35F7C31A9523DC00B293F0 /* PNChartSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12E6A9CB1A0778B900B087DB /* PNChartSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0A840E3519DBDE2600D4C582 /* view.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = view.swift; sourceTree = "<group>"; };
 		0AADA0C0193E5A320063B15C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AADA0CA193E5A320063B15C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		0AADA0D0193E5A320063B15C /* PNChart-SwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PNChart-SwiftTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0AADA0D0193E5A320063B15C /* PNChartSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PNChartSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AADA0D5193E5A320063B15C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0AADA0D6193E5A320063B15C /* PNChart_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNChart_SwiftTests.swift; sourceTree = "<group>"; };
-		12E6A9CB1A0778B900B087DB /* PNChart-Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "PNChart-Swift.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0AADA0D6193E5A320063B15C /* PNChartSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNChartSwiftTests.swift; sourceTree = "<group>"; };
+		12E6A9CB1A0778B900B087DB /* PNChartSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PNChartSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C35F77E1A95150300B293F0 /* PNBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNBar.swift; sourceTree = "<group>"; };
 		9C35F77F1A95150300B293F0 /* PNBarChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNBarChart.swift; sourceTree = "<group>"; };
 		9C35F7821A95150C00B293F0 /* PNChartConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNChartConfig.swift; sourceTree = "<group>"; };
@@ -30,8 +29,7 @@
 		9C35F7881A95151E00B293F0 /* PNLineChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNLineChart.swift; sourceTree = "<group>"; };
 		9C35F7891A95151E00B293F0 /* PNLineChartData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNLineChartData.swift; sourceTree = "<group>"; };
 		9C35F78D1A95152700B293F0 /* PNValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNValue.swift; sourceTree = "<group>"; };
-		9C35F7B51A9515F900B293F0 /* PNChart-Swift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PNChart-Swift.h"; sourceTree = "<group>"; };
-		9C35F7B71A951C5400B293F0 /* FrameworkTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameworkTests.swift; sourceTree = "<group>"; };
+		9C35F7B51A9515F900B293F0 /* PNChartSwift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNChartSwift.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,7 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C35F7C31A9523DC00B293F0 /* PNChart-Swift.framework in Frameworks */,
+				9C35F7C31A9523DC00B293F0 /* PNChartSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,8 +54,8 @@
 		0AADA0B3193E5A320063B15C = {
 			isa = PBXGroup;
 			children = (
-				0AADA0BE193E5A320063B15C /* PNChart-Swift */,
-				0AADA0D3193E5A320063B15C /* PNChart-SwiftTests */,
+				0AADA0BE193E5A320063B15C /* PNChartSwift */,
+				0AADA0D3193E5A320063B15C /* PNChartSwiftTests */,
 				0AADA0BD193E5A320063B15C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -65,16 +63,16 @@
 		0AADA0BD193E5A320063B15C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0AADA0D0193E5A320063B15C /* PNChart-SwiftTests.xctest */,
-				12E6A9CB1A0778B900B087DB /* PNChart-Swift.framework */,
+				0AADA0D0193E5A320063B15C /* PNChartSwiftTests.xctest */,
+				12E6A9CB1A0778B900B087DB /* PNChartSwift.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0AADA0BE193E5A320063B15C /* PNChart-Swift */ = {
+		0AADA0BE193E5A320063B15C /* PNChartSwift */ = {
 			isa = PBXGroup;
 			children = (
-				9C35F7B51A9515F900B293F0 /* PNChart-Swift.h */,
+				9C35F7B51A9515F900B293F0 /* PNChartSwift.h */,
 				9C35F77D1A95150300B293F0 /* PNBarChart */,
 				9C35F7861A95151E00B293F0 /* PNLineChart */,
 				9C35F78D1A95152700B293F0 /* PNValue.swift */,
@@ -84,6 +82,7 @@
 				0AADA0CA193E5A320063B15C /* Images.xcassets */,
 				0AADA0BF193E5A320063B15C /* Supporting Files */,
 			);
+			name = PNChartSwift;
 			path = "PNChart-Swift";
 			sourceTree = "<group>";
 		};
@@ -95,13 +94,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		0AADA0D3193E5A320063B15C /* PNChart-SwiftTests */ = {
+		0AADA0D3193E5A320063B15C /* PNChartSwiftTests */ = {
 			isa = PBXGroup;
 			children = (
-				0AADA0D6193E5A320063B15C /* PNChart_SwiftTests.swift */,
-				9C35F7B71A951C5400B293F0 /* FrameworkTests.swift */,
+				0AADA0D6193E5A320063B15C /* PNChartSwiftTests.swift */,
 				0AADA0D4193E5A320063B15C /* Supporting Files */,
 			);
+			name = PNChartSwiftTests;
 			path = "PNChart-SwiftTests";
 			sourceTree = "<group>";
 		};
@@ -139,16 +138,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C35F7B61A9515F900B293F0 /* PNChart-Swift.h in Headers */,
+				9C35F7B61A9515F900B293F0 /* PNChartSwift.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		0AADA0CF193E5A320063B15C /* PNChart-SwiftTests */ = {
+		0AADA0CF193E5A320063B15C /* PNChartSwiftTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0AADA0DD193E5A320063B15C /* Build configuration list for PBXNativeTarget "PNChart-SwiftTests" */;
+			buildConfigurationList = 0AADA0DD193E5A320063B15C /* Build configuration list for PBXNativeTarget "PNChartSwiftTests" */;
 			buildPhases = (
 				0AADA0CC193E5A320063B15C /* Sources */,
 				0AADA0CD193E5A320063B15C /* Frameworks */,
@@ -158,14 +157,14 @@
 			);
 			dependencies = (
 			);
-			name = "PNChart-SwiftTests";
+			name = PNChartSwiftTests;
 			productName = "PNChart-SwiftTests";
-			productReference = 0AADA0D0193E5A320063B15C /* PNChart-SwiftTests.xctest */;
+			productReference = 0AADA0D0193E5A320063B15C /* PNChartSwiftTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		12E6A9CA1A0778B900B087DB /* PNChart-Swift */ = {
+		12E6A9CA1A0778B900B087DB /* PNChartSwift */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 12E6A9E21A0778B900B087DB /* Build configuration list for PBXNativeTarget "PNChart-Swift" */;
+			buildConfigurationList = 12E6A9E21A0778B900B087DB /* Build configuration list for PBXNativeTarget "PNChartSwift" */;
 			buildPhases = (
 				12E6A9C61A0778B900B087DB /* Sources */,
 				12E6A9C71A0778B900B087DB /* Frameworks */,
@@ -176,9 +175,9 @@
 			);
 			dependencies = (
 			);
-			name = "PNChart-Swift";
+			name = PNChartSwift;
 			productName = PNChart;
-			productReference = 12E6A9CB1A0778B900B087DB /* PNChart-Swift.framework */;
+			productReference = 12E6A9CB1A0778B900B087DB /* PNChartSwift.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -198,7 +197,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0AADA0B7193E5A320063B15C /* Build configuration list for PBXProject "PNChart-Swift" */;
+			buildConfigurationList = 0AADA0B7193E5A320063B15C /* Build configuration list for PBXProject "PNChartSwift" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -210,8 +209,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0AADA0CF193E5A320063B15C /* PNChart-SwiftTests */,
-				12E6A9CA1A0778B900B087DB /* PNChart-Swift */,
+				0AADA0CF193E5A320063B15C /* PNChartSwiftTests */,
+				12E6A9CA1A0778B900B087DB /* PNChartSwift */,
 			);
 		};
 /* End PBXProject section */
@@ -239,8 +238,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C35F7B81A951C5400B293F0 /* FrameworkTests.swift in Sources */,
-				0AADA0D7193E5A320063B15C /* PNChart_SwiftTests.swift in Sources */,
+				0AADA0D7193E5A320063B15C /* PNChartSwiftTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,7 +343,7 @@
 				INFOPLIST_FILE = "PNChart-SwiftTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = PNChartSwiftTests;
 			};
 			name = Debug;
 		};
@@ -359,7 +357,7 @@
 				INFOPLIST_FILE = "PNChart-SwiftTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = PNChartSwiftTests;
 			};
 			name = Release;
 		};
@@ -381,7 +379,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = PNChartSwift;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -403,7 +401,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = PNChartSwift;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -414,7 +412,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0AADA0B7193E5A320063B15C /* Build configuration list for PBXProject "PNChart-Swift" */ = {
+		0AADA0B7193E5A320063B15C /* Build configuration list for PBXProject "PNChartSwift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0AADA0D8193E5A320063B15C /* Debug */,
@@ -423,7 +421,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0AADA0DD193E5A320063B15C /* Build configuration list for PBXNativeTarget "PNChart-SwiftTests" */ = {
+		0AADA0DD193E5A320063B15C /* Build configuration list for PBXNativeTarget "PNChartSwiftTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0AADA0DE193E5A320063B15C /* Debug */,
@@ -432,7 +430,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		12E6A9E21A0778B900B087DB /* Build configuration list for PBXNativeTarget "PNChart-Swift" */ = {
+		12E6A9E21A0778B900B087DB /* Build configuration list for PBXNativeTarget "PNChartSwift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				12E6A9DE1A0778B900B087DB /* Debug */,
