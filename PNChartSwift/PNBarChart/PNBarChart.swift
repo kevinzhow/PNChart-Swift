@@ -9,7 +9,7 @@
 import UIKit
 import QuartzCore
 
-enum AnimationType {
+public enum AnimationType {
     case Default
     case Waterfall
 }
@@ -143,7 +143,7 @@ public class PNBarChart: UIView {
     animationType defines the type of animation for the bars
     Default (All bars at once) / Waterfall (bars in sequence)
     */
-    var animationType : AnimationType = .Default
+    public var animationType : AnimationType = .Default
     
     public var delegate:PNChartDelegate!
     
