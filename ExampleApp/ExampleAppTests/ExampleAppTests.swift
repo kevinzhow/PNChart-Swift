@@ -1,15 +1,15 @@
 //
-//  PNChartTests.swift
-//  PNChartTests
+//  ExampleAppTests.swift
+//  ExampleAppTests
 //
-//  Created by Piergiuseppe Longo on 03/11/14.
-//  Copyright (c) 2014 Catch Inc. All rights reserved.
+//  Created by Colin Reisterer on 2/18/15.
+//
 //
 
 import UIKit
 import XCTest
 
-class PNChartTests: XCTestCase {
+class ExampleAppTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
