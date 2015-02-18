@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary   = 'A simple and beautiful chart lib written in Swift for iOS'
   s.homepage  = 'https://github.com/creisterer-db/PNChart-Swift'
   s.author    = { "kevinzhow" => "kevinchou.c@gmail.com" }
-  s.source    = { :git => 'https://github.com/creisterer-db/PNChart-Swift', :tag => s.version }
+  s.source    = { :git => 'https://github.com/creisterer-db/PNChart-Swift' }
 
   s.ios.deployment_target = '8.1'
 
