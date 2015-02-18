@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		9C35F7551A95072400B293F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C35F7541A95072400B293F0 /* AppDelegate.swift */; };
-		9C35F7571A95072400B293F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C35F7561A95072400B293F0 /* ViewController.swift */; };
-		9C35F75A1A95072400B293F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C35F7581A95072400B293F0 /* Main.storyboard */; };
 		9C35F75C1A95072400B293F0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C35F75B1A95072400B293F0 /* Images.xcassets */; };
 		9C35F75F1A95072400B293F0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C35F75D1A95072400B293F0 /* LaunchScreen.xib */; };
 		9C35F76B1A95072400B293F0 /* ExampleAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C35F76A1A95072400B293F0 /* ExampleAppTests.swift */; };
+		9C35F7751A95085400B293F0 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C35F7741A95085400B293F0 /* MasterViewController.swift */; };
+		9C35F7771A95085D00B293F0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C35F7761A95085D00B293F0 /* DetailViewController.swift */; };
+		9C35F77C1A9509EC00B293F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C35F77A1A9509EC00B293F0 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +30,14 @@
 		9C35F74F1A95072400B293F0 /* ExampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C35F7531A95072400B293F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C35F7541A95072400B293F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9C35F7561A95072400B293F0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		9C35F7591A95072400B293F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9C35F75B1A95072400B293F0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9C35F75E1A95072400B293F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		9C35F7641A95072400B293F0 /* ExampleAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C35F7691A95072400B293F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C35F76A1A95072400B293F0 /* ExampleAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleAppTests.swift; sourceTree = "<group>"; };
+		9C35F7741A95085400B293F0 /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		9C35F7761A95085D00B293F0 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		9C35F77B1A9509EC00B293F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,9 +79,10 @@
 		9C35F7511A95072400B293F0 /* ExampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				9C35F77A1A9509EC00B293F0 /* Main.storyboard */,
+				9C35F7741A95085400B293F0 /* MasterViewController.swift */,
+				9C35F7761A95085D00B293F0 /* DetailViewController.swift */,
 				9C35F7541A95072400B293F0 /* AppDelegate.swift */,
-				9C35F7561A95072400B293F0 /* ViewController.swift */,
-				9C35F7581A95072400B293F0 /* Main.storyboard */,
 				9C35F75B1A95072400B293F0 /* Images.xcassets */,
 				9C35F75D1A95072400B293F0 /* LaunchScreen.xib */,
 				9C35F7521A95072400B293F0 /* Supporting Files */,
@@ -191,7 +194,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C35F75A1A95072400B293F0 /* Main.storyboard in Resources */,
+				9C35F77C1A9509EC00B293F0 /* Main.storyboard in Resources */,
 				9C35F75F1A95072400B293F0 /* LaunchScreen.xib in Resources */,
 				9C35F75C1A95072400B293F0 /* Images.xcassets in Resources */,
 			);
@@ -211,7 +214,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C35F7571A95072400B293F0 /* ViewController.swift in Sources */,
+				9C35F7771A95085D00B293F0 /* DetailViewController.swift in Sources */,
+				9C35F7751A95085400B293F0 /* MasterViewController.swift in Sources */,
 				9C35F7551A95072400B293F0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,20 +239,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		9C35F7581A95072400B293F0 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9C35F7591A95072400B293F0 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		9C35F75D1A95072400B293F0 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				9C35F75E1A95072400B293F0 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		9C35F77A1A9509EC00B293F0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9C35F77B1A9509EC00B293F0 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

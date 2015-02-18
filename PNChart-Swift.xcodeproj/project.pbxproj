@@ -15,10 +15,6 @@
 		0A3B87B21941E6A9007C2D8B /* PNBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B87B11941E6A9007C2D8B /* PNBar.swift */; };
 		0A7CDE7C193F92BE00585D8D /* PNLineChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7CDE7B193F92BE00585D8D /* PNLineChartData.swift */; };
 		0A840E3619DBDE2600D4C582 /* view.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A840E3519DBDE2600D4C582 /* view.swift */; };
-		0AADA0C2193E5A320063B15C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AADA0C1193E5A320063B15C /* AppDelegate.swift */; };
-		0AADA0C4193E5A320063B15C /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AADA0C3193E5A320063B15C /* MasterViewController.swift */; };
-		0AADA0C6193E5A320063B15C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AADA0C5193E5A320063B15C /* DetailViewController.swift */; };
-		0AADA0C9193E5A320063B15C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AADA0C7193E5A320063B15C /* Main.storyboard */; };
 		0AADA0CB193E5A320063B15C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AADA0CA193E5A320063B15C /* Images.xcassets */; };
 		0AADA0D7193E5A320063B15C /* PNChart_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AADA0D6193E5A320063B15C /* PNChart_SwiftTests.swift */; };
 		0AADA0E6193E60200063B15C /* PNLineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AADA0E5193E60200063B15C /* PNLineChart.swift */; };
@@ -33,11 +29,7 @@
 		12E6A9E91A0778CD00B087DB /* PNChartDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A87F2193FD86700A132DD /* PNChartDelegate.swift */; };
 		12E6A9EA1A0778CD00B087DB /* PNBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B87AE1941E67A007C2D8B /* PNBarChart.swift */; };
 		12E6A9EB1A0778CD00B087DB /* PNBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B87B11941E6A9007C2D8B /* PNBar.swift */; };
-		12E6A9EC1A0778CD00B087DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AADA0C1193E5A320063B15C /* AppDelegate.swift */; };
-		12E6A9ED1A0778CD00B087DB /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AADA0C3193E5A320063B15C /* MasterViewController.swift */; };
-		12E6A9EE1A0778CD00B087DB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AADA0C5193E5A320063B15C /* DetailViewController.swift */; };
 		12E6A9EF1A0778CD00B087DB /* view.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A840E3519DBDE2600D4C582 /* view.swift */; };
-		12E6A9F01A0778DE00B087DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AADA0C7193E5A320063B15C /* Main.storyboard */; };
 		12E6A9F11A0778DE00B087DB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AADA0CA193E5A320063B15C /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -69,10 +61,6 @@
 		0A840E3519DBDE2600D4C582 /* view.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = view.swift; sourceTree = "<group>"; };
 		0AADA0BC193E5A320063B15C /* PNChart-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PNChart-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AADA0C0193E5A320063B15C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0AADA0C1193E5A320063B15C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0AADA0C3193E5A320063B15C /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		0AADA0C5193E5A320063B15C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		0AADA0C8193E5A320063B15C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0AADA0CA193E5A320063B15C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0AADA0D0193E5A320063B15C /* PNChart-SwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PNChart-SwiftTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AADA0D5193E5A320063B15C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -156,11 +144,7 @@
 			children = (
 				0AADA0E7193E60330063B15C /* PlayGrounds */,
 				0AADA0E2193E5B280063B15C /* PNChart */,
-				0AADA0C1193E5A320063B15C /* AppDelegate.swift */,
-				0AADA0C3193E5A320063B15C /* MasterViewController.swift */,
-				0AADA0C5193E5A320063B15C /* DetailViewController.swift */,
 				0A840E3519DBDE2600D4C582 /* view.swift */,
-				0AADA0C7193E5A320063B15C /* Main.storyboard */,
 				0AADA0CA193E5A320063B15C /* Images.xcassets */,
 				0AADA0BF193E5A320063B15C /* Supporting Files */,
 			);
@@ -391,7 +375,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0AADA0C9193E5A320063B15C /* Main.storyboard in Resources */,
 				0AADA0CB193E5A320063B15C /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -407,7 +390,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12E6A9F01A0778DE00B087DB /* Main.storyboard in Resources */,
 				12E6A9F11A0778DE00B087DB /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -429,15 +411,12 @@
 				0A3B87AF1941E67A007C2D8B /* PNBarChart.swift in Sources */,
 				0A3B87B21941E6A9007C2D8B /* PNBar.swift in Sources */,
 				0AADA0E6193E60200063B15C /* PNLineChart.swift in Sources */,
-				0AADA0C6193E5A320063B15C /* DetailViewController.swift in Sources */,
 				0A840E3619DBDE2600D4C582 /* view.swift in Sources */,
 				0A7CDE7C193F92BE00585D8D /* PNLineChartData.swift in Sources */,
 				0A1A87F3193FD86700A132DD /* PNChartDelegate.swift in Sources */,
 				0A1A87F1193FC42100A132DD /* PNChartConfig.swift in Sources */,
 				0A1942BC193E999500DA7F81 /* PNChartLabel.swift in Sources */,
-				0AADA0C4193E5A320063B15C /* MasterViewController.swift in Sources */,
 				0A1A87F5193FE5FE00A132DD /* PNValue.swift in Sources */,
-				0AADA0C2193E5A320063B15C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,9 +440,6 @@
 				12E6A9E91A0778CD00B087DB /* PNChartDelegate.swift in Sources */,
 				12E6A9EA1A0778CD00B087DB /* PNBarChart.swift in Sources */,
 				12E6A9EB1A0778CD00B087DB /* PNBar.swift in Sources */,
-				12E6A9EC1A0778CD00B087DB /* AppDelegate.swift in Sources */,
-				12E6A9ED1A0778CD00B087DB /* MasterViewController.swift in Sources */,
-				12E6A9EE1A0778CD00B087DB /* DetailViewController.swift in Sources */,
 				12E6A9EF1A0778CD00B087DB /* view.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -490,17 +466,6 @@
 			targetProxy = 12E6A9D71A0778B900B087DB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		0AADA0C7193E5A320063B15C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0AADA0C8193E5A320063B15C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		0AADA0D8193E5A320063B15C /* Debug */ = {
@@ -759,6 +724,7 @@
 				12E6A9DF1A0778B900B087DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		12E6A9E31A0778B900B087DB /* Build configuration list for PBXNativeTarget "PNChartTests" */ = {
 			isa = XCConfigurationList;
@@ -767,6 +733,7 @@
 				12E6A9E11A0778B900B087DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
