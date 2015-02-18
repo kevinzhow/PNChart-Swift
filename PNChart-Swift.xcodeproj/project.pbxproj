@@ -65,7 +65,6 @@
 		0AADA0D0193E5A320063B15C /* PNChart-SwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PNChart-SwiftTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AADA0D5193E5A320063B15C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AADA0D6193E5A320063B15C /* PNChart_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNChart_SwiftTests.swift; sourceTree = "<group>"; };
-		0AADA0E4193E600A0063B15C /* PNLineChartGround.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = PNLineChartGround.playground; path = PlayGrounds/PNLineChartGround.playground; sourceTree = "<group>"; };
 		0AADA0E5193E60200063B15C /* PNLineChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PNLineChart.swift; path = PNChart/PNLineChart/PNLineChart.swift; sourceTree = "<group>"; };
 		12E6A9CB1A0778B900B087DB /* PNChart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PNChart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		12E6A9CE1A0778B900B087DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -142,7 +141,6 @@
 		0AADA0BE193E5A320063B15C /* PNChart-Swift */ = {
 			isa = PBXGroup;
 			children = (
-				0AADA0E7193E60330063B15C /* PlayGrounds */,
 				0AADA0E2193E5B280063B15C /* PNChart */,
 				0A840E3519DBDE2600D4C582 /* view.swift */,
 				0AADA0CA193E5A320063B15C /* Images.xcassets */,
@@ -196,14 +194,6 @@
 				0A1A87F4193FE5FE00A132DD /* PNValue.swift */,
 			);
 			name = PNLineChart;
-			sourceTree = "<group>";
-		};
-		0AADA0E7193E60330063B15C /* PlayGrounds */ = {
-			isa = PBXGroup;
-			children = (
-				0AADA0E4193E600A0063B15C /* PNLineChartGround.playground */,
-			);
-			name = PlayGrounds;
 			sourceTree = "<group>";
 		};
 		12E6A9CC1A0778B900B087DB /* PNChart */ = {
