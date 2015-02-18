@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PNChartSwift
 
 class MasterViewController: UITableViewController, PNChartDelegate {
 
