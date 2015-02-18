@@ -10,24 +10,11 @@
 	<string>46</string>
 	<key>objects</key>
 	<dict>
-		<key>03DE6567DCC2E925AF38C3CD</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods-ExampleApp.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
 		<key>05DC55F880E8ECDEDE22ABC2</key>
 		<dict>
 			<key>children</key>
 			<array>
-				<string>03DE6567DCC2E925AF38C3CD</string>
+				<string>79CBCDE369F0D1D0F904B2A3</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
@@ -50,13 +37,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>435BAE927C3332396C6E9156</key>
-		<dict>
-			<key>fileRef</key>
-			<string>03DE6567DCC2E925AF38C3CD</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
 		<key>532F2AEC8739439DE2E3C937</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -71,6 +51,33 @@
 			<string>Pods/Target Support Files/Pods-ExampleApp/Pods-ExampleApp.release.xcconfig</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>6D440F66B07C8ACE08B816D8</key>
+		<dict>
+			<key>fileRef</key>
+			<string>79CBCDE369F0D1D0F904B2A3</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Weak</string>
+				</array>
+			</dict>
+		</dict>
+		<key>79CBCDE369F0D1D0F904B2A3</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pods_ExampleApp.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
 		<key>87094956E816B3CB881A63E9</key>
 		<dict>
@@ -199,7 +206,7 @@
 			<string>2147483647</string>
 			<key>files</key>
 			<array>
-				<string>435BAE927C3332396C6E9156</string>
+				<string>6D440F66B07C8ACE08B816D8</string>
 			</array>
 			<key>isa</key>
 			<string>PBXFrameworksBuildPhase</string>
@@ -232,6 +239,7 @@
 				<string>9C35F74C1A95072400B293F0</string>
 				<string>9C35F74D1A95072400B293F0</string>
 				<string>87094956E816B3CB881A63E9</string>
+				<string>D6E8AE642C2D3ADFA3D44A9E</string>
 			</array>
 			<key>buildRules</key>
 			<array/>
@@ -924,6 +932,30 @@ error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or up
 EOM
     exit 1
 fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>D6E8AE642C2D3ADFA3D44A9E</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-ExampleApp/Pods-ExampleApp-frameworks.sh"
 </string>
 			<key>showEnvVarsInLog</key>
 			<string>0</string>

@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  PNChartSwift: 1431bf9be3f92ec18748d190a5fae06bfb191f9b
+  PNChartSwift: 602a6e21f0d84a75a6ef224a7747ff82a7e91666
 
 COCOAPODS: 0.36.0.beta.2
