@@ -11,6 +11,14 @@
 		12E6A9F11A0778DE00B087DB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AADA0CA193E5A320063B15C /* Images.xcassets */; };
 		9C35F7B61A9515F900B293F0 /* PNChartSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C35F7B51A9515F900B293F0 /* PNChartSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9C35F7C31A9523DC00B293F0 /* PNChartSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12E6A9CB1A0778B900B087DB /* PNChartSwift.framework */; };
+		9C9346A01A952D2D009D2A53 /* PNChartDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C35F7841A95151400B293F0 /* PNChartDelegate.swift */; };
+		9C9346A31A952E05009D2A53 /* PNBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C35F77E1A95150300B293F0 /* PNBar.swift */; };
+		9C9346A41A952E05009D2A53 /* PNBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C35F77F1A95150300B293F0 /* PNBarChart.swift */; };
+		9C9346A51A952E05009D2A53 /* PNChartLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C35F7871A95151E00B293F0 /* PNChartLabel.swift */; };
+		9C9346A61A952E05009D2A53 /* PNLineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C35F7881A95151E00B293F0 /* PNLineChart.swift */; };
+		9C9346A71A952E05009D2A53 /* PNLineChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C35F7891A95151E00B293F0 /* PNLineChartData.swift */; };
+		9C9346A81A952E05009D2A53 /* PNValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C35F78D1A95152700B293F0 /* PNValue.swift */; };
+		9C9346A91A952E05009D2A53 /* PNChartConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C35F7821A95150C00B293F0 /* PNChartConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -246,6 +254,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C9346A31A952E05009D2A53 /* PNBar.swift in Sources */,
+				9C9346A41A952E05009D2A53 /* PNBarChart.swift in Sources */,
+				9C9346A51A952E05009D2A53 /* PNChartLabel.swift in Sources */,
+				9C9346A61A952E05009D2A53 /* PNLineChart.swift in Sources */,
+				9C9346A71A952E05009D2A53 /* PNLineChartData.swift in Sources */,
+				9C9346A81A952E05009D2A53 /* PNValue.swift in Sources */,
+				9C9346A91A952E05009D2A53 /* PNChartConfig.swift in Sources */,
+				9C9346A01A952D2D009D2A53 /* PNChartDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,7 +302,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -322,7 +338,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				METAL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
