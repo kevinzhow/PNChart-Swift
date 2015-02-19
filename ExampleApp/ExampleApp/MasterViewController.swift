@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PNChartSwift
 
 class MasterViewController: UITableViewController, PNChartDelegate {
 
@@ -57,8 +58,7 @@ class MasterViewController: UITableViewController, PNChartDelegate {
             data01.inflexionPointStyle = PNLineChartData.PNLineChartPointStyle.PNLineChartPointStyleCycle
             data01.getData = ({(index: Int) -> PNLineChartDataItem in
                 var yValue:CGFloat = data01Array[index]
-                var item = PNLineChartDataItem()
-                item.y = yValue
+                var item = PNLineChartDataItem(y: yValue)
                 return item
                 })
             
