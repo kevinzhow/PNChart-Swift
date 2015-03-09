@@ -38,7 +38,7 @@ class PNBar:UIView {
             self.chartLine.strokeEnd = 1.0
             
             
-            delay(self.startAnimationTime, {
+            delay(self.startAnimationTime, closure: {
                 
                 self.chartLine.addAnimation(pathAnimation, forKey:"strokeEndAnimation")
                 var progressline:UIBezierPath = UIBezierPath()

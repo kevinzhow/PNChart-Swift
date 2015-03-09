@@ -163,12 +163,12 @@ public class PNBarChart: UIView {
                 labelAddCount += 1
                 
                 if labelAddCount == xLabelSkip {
-                    var labelText:NSString = xLabels[index] as NSString
+                    var labelText:NSString = xLabels[index] as! NSString
                     var label:PNChartLabel = PNChartLabel(frame: CGRectZero)
                     label.font = labelFont
                     label.textColor = labelTextColor
                     label.textAlignment = NSTextAlignment.Center
-                    label.text = labelText
+                    label.text = labelText as String
                     label.sizeToFit()
                     var labelXPosition:CGFloat  = ( CGFloat(index) *  xLabelWidth + chartMargin + xLabelWidth / 2.0 )
                     
@@ -193,7 +193,7 @@ public class PNBarChart: UIView {
                 label.font = labelFont
                 label.textColor = labelTextColor
                 label.textAlignment = NSTextAlignment.Right
-                label.text = labelText
+                label.text = labelText as String
                 
                 labels.addObject(label)
                 self.addSubview(label)
@@ -206,7 +206,7 @@ public class PNBarChart: UIView {
         var index:Int = 0
         
         for valueObj: AnyObject in yValues{
-            var valueString = valueObj as NSNumber
+            var valueString = valueObj as! NSNumber
             var value:CGFloat = CGFloat(valueString.floatValue)
             
             var grade = value / yValueMax
@@ -340,7 +340,7 @@ public class PNBarChart: UIView {
     func barColorAtIndex(index:Int) -> UIColor
     {
         if (self.strokeColors.count == self.yValues.count) {
-            return self.strokeColors[index] as UIColor
+            return self.strokeColors[index] as! UIColor
         }
         else {
             return self.strokeColor as UIColor
@@ -352,7 +352,7 @@ public class PNBarChart: UIView {
     {
         if array.count > 0 {
             for object:AnyObject in array{
-                var view = object as UIView
+                var view = object as! UIView
                 view.removeFromSuperview()
             }
             
@@ -361,7 +361,7 @@ public class PNBarChart: UIView {
     }
     
     func getYValueMax(yLabels:NSArray) {
-        var max:CGFloat = CGFloat(yLabels.valueForKeyPath("@max.floatValue") as Float)
+        var max:CGFloat = CGFloat(yLabels.valueForKeyPath("@max.floatValue") as! Float)
         
         
         if max == 0 {
@@ -372,14 +372,14 @@ public class PNBarChart: UIView {
         
     }
     
-    override public func touchesBegan(touches: NSSet, withEvent event: UIEvent)
-    {
+    public override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         touchPoint(touches, withEvent: event)
-        super.touchesBegan(touches, withEvent: event)
+        super.touchesBegan(touches as Set<NSObject>, withEvent: event)
     }
     
+    
     func touchPoint(touches: NSSet!, withEvent event: UIEvent!){
-        var touch:UITouch = touches.anyObject() as UITouch
+        var touch:UITouch = touches.anyObject() as! UITouch
         var touchPoint = touch.locationInView(self)
         var subview:UIView = hitTest(touchPoint, withEvent: nil)!
         

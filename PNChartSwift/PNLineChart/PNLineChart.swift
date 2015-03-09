@@ -20,11 +20,11 @@ public class PNLineChart: UIView{
                 xLabelWidth = chartCavanWidth! / CGFloat(xLabels.count)
                 
                 for var index = 0;index < xLabels.count; ++index {
-                    var labelText = xLabels[index] as NSString
+                    var labelText = xLabels[index] as! NSString
                     var labelX = 2.0 * chartMargin +  ( CGFloat(index) * xLabelWidth) - (xLabelWidth / 2.0)
                     var label:PNChartLabel = PNChartLabel(frame: CGRect(x:  labelX, y: chartMargin + chartCavanHeight!, width: xLabelWidth, height: chartMargin))
                     label.textAlignment = NSTextAlignment.Center
-                    label.text = labelText
+                    label.text = labelText as String
                     addSubview(label)
                 }
             }else {
@@ -50,7 +50,7 @@ public class PNLineChart: UIView{
                 var labelY = chartCavanHeight - (index * yStepHeight)
                 var label: PNChartLabel = PNChartLabel(frame: CGRect(x: 0.0, y: CGFloat(labelY), width: CGFloat(chartMargin + 5.0), height: CGFloat(yLabelHeight) ) )
                 label.textAlignment = NSTextAlignment.Right
-                label.text = NSString(format:yLabelFormat, Double(yValueMin + (yStep * index)))
+                label.text = NSString(format:yLabelFormat, Double(yValueMin + (yStep * index))) as String
                 ++index
                 addSubview(label)
             }
@@ -70,10 +70,10 @@ public class PNLineChart: UIView{
             
             // remove all shape layers before adding new ones
             for layer : AnyObject in chartLineArray{
-                (layer as CALayer).removeFromSuperlayer()
+                (layer as! CALayer).removeFromSuperlayer()
             }
             for layer : AnyObject in chartPointArray {
-                (layer as CALayer).removeFromSuperlayer()
+                (layer as! CALayer).removeFromSuperlayer()
             }
             
             chartLineArray = NSMutableArray(capacity: chartData.count)
@@ -85,7 +85,7 @@ public class PNLineChart: UIView{
             
             for chart : AnyObject in chartData{
                 // create as many chart line layers as there are data-lines
-                var chartObj = chart as PNLineChartData
+                var chartObj = chart as! PNLineChartData
                 var chartLine:CAShapeLayer = CAShapeLayer()
                 chartLine.lineCap       = kCALineCapButt
                 chartLine.lineJoin      = kCALineJoinMiter
@@ -203,29 +203,29 @@ public class PNLineChart: UIView{
         chartCavanHeight = frame.size.height - (chartMargin * 2.0)
     }
     
-    override public func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    public override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
 
         touchPoint(touches, withEvent: event)
         touchKeyPoint(touches, withEvent: event)
     }
     
-    override public func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
+    override public func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
 
         touchPoint(touches, withEvent: event)
         touchKeyPoint(touches, withEvent: event)
     }
     
     func touchPoint(touches: NSSet!, withEvent event: UIEvent!){
-        var touch:UITouch = touches.anyObject() as UITouch
+        var touch:UITouch = touches.anyObject() as! UITouch
         var touchPoint = touch.locationInView(self)
         
         for linePoints:AnyObject in pathPoints {
-            var linePointsArray = linePoints as NSArray
+            var linePointsArray = linePoints as! NSArray
             
             for var i:NSInteger = 0; i < (linePointsArray.count - 1); i += 1{
 
-                var p1:CGPoint = (linePointsArray[i] as PNValue).point
-                var p2:CGPoint = (linePointsArray[i+1] as PNValue).point
+                var p1:CGPoint = (linePointsArray[i] as! PNValue).point
+                var p2:CGPoint = (linePointsArray[i+1] as! PNValue).point
                 
 
                 
@@ -239,7 +239,7 @@ public class PNLineChart: UIView{
 
                     for path : AnyObject in chartPaths {
                         
-                        var pointContainsPath:Bool = CGPathContainsPoint((path as UIBezierPath).CGPath, nil, p1, false)
+                        var pointContainsPath:Bool = CGPathContainsPoint((path as! UIBezierPath).CGPath, nil, p1, false)
 
                         if pointContainsPath {
 
@@ -257,15 +257,15 @@ public class PNLineChart: UIView{
     
     
     func touchKeyPoint(touches: NSSet!, withEvent event: UIEvent!){
-        var touch:UITouch = touches.anyObject() as UITouch
+        var touch:UITouch = touches.anyObject() as! UITouch
         var touchPoint = touch.locationInView(self)
         
         for linePoints: AnyObject in pathPoints {
             var linePointsArray: NSArray = pathPoints as NSArray
             
             for var i:NSInteger = 0; i < (linePointsArray.count - 1); i += 1{
-                var p1:CGPoint = (linePointsArray[i] as PNValue).point
-                var p2:CGPoint = (linePointsArray[i+1] as PNValue).point
+                var p1:CGPoint = (linePointsArray[i] as! PNValue).point
+                var p2:CGPoint = (linePointsArray[i+1] as! PNValue).point
                 
                 var distanceToP1: CGFloat = fabs( CGFloat( hypot( touchPoint.x - p1.x , touchPoint.y - p1.y ) ))
                 var distanceToP2: CGFloat = hypot( touchPoint.x - p2.x, touchPoint.y - p2.y)
@@ -291,9 +291,9 @@ public class PNLineChart: UIView{
             
             //Draw each line
         for var lineIndex = 0; lineIndex < chartData.count; lineIndex++ {
-            var chartData:PNLineChartData = self.chartData[lineIndex] as PNLineChartData
-            var chartLine:CAShapeLayer = chartLineArray[lineIndex] as CAShapeLayer
-            var pointLayer:CAShapeLayer = chartPointArray[lineIndex] as CAShapeLayer
+            var chartData:PNLineChartData = self.chartData[lineIndex] as! PNLineChartData
+            var chartLine:CAShapeLayer = chartLineArray[lineIndex] as! CAShapeLayer
+            var pointLayer:CAShapeLayer = chartPointArray[lineIndex] as! CAShapeLayer
                 
             var yValue:CGFloat?
             var innerGrade:CGFloat?
@@ -523,14 +523,14 @@ public class PNLineChart: UIView{
         var size:CGSize = CGSizeMake(width, CGFloat.max)
 
         var tdic:NSDictionary = NSDictionary(objects: [font, NSFontAttributeName], forKeys: [])
-        size = text.boundingRectWithSize(size, options: NSStringDrawingOptions.UsesFontLeading , attributes: tdic, context: nil).size
+        size = text.boundingRectWithSize(size, options: NSStringDrawingOptions.UsesFontLeading , attributes: tdic as [NSObject : AnyObject], context: nil).size
         ch = size.height
         return ch
 
     }
     
     func drawTextInContext(ctx: CGContextRef, text: NSString!, rect: CGRect, font:UIFont){
-        var priceParagraphStyle:NSMutableParagraphStyle = NSParagraphStyle.defaultParagraphStyle() as NSMutableParagraphStyle
+        var priceParagraphStyle:NSMutableParagraphStyle = NSParagraphStyle.defaultParagraphStyle() as! NSMutableParagraphStyle
         priceParagraphStyle.lineBreakMode = NSLineBreakMode.ByTruncatingTail
         priceParagraphStyle.alignment = NSTextAlignment.Left
         
