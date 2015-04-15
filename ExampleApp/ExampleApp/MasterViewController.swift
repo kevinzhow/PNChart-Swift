@@ -30,7 +30,7 @@ class MasterViewController: UITableViewController, PNChartDelegate {
     // #pragma mark - Segues
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var viewController:UIViewController = segue.destinationViewController as UIViewController
+        var viewController:UIViewController = segue.destinationViewController as! UIViewController
         var ChartLabel:UILabel = UILabel(frame: CGRectMake(0, 90, 320.0, 30))
         
         ChartLabel.textColor = PNGreenColor
