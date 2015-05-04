@@ -116,7 +116,7 @@ class MasterViewController: UITableViewController, PNChartDelegate {
         println("Click Key on line \(point.x), \(point.y) line index is \(lineIndex)")
     }
     
-    func userClickedOnBarCharIndex(barIndex: Int)
+    func userClickedOnBarChartIndex(barIndex: Int)
     {
         println("Click  on bar \(barIndex)")
     }

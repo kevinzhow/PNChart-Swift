@@ -381,9 +381,11 @@ public class PNBarChart: UIView {
     func touchPoint(touches: NSSet!, withEvent event: UIEvent!){
         var touch:UITouch = touches.anyObject() as! UITouch
         var touchPoint = touch.locationInView(self)
-        var subview:UIView = hitTest(touchPoint, withEvent: nil)!
+        var subview = hitTest(touchPoint, withEvent: nil)
         
-        self.delegate?.userClickedOnBarCharIndex(subview.tag)
+        if let barView = subview as? PNBar {
+            self.delegate?.userClickedOnBarChartIndex(barView.tag)
+        }
     }
     
     // MARK: Init
