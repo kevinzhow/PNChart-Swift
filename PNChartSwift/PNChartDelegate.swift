@@ -25,5 +25,5 @@ public protocol PNChartDelegate {
     * When user click on a chart bar
     *
     */
-    func userClickedOnBarCharIndex(barIndex:Int)
+    func userClickedOnBarChartIndex(barIndex:Int)
 }
