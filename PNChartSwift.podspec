@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.author    = { "kevinzhow" => "kevinchou.c@gmail.com" }
   s.source    = { :git => 'https://github.com/kevinzhow/PNChart-Swift.git' }
 
-  s.ios.deployment_target = '8.1'
+  s.ios.deployment_target = '8.0'
 
   s.source_files = 'PNChartSwift/**/*.swift'
 
