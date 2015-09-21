@@ -163,14 +163,14 @@ public class PNBarChart: UIView {
                 labelAddCount += 1
                 
                 if labelAddCount == xLabelSkip {
-                    var labelText:NSString = xLabels[index] as! NSString
-                    var label:PNChartLabel = PNChartLabel(frame: CGRectZero)
+                    let labelText:NSString = xLabels[index] as! NSString
+                    let label:PNChartLabel = PNChartLabel(frame: CGRectZero)
                     label.font = labelFont
                     label.textColor = labelTextColor
                     label.textAlignment = NSTextAlignment.Center
                     label.text = labelText as String
                     label.sizeToFit()
-                    var labelXPosition:CGFloat  = ( CGFloat(index) *  xLabelWidth + chartMargin + xLabelWidth / 2.0 )
+                    let labelXPosition:CGFloat  = ( CGFloat(index) *  xLabelWidth + chartMargin + xLabelWidth / 2.0 )
                     
                     label.center = CGPointMake(labelXPosition,
                         self.frame.size.height - xLabelHeight - chartMargin + label.frame.size.height / 2.0 + labelMarginTop)
@@ -183,12 +183,12 @@ public class PNBarChart: UIView {
             
             //Add y labels
             
-            var yLabelSectionHeight:CGFloat = (self.frame.size.height - chartMargin * 2.0 - xLabelHeight) / CGFloat(yLabelSum)
+            let yLabelSectionHeight:CGFloat = (self.frame.size.height - chartMargin * 2.0 - xLabelHeight) / CGFloat(yLabelSum)
             
             for var index:Int = 0; index < yLabelSum; ++index {
-                var labelText:NSString = yLabelFormatter((yValueMax * ( CGFloat(yLabelSum - index) / CGFloat(yLabelSum) ) ))
+                let labelText:NSString = yLabelFormatter((yValueMax * ( CGFloat(yLabelSum - index) / CGFloat(yLabelSum) ) ))
                     
-                var label:PNChartLabel = PNChartLabel(frame: CGRectMake(0,yLabelSectionHeight * CGFloat(index) + chartMargin - yLabelHeight/2.0, yChartLabelWidth, yLabelHeight))
+                let label:PNChartLabel = PNChartLabel(frame: CGRectMake(0,yLabelSectionHeight * CGFloat(index) + chartMargin - yLabelHeight/2.0, yChartLabelWidth, yLabelHeight))
                 
                 label.font = labelFont
                 label.textColor = labelTextColor
@@ -202,14 +202,14 @@ public class PNBarChart: UIView {
         
         self.viewCleanupForCollection(bars)
         //Add bars
-        var chartCavanHeight:CGFloat = frame.size.height - chartMargin * 2 - xLabelHeight
+        let chartCavanHeight:CGFloat = frame.size.height - chartMargin * 2 - xLabelHeight
         var index:Int = 0
         
         for valueObj: AnyObject in yValues{
-            var valueString = valueObj as! NSNumber
-            var value:CGFloat = CGFloat(valueString.floatValue)
+            let valueString = valueObj as! NSNumber
+            let value:CGFloat = CGFloat(valueString.floatValue)
             
-            var grade = value / yValueMax
+            let grade = value / yValueMax
             
             var bar:PNBar!
             var barXPosition:CGFloat!
@@ -249,10 +249,10 @@ public class PNBarChart: UIView {
             
             if(self.animationType ==  .Waterfall)
             {
-                var indexDouble : Double = Double(index)
+                let indexDouble : Double = Double(index)
                 
                 // Time before each bar starts animating
-                var barStartTime = indexDouble-(0.9*indexDouble)
+                let barStartTime = indexDouble-(0.9*indexDouble)
                 
                 bar.startAnimationTime = barStartTime
                 
@@ -279,20 +279,20 @@ public class PNBarChart: UIView {
             chartBottomLine.lineWidth    = 1.0
             chartBottomLine.strokeEnd    = 0.0
             
-            var progressline:UIBezierPath = UIBezierPath()
+            let progressline:UIBezierPath = UIBezierPath()
             
             progressline.moveToPoint(CGPointMake(chartMargin, frame.size.height - xLabelHeight - chartMargin))
             progressline.addLineToPoint(CGPointMake(frame.size.width - chartMargin,  frame.size.height - xLabelHeight - chartMargin))
             
             progressline.lineWidth = 1.0
-            progressline.lineCapStyle = kCGLineCapSquare
+            progressline.lineCapStyle = CGLineCap.Square
             chartBottomLine.path = progressline.CGPath
             
             
             chartBottomLine.strokeColor = PNLightGreyColor.CGColor;
             
             
-            var pathAnimation:CABasicAnimation = CABasicAnimation(keyPath: "strokeEnd")
+            let pathAnimation:CABasicAnimation = CABasicAnimation(keyPath: "strokeEnd")
             pathAnimation.duration = 0.5
             pathAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
             pathAnimation.fromValue = 0.0
@@ -310,20 +310,20 @@ public class PNBarChart: UIView {
             chartLeftLine.lineWidth    = 1.0
             chartLeftLine.strokeEnd    = 0.0
             
-            var progressLeftline:UIBezierPath = UIBezierPath()
+            let progressLeftline:UIBezierPath = UIBezierPath()
             
             progressLeftline.moveToPoint(CGPointMake(chartMargin, frame.size.height - xLabelHeight - chartMargin))
             progressLeftline.addLineToPoint(CGPointMake(chartMargin,  chartMargin))
             
             progressLeftline.lineWidth = 1.0
-            progressLeftline.lineCapStyle = kCGLineCapSquare
+            progressLeftline.lineCapStyle = CGLineCap.Square
             chartLeftLine.path = progressLeftline.CGPath
             
             
             chartLeftLine.strokeColor = PNLightGreyColor.CGColor
             
             
-            var pathLeftAnimation: CABasicAnimation = CABasicAnimation(keyPath: "strokeEnd")
+            let pathLeftAnimation: CABasicAnimation = CABasicAnimation(keyPath: "strokeEnd")
             pathLeftAnimation.duration = 0.5
             pathLeftAnimation.timingFunction =  CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
             pathLeftAnimation.fromValue = 0.0
@@ -352,7 +352,7 @@ public class PNBarChart: UIView {
     {
         if array.count > 0 {
             for object:AnyObject in array{
-                var view = object as! UIView
+                let view = object as! UIView
                 view.removeFromSuperview()
             }
             
@@ -361,7 +361,7 @@ public class PNBarChart: UIView {
     }
     
     func getYValueMax(yLabels:NSArray) {
-        var max:CGFloat = CGFloat(yLabels.valueForKeyPath("@max.floatValue") as! Float)
+        let max:CGFloat = CGFloat(yLabels.valueForKeyPath("@max.floatValue") as! Float)
         
         
         if max == 0 {
@@ -372,16 +372,16 @@ public class PNBarChart: UIView {
         
     }
     
-    public override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    public override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         touchPoint(touches, withEvent: event)
-        super.touchesBegan(touches as Set<NSObject>, withEvent: event)
+        super.touchesBegan(touches, withEvent: event)
     }
     
     
-    func touchPoint(touches: NSSet!, withEvent event: UIEvent!){
-        var touch:UITouch = touches.anyObject() as! UITouch
-        var touchPoint = touch.locationInView(self)
-        var subview = hitTest(touchPoint, withEvent: nil)
+    func touchPoint(touches: Set<UITouch>, withEvent event: UIEvent!){
+        let touch:UITouch = touches.first!
+        let touchPoint = touch.locationInView(self)
+        let subview = hitTest(touchPoint, withEvent: nil)
         
         if let barView = subview as? PNBar {
             self.delegate?.userClickedOnBarChartIndex(barView.tag)
@@ -398,7 +398,7 @@ public class PNBarChart: UIView {
         
     }
     
-    required public init(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
