@@ -193,7 +193,9 @@
 		0AADA0B4193E5A320063B15C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Catch Inc";
 				TargetAttributes = {
 					0AADA0CF193E5A320063B15C = {
@@ -287,6 +289,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -358,6 +361,7 @@
 				INFOPLIST_FILE = "PNChart-SwiftTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "Catch-Inc.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = PNChartSwiftTests;
 			};
 			name = Debug;
@@ -372,6 +376,7 @@
 				INFOPLIST_FILE = "PNChart-SwiftTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "Catch-Inc.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = PNChartSwiftTests;
 			};
 			name = Release;
@@ -394,6 +399,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "Catch-Inc.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = PNChartSwift;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -416,6 +422,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "Catch-Inc.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = PNChartSwift;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";

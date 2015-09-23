@@ -29,7 +29,7 @@ class PNBar:UIView {
             
             UIGraphicsBeginImageContext(self.frame.size)
             
-            var pathAnimation: CABasicAnimation = CABasicAnimation(keyPath: "strokeEnd")
+            let pathAnimation: CABasicAnimation = CABasicAnimation(keyPath: "strokeEnd")
             pathAnimation.duration = 1.0
             pathAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
             pathAnimation.fromValue = 0.0
@@ -41,11 +41,11 @@ class PNBar:UIView {
             delay(self.startAnimationTime, closure: {
                 
                 self.chartLine.addAnimation(pathAnimation, forKey:"strokeEndAnimation")
-                var progressline:UIBezierPath = UIBezierPath()
+                let progressline:UIBezierPath = UIBezierPath()
                 progressline.moveToPoint(CGPointMake(self.frame.size.width / 2.0, self.frame.size.height))
                 progressline.addLineToPoint(CGPointMake(self.frame.size.width / 2.0, (1 - self.grade) * self.frame.size.height))
                 progressline.lineWidth = 1.0
-                progressline.lineCapStyle = kCGLineCapSquare
+                progressline.lineCapStyle = CGLineCap.Square
                 self.chartLine.path = progressline.CGPath
                 self.chartLine.strokeColor = self.barColor.CGColor
                 
@@ -85,14 +85,14 @@ class PNBar:UIView {
         barRadius = 2.0
     }
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     override func drawRect(rect: CGRect)
     {
         //Draw BG
-        var context: CGContextRef = UIGraphicsGetCurrentContext()
+        let context: CGContextRef = UIGraphicsGetCurrentContext()!
         
         CGContextSetFillColorWithColor(context, self.backgroundColor?.CGColor)
         CGContextFillRect(context, rect)
