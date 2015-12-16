@@ -101,24 +101,24 @@ class MasterViewController: UITableViewController, PNChartDelegate {
             viewController.title = "Bar Chart"
             
         default:
-            println("Hello Chart")
+            print("Hello Chart")
         }
         
     }
     
     func userClickedOnLineKeyPoint(point: CGPoint, lineIndex: Int, keyPointIndex: Int)
     {
-        println("Click Key on line \(point.x), \(point.y) line index is \(lineIndex) and point index is \(keyPointIndex)")
+        print("Click Key on line \(point.x), \(point.y) line index is \(lineIndex) and point index is \(keyPointIndex)")
     }
     
     func userClickedOnLinePoint(point: CGPoint, lineIndex: Int)
     {
-        println("Click Key on line \(point.x), \(point.y) line index is \(lineIndex)")
+        print("Click Key on line \(point.x), \(point.y) line index is \(lineIndex)")
     }
     
     func userClickedOnBarChartIndex(barIndex: Int)
     {
-        println("Click  on bar \(barIndex)")
+        print("Click  on bar \(barIndex)")
     }
 
 }
