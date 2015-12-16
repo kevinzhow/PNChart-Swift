@@ -6,6 +6,7 @@
 #
 Build/
 Pods/
+DerivedData/
 
 # OS X Finder
 .DS_Store
