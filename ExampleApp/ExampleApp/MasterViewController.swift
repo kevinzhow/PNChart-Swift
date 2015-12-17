@@ -30,8 +30,8 @@ class MasterViewController: UITableViewController, PNChartDelegate {
     // #pragma mark - Segues
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var viewController:UIViewController = segue.destinationViewController as! UIViewController
-        var ChartLabel:UILabel = UILabel(frame: CGRectMake(0, 90, 320.0, 30))
+        let viewController:UIViewController = segue.destinationViewController
+        let ChartLabel:UILabel = UILabel(frame: CGRectMake(0, 90, 320.0, 30))
         
         ChartLabel.textColor = PNGreenColor
         ChartLabel.font = UIFont(name: "Avenir-Medium", size:23.0)
@@ -42,7 +42,7 @@ class MasterViewController: UITableViewController, PNChartDelegate {
             //Add LineChart
             ChartLabel.text = "Line Chart"
             
-            var lineChart:PNLineChart = PNLineChart(frame: CGRectMake(0, 135.0, 320, 200.0))
+            let lineChart:PNLineChart = PNLineChart(frame: CGRectMake(0, 135.0, 320, 200.0))
             lineChart.yLabelFormat = "%1.1f"
             lineChart.showLabel = true
             lineChart.backgroundColor = UIColor.clearColor()
@@ -52,13 +52,13 @@ class MasterViewController: UITableViewController, PNChartDelegate {
             
             // Line Chart Nr.1
             var data01Array: [CGFloat] = [60.1, 160.1, 126.4, 262.2, 186.2, 127.2, 176.2]
-            var data01:PNLineChartData = PNLineChartData()
+            let data01:PNLineChartData = PNLineChartData()
             data01.color = PNGreenColor
             data01.itemCount = data01Array.count
             data01.inflexionPointStyle = PNLineChartData.PNLineChartPointStyle.PNLineChartPointStyleCycle
             data01.getData = ({(index: Int) -> PNLineChartDataItem in
-                var yValue:CGFloat = data01Array[index]
-                var item = PNLineChartDataItem(y: yValue)
+                let yValue:CGFloat = data01Array[index]
+                let item = PNLineChartDataItem(y: yValue)
                 return item
                 })
             
@@ -75,7 +75,7 @@ class MasterViewController: UITableViewController, PNChartDelegate {
             //Add BarChart
             ChartLabel.text = "Bar Chart"
             
-            var barChart = PNBarChart(frame: CGRectMake(0, 135.0, 320.0, 200.0))
+            let barChart = PNBarChart(frame: CGRectMake(0, 135.0, 320.0, 200.0))
             barChart.backgroundColor = UIColor.clearColor()
 //            barChart.yLabelFormatter = ({(yValue: CGFloat) -> NSString in
 //                var yValueParsed:CGFloat = yValue
@@ -101,24 +101,24 @@ class MasterViewController: UITableViewController, PNChartDelegate {
             viewController.title = "Bar Chart"
             
         default:
-            println("Hello Chart")
+            print("Hello Chart")
         }
         
     }
     
     func userClickedOnLineKeyPoint(point: CGPoint, lineIndex: Int, keyPointIndex: Int)
     {
-        println("Click Key on line \(point.x), \(point.y) line index is \(lineIndex) and point index is \(keyPointIndex)")
+        print("Click Key on line \(point.x), \(point.y) line index is \(lineIndex) and point index is \(keyPointIndex)")
     }
     
     func userClickedOnLinePoint(point: CGPoint, lineIndex: Int)
     {
-        println("Click Key on line \(point.x), \(point.y) line index is \(lineIndex)")
+        print("Click Key on line \(point.x), \(point.y) line index is \(lineIndex)")
     }
     
     func userClickedOnBarChartIndex(barIndex: Int)
     {
-        println("Click  on bar \(barIndex)")
+        print("Click  on bar \(barIndex)")
     }
 
 }
