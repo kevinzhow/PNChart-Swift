@@ -35,8 +35,9 @@ public class PNLineChart: UIView{
     
     public var yLabels: NSArray = []{
         didSet{
-
-            yLabelNum = CGFloat(yLabels.count)
+            if yLabelVariable {
+                yLabelNum = CGFloat(yLabels.count)
+            }
             let yStep:CGFloat = (yValueMax - yValueMin) / CGFloat(yLabelNum)
             let yStepHeight:CGFloat  = chartCavanHeight! / CGFloat(yLabelNum)
             
@@ -150,7 +151,9 @@ public class PNLineChart: UIView{
     public var yLabelNum:CGFloat = 0.0
     
     public var yLabelHeight:CGFloat = 12.0
-    
+
+    public var yLabelVariable: Bool = true
+
     //For Chart
     
     public var chartCavanHeight:CGFloat!
