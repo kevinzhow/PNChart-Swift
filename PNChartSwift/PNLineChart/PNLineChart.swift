@@ -12,8 +12,10 @@ import QuartzCore
 
 public class PNLineChart: UIView{
     
+    private var xPNLabels: [UILabel] = []
     public var xLabels: NSArray = []{
         didSet{
+            for label in xPNLabels { label.removeFromSuperview() }
             
             if showLabel {
                 
@@ -25,6 +27,7 @@ public class PNLineChart: UIView{
                     let label:PNChartLabel = PNChartLabel(frame: CGRect(x:  labelX, y: chartMargin + chartCavanHeight!, width: xLabelWidth, height: chartMargin))
                     label.textAlignment = NSTextAlignment.Center
                     label.text = labelText as String
+                    xPNLabels.append(label)
                     addSubview(label)
                 }
             }else {
@@ -33,8 +36,11 @@ public class PNLineChart: UIView{
         }
     }
     
+    private var yPNLabels: [UILabel] = []
     public var yLabels: NSArray = []{
         didSet{
+            for label in yPNLabels { label.removeFromSuperview() }
+            tempIndex.removeAll()
 
             yLabelNum = CGFloat(yLabels.count)
             let yStep:CGFloat = (yValueMax - yValueMin) / CGFloat(yLabelNum)
@@ -42,15 +48,23 @@ public class PNLineChart: UIView{
             
             var index:CGFloat = 0
 
-            for _ in yLabels
+            for value in yLabels
             {
-                
-                
-                let labelY = chartCavanHeight - (index * yStepHeight)
-                let label: PNChartLabel = PNChartLabel(frame: CGRect(x: 0.0, y: CGFloat(labelY), width: CGFloat(chartMargin + 5.0), height: CGFloat(yLabelHeight) ) )
-                label.textAlignment = NSTextAlignment.Right
-                label.text = NSString(format:yLabelFormat, Double(yValueMin + (yStep * index))) as String
+                let label: PNChartLabel!
+                if yLabelInLine {
+                    
+                    let data = yLabelPositionBy(yValue: value)
+                    label = PNChartLabel(frame: CGRect(x: data.0, y: data.1, width: CGFloat(chartMargin + 5.0), height: CGFloat(yLabelHeight) ) )
+                    label.text = NSString(format:yLabelFormat, data.2) as String
+                }else {
+                    
+                    let labelY = chartCavanHeight - (index * yStepHeight)
+                    label = PNChartLabel(frame: CGRect(x: 0.0, y: CGFloat(labelY), width: CGFloat(chartMargin + 5.0), height: CGFloat(yLabelHeight) ) )
+                    label.textAlignment = NSTextAlignment.Right
+                    label.text = NSString(format:yLabelFormat, Double(yValueMin + (yStep * index))) as String
+                }
                 ++index
+                yPNLabels.append(label)
                 addSubview(label)
             }
         }
@@ -162,6 +176,8 @@ public class PNLineChart: UIView{
     public var showLabel: Bool = true
     
     public var showCoordinateAxis: Bool = true
+    
+    public var yLabelInLine: Bool = false
     
     // For Axis
     
@@ -529,6 +545,28 @@ public class PNLineChart: UIView{
         priceParagraphStyle.alignment = NSTextAlignment.Left
         
         text.drawInRect(rect, withAttributes: [ NSParagraphStyleAttributeName:priceParagraphStyle, NSFontAttributeName:font] )
+    }
+    
+    var tempIndex:[Int] = []
+    private func yLabelPositionBy(yValue yValue: AnyObject) -> (CGFloat, CGFloat, CGFloat) {
+        for d in 0 ..< chartData.count {
+            let obj = chartData[d] as! PNLineChartData
+            for i in 0 ..< obj.itemCount {
+                if !tempIndex.contains(d * 10 + i) && NSString(format: "%2f", obj.getData(i).y).isEqual(yValue) {
+                    
+                    let yValue = CGFloat(obj.getData(i).y)
+                    let innerGrade = (yValue - yValueMin) / (yValueMax - yValueMin)
+                    
+                    // let x: CGFloat = 2.0 * chartMargin +  (CGFloat(i) * xLabelWidth)
+                    let x: CGFloat = 2.0 * chartMargin +  (CGFloat(i) * xLabelWidth) - (xLabelWidth / 2.0)
+                    let y: CGFloat = chartCavanHeight! - (innerGrade * chartCavanHeight!) + (yLabelHeight / 2.0) + 5
+                    
+                    tempIndex.append(d * 10 + i)
+                    return (x, y, yValue)
+                }
+            }
+        }
+        return (0.0, 0.0, 0.0)
     }
     
     // MARK: Init
