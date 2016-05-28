@@ -60,9 +60,9 @@ public class PNLineChart: UIView{
                     
                     let labelY = chartCavanHeight - (index * yStepHeight)
                     label = PNChartLabel(frame: CGRect(x: 0.0, y: CGFloat(labelY), width: CGFloat(chartMargin + 5.0), height: CGFloat(yLabelHeight) ) )
-                    label.textAlignment = NSTextAlignment.Right
                     label.text = NSString(format:yLabelFormat, Double(yValueMin + (yStep * index))) as String
                 }
+                label.textAlignment = NSTextAlignment.Right
                 ++index
                 yPNLabels.append(label)
                 addSubview(label)
@@ -547,7 +547,7 @@ public class PNLineChart: UIView{
         text.drawInRect(rect, withAttributes: [ NSParagraphStyleAttributeName:priceParagraphStyle, NSFontAttributeName:font] )
     }
     
-    var tempIndex:[Int] = []
+    private var tempIndex:[Int] = []
     private func yLabelPositionBy(yValue yValue: AnyObject) -> (CGFloat, CGFloat, CGFloat) {
         for d in 0 ..< chartData.count {
             let obj = chartData[d] as! PNLineChartData
