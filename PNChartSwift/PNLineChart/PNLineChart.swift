@@ -19,7 +19,7 @@ public class PNLineChart: UIView{
                 
                 xLabelWidth = chartCavanWidth! / CGFloat(xLabels.count)
                 
-                for var index = 0;index < xLabels.count; ++index {
+                for index in 0..<xLabels.count {
                     let labelText = xLabels[index] as! NSString
                     let labelX = 2.0 * chartMargin +  ( CGFloat(index) * xLabelWidth) - (xLabelWidth / 2.0)
                     let label:PNChartLabel = PNChartLabel(frame: CGRect(x:  labelX, y: chartMargin + chartCavanHeight!, width: xLabelWidth, height: chartMargin))
@@ -104,7 +104,7 @@ public class PNLineChart: UIView{
                 layer.addSublayer(pointLayer)
                 chartPointArray.addObject(pointLayer)
                 
-                for var i = 0; i < chartObj.itemCount; ++i{
+                for i in 0..<chartObj.itemCount {
                     yValue = CGFloat(chartObj.getData(i).y)
                     yLabelsArray.addObject(NSString(format: "%2f", yValue))
                     yMax = fmax(yMax, yValue)
@@ -126,7 +126,7 @@ public class PNLineChart: UIView{
 
             
             if showLabel {
-                print("show y label")
+                print("show y label", terminator: "")
                 yLabels = yLabelsArray as NSArray
             }
             
@@ -221,7 +221,7 @@ public class PNLineChart: UIView{
         for linePoints:AnyObject in pathPoints {
             let linePointsArray = linePoints as! NSArray
             
-            for var i:NSInteger = 0; i < (linePointsArray.count - 1); i += 1{
+            for i:NSInteger in 0..<(linePointsArray.count - 1) {
 
                 let p1:CGPoint = (linePointsArray[i] as! PNValue).point
                 let p2:CGPoint = (linePointsArray[i+1] as! PNValue).point
@@ -262,7 +262,7 @@ public class PNLineChart: UIView{
         for linePoints: AnyObject in pathPoints {
             let linePointsArray: NSArray = pathPoints as NSArray
             
-            for var i:NSInteger = 0; i < (linePointsArray.count - 1); i += 1{
+            for i:NSInteger in 0..<(linePointsArray.count - 1) {
                 let p1:CGPoint = (linePointsArray[i] as! PNValue).point
                 let p2:CGPoint = (linePointsArray[i+1] as! PNValue).point
                 
@@ -289,7 +289,7 @@ public class PNLineChart: UIView{
         pointPaths = NSMutableArray()
             
             //Draw each line
-        for var lineIndex = 0; lineIndex < chartData.count; lineIndex++ {
+        for lineIndex in 0..<chartData.count {
             let chartData:PNLineChartData = self.chartData[lineIndex] as! PNLineChartData
             let chartLine:CAShapeLayer = chartLineArray[lineIndex] as! CAShapeLayer
             let pointLayer:CAShapeLayer = chartPointArray[lineIndex] as! CAShapeLayer
@@ -321,8 +321,8 @@ public class PNLineChart: UIView{
             var last_x:CGFloat = 0.0
             var last_y:CGFloat = 0.0
             let inflexionWidth:CGFloat = chartData.inflexionPointWidth
-                
-            for var i:Int = 0; i < chartData.itemCount; i++ {
+            
+            for i in 0..<chartData.itemCount {
                 yValue = CGFloat(chartData.getData(i).y)
                     
                 innerGrade = (yValue! - yValueMin) / (yValueMax - yValueMin)
@@ -480,7 +480,7 @@ public class PNLineChart: UIView{
                 
                 // draw x axis separator
                 var point:CGPoint!
-                for var i:Int = 0; i < xLabels.count; ++i {
+                for i in 0..<xLabels.count {
                     point = CGPointMake(2 * chartMargin +  ( CGFloat(i) * xLabelWidth), chartMargin + chartCavanHeight!)
                     CGContextMoveToPoint(ctx, point.x, point.y - 2)
                     CGContextAddLineToPoint(ctx, point.x, point.y)
@@ -489,7 +489,7 @@ public class PNLineChart: UIView{
                 
                 // draw y axis separator
                 let yStepHeight:CGFloat = chartCavanHeight! / CGFloat(yLabelNum)
-                for var i:Int = 0; i < xLabels.count; ++i {
+                for i in 0..<xLabels.count {
                     point = CGPointMake(chartMargin + yAsixOffset, (chartCavanHeight! - CGFloat(i) * yStepHeight + yLabelHeight/2.0
                         ))
                     CGContextMoveToPoint(ctx, point.x, point.y)

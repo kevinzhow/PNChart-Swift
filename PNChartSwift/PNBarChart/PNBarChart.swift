@@ -159,7 +159,7 @@ public class PNBarChart: UIView {
         if showLabel{
             //Add x labels
             var labelAddCount:Int = 0
-            for var index:Int = 0; index < xLabels.count; ++index {
+            for index in 0..<xLabels.count {
                 labelAddCount += 1
                 
                 if labelAddCount == xLabelSkip {
@@ -185,7 +185,7 @@ public class PNBarChart: UIView {
             
             let yLabelSectionHeight:CGFloat = (self.frame.size.height - chartMargin * 2.0 - xLabelHeight) / CGFloat(yLabelSum)
             
-            for var index:Int = 0; index < yLabelSum; ++index {
+            for index in 0..<yLabelSum {
                 let labelText:NSString = yLabelFormatter((yValueMax * ( CGFloat(yLabelSum - index) / CGFloat(yLabelSum) ) ))
                     
                 let label:PNChartLabel = PNChartLabel(frame: CGRectMake(0,yLabelSectionHeight * CGFloat(index) + chartMargin - yLabelHeight/2.0, yChartLabelWidth, yLabelHeight))
