@@ -12,11 +12,11 @@ class PNChartLabel: UILabel {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        font = UIFont.boldSystemFontOfSize(10.0)
+        font = UIFont.boldSystemFont(ofSize: 10.0)
         textColor = PNGreyColor
-        backgroundColor = UIColor.clearColor()
-        textAlignment = NSTextAlignment.Center
-        userInteractionEnabled = true
+        backgroundColor = UIColor.clear
+        textAlignment = NSTextAlignment.center
+        isUserInteractionEnabled = true
     }
 
     required init?(coder aDecoder: NSCoder) {
