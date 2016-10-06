@@ -12,13 +12,9 @@ import QuartzCore
 class PNBar:UIView {
     
     // Used to delay each bar animation for waterfall effect
-    func delay(delay:Double, closure:()->()) {
-        dispatch_after(
-            dispatch_time(
-                DISPATCH_TIME_NOW,
-                Int64(delay * Double(NSEC_PER_SEC))
-            ),
-            dispatch_get_main_queue(), closure)
+    func delay(_ delay:Double, closure:@escaping ()->()) {
+        DispatchQueue.main.asyncAfter(
+            deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
     }
     
     // Time before bar starts animating
@@ -34,20 +30,20 @@ class PNBar:UIView {
             pathAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
             pathAnimation.fromValue = 0.0
             pathAnimation.toValue = 1.0
-            self.chartLine.addAnimation(pathAnimation, forKey:"strokeEndAnimation")
+            self.chartLine.add(pathAnimation, forKey:"strokeEndAnimation")
             self.chartLine.strokeEnd = 1.0
             
             
             delay(self.startAnimationTime, closure: {
                 
-                self.chartLine.addAnimation(pathAnimation, forKey:"strokeEndAnimation")
+                self.chartLine.add(pathAnimation, forKey:"strokeEndAnimation")
                 let progressline:UIBezierPath = UIBezierPath()
-                progressline.moveToPoint(CGPointMake(self.frame.size.width / 2.0, self.frame.size.height))
-                progressline.addLineToPoint(CGPointMake(self.frame.size.width / 2.0, (1 - self.grade) * self.frame.size.height))
+                progressline.move(to: CGPoint(x: self.frame.size.width / 2.0, y: self.frame.size.height))
+                progressline.addLine(to: CGPoint(x: self.frame.size.width / 2.0, y: (1 - self.grade) * self.frame.size.height))
                 progressline.lineWidth = 1.0
-                progressline.lineCapStyle = CGLineCap.Square
-                self.chartLine.path = progressline.CGPath
-                self.chartLine.strokeColor = self.barColor.CGColor
+                progressline.lineCapStyle = CGLineCap.square
+                self.chartLine.path = progressline.cgPath
+                self.chartLine.strokeColor = self.barColor.cgColor
                 
             })
             
@@ -64,8 +60,8 @@ class PNBar:UIView {
     }
     
     func rollBack() {
-        UIView.animateWithDuration(0.3, delay: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: ({() -> Void in
-                self.chartLine.strokeColor = UIColor.clearColor().CGColor
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: UIViewAnimationOptions(), animations: ({() -> Void in
+                self.chartLine.strokeColor = UIColor.clear.cgColor
             }), completion: ({(Bool) -> Void in
                 
             }) )
@@ -76,7 +72,7 @@ class PNBar:UIView {
         super.init(frame: frame)
         chartLine              = CAShapeLayer()
         chartLine.lineCap      = kCALineCapButt
-        chartLine.fillColor    = UIColor.whiteColor().CGColor
+        chartLine.fillColor    = UIColor.white.cgColor
         chartLine.lineWidth    = frame.size.width
         chartLine.strokeEnd    = 0.0
         clipsToBounds      = true
@@ -89,13 +85,13 @@ class PNBar:UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func drawRect(rect: CGRect)
+    override func draw(_ rect: CGRect)
     {
         //Draw BG
-        let context: CGContextRef = UIGraphicsGetCurrentContext()!
+        let context: CGContext = UIGraphicsGetCurrentContext()!
         
-        CGContextSetFillColorWithColor(context, self.backgroundColor?.CGColor)
-        CGContextFillRect(context, rect)
+        context.setFillColor((self.backgroundColor?.cgColor)!)
+        context.fill(rect)
     }
 
 }

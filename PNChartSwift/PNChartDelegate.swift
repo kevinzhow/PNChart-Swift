@@ -13,17 +13,17 @@ public protocol PNChartDelegate {
     * When user click on the chart line
     *
     */
-    func userClickedOnLinePoint(point: CGPoint, lineIndex:Int)
+    func userClickedOnLinePoint(_ point: CGPoint, lineIndex:Int)
     
     /**
     * When user click on the chart line key point
     *
     */
-    func userClickedOnLineKeyPoint(point: CGPoint, lineIndex:Int, keyPointIndex:Int)
+    func userClickedOnLineKeyPoint(_ point: CGPoint, lineIndex:Int, keyPointIndex:Int)
     
     /**
     * When user click on a chart bar
     *
     */
-    func userClickedOnBarChartIndex(barIndex:Int)
+    func userClickedOnBarChartIndex(_ barIndex:Int)
 }
