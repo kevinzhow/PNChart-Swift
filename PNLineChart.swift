@@ -194,11 +194,11 @@ class PNLineChart: UIView{
         let touchPoint = touch.location(in: self)
         
         for linePoints in pathPoints {
-            let linePointsArray = linePoints as! Array<Any>
+            let linePointsArray = linePoints as! [PNValue]
             
             for index in 0..<(linePointsArray.count - 1) {
-                let p1: CGPoint = (linePointsArray[index] as! PNValue).point
-                let p2: CGPoint = (linePointsArray[index + 1] as! PNValue).point
+                let p1: CGPoint = (linePointsArray[index]).point
+                let p2: CGPoint = (linePointsArray[index + 1]).point
                 
                 // The closest distance from point to value
                 var distance: CGFloat = fabs(((p2.x - p1.x) * (touchPoint.y - p1.y)) - ((p1.x - touchPoint.x) * (p1.y - p2.y)))
@@ -220,11 +220,11 @@ class PNLineChart: UIView{
         let touchPoint = touch.location(in: self)
         
         for linePoints in pathPoints {
-            let linePointsArray = pathPoints as NSArray
+            let linePointsArray = linePoints as! [PNValue]
             
             for index in 0..<(linePointsArray.count - 1) {
-                let p1: CGPoint = (linePointsArray[index] as! PNValue).point
-                let p2: CGPoint = (linePointsArray[index + 1] as! PNValue).point
+                let p1: CGPoint = (linePointsArray[index]).point
+                let p2: CGPoint = (linePointsArray[index + 1]).point
                 
                 let distanceToP1: CGFloat = fabs(CGFloat(hypot(touchPoint.x - p1.x , touchPoint.y - p1.y )))
                 let distanceToP2: CGFloat = hypot( touchPoint.x - p2.x, touchPoint.y - p2.y)
