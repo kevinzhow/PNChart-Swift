@@ -41,7 +41,7 @@ class PNPieChart: PNGenericChart {
     // Current outer radius. Override recompute() to change this.
     var outerCircleRadius: CGFloat!
     // Current inner radius. Override recompute() to change this.
-    var innterCircleRadius: CGFloat!
+    var innerCircleRadius: CGFloat!
     
     // Multiple selection
     var enableMultipleSelection: Bool!
@@ -69,7 +69,7 @@ class PNPieChart: PNGenericChart {
         contentView = UIView()
         selectedItems = NSMutableDictionary()
         outerCircleRadius = self.bounds.size.width / 2
-        innterCircleRadius = self.bounds.size.width / 6
+        innerCircleRadius = self.bounds.size.width / 6
         descriptionTextColor = UIColor.white
         descriptionTextFont = UIFont(name: "Avenir-Medium", size: 14.0)!
         descriptionTextShadowColor = UIColor.darkGray
@@ -120,7 +120,7 @@ class PNPieChart: PNGenericChart {
 
     func recompute() {
         outerCircleRadius = self.bounds.size.width / 2
-        innterCircleRadius = self.bounds.size.width / 6
+        innerCircleRadius = self.bounds.size.width / 6
     }
     
     func strokeChart() {
@@ -133,8 +133,8 @@ class PNPieChart: PNGenericChart {
             let startPercentage = startPercentageForItemAtIndex(index: index)
             let endPercentage = endPercentageForItemAtIndex(index: index)
             
-            let radius = innterCircleRadius + (outerCircleRadius - innterCircleRadius) / 2
-            let borderWidth = outerCircleRadius - innterCircleRadius
+            let radius = innerCircleRadius + (outerCircleRadius - innerCircleRadius) / 2
+            let borderWidth = outerCircleRadius - innerCircleRadius
             
             let currentPieLayer = newCircileLayerWithRadius(radius: radius, borderWidth: borderWidth, fillColor: UIColor.clear, borderColor: currentItem.color, startPercentage: startPercentage, endPercentage: endPercentage)
             pieLayer.addSublayer(currentPieLayer)
@@ -186,8 +186,8 @@ extension PNPieChart {
     }
     
     func maskChart() {
-        let radius = innterCircleRadius + (outerCircleRadius - innterCircleRadius) / 2
-        let borderWidth = outerCircleRadius - innterCircleRadius
+        let radius = innerCircleRadius + (outerCircleRadius - innerCircleRadius) / 2
+        let borderWidth = outerCircleRadius - innerCircleRadius
         let maskLayer = newCircileLayerWithRadius(radius: radius, borderWidth: borderWidth,
                                                   fillColor: UIColor.clear, borderColor: UIColor.black,
                                                   startPercentage: 0, endPercentage: 1)
@@ -196,7 +196,7 @@ extension PNPieChart {
     
     func descriptionLabelForItemAtIndex(index: Int) -> UILabel {
         let currentDateItem = items[index]
-        let distance = innterCircleRadius + (outerCircleRadius - innterCircleRadius) / 2
+        let distance = innerCircleRadius + (outerCircleRadius - innerCircleRadius) / 2
         let centerPercentage = (startPercentageForItemAtIndex(index: index) + endPercentageForItemAtIndex(index: index)) / 2
         let rad = Double(centerPercentage) * 2 * M_PI
         let descriptionLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 80))
@@ -275,7 +275,7 @@ extension PNPieChart {
         let distanceX = Float(touchLocation.x - circleCenter.x)
         let distanceFromCenter = CGFloat(sqrtf(powf(distanceY, 2.0) + powf(distanceX, 2)))
         
-        if distanceFromCenter < innterCircleRadius {
+        if distanceFromCenter < innerCircleRadius {
             sectorHighlight.removeFromSuperlayer()
             return
         }
