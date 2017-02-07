@@ -17,7 +17,6 @@ class ViewController: UIViewController {
         let item1 = PNPieChartDataItem(dateValue: 20, dateColor:  PNLightGreen, description: "Build")
         let item2 = PNPieChartDataItem(dateValue: 20, dateColor: PNFreshGreen, description: "I/O")
         let item3 = PNPieChartDataItem(dateValue: 45, dateColor: PNDeepGreen, description: "WWDC")
-        
         let frame = CGRect(x: 40.0, y: 155.0, width: 240.0, height: 240.0)
         let items: [PNPieChartDataItem] = [item1, item2, item3]
         let pieChart = PNPieChart(frame: frame, items: items)
@@ -59,6 +58,9 @@ class ViewController: UIViewController {
         
         // Change the chart you want to present here
         self.view.addSubview(pieChart)
+//        self.view.addSubview(barChart)
+//        self.view.addSubview(lineChart)
+
     }
 
     override func didReceiveMemoryWarning() {
