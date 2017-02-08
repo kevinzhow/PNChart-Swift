@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name      = 'PNChartSwift'
-  s.version   = '0.0.2'
+  s.version   = '0.0.3'
   s.license   = 'MIT'
   s.summary   = 'A simple and beautiful chart lib written in Swift for iOS'
   s.homepage  = 'https://github.com/kevinzhow/PNChart-Swift'
@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'PNChartSwift/**/*.swift'
+  s.source_files = 'SourceCode/*.swift'
 
   s.requires_arc = true
 end

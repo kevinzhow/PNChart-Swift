@@ -120,7 +120,9 @@ class PNPieChart: PNGenericChart {
 
     func recompute() {
         outerCircleRadius = self.bounds.size.width / 2
-        innerCircleRadius = self.bounds.size.width / 6
+//        innerCircleRadius = self.bounds.size.width / 6
+        innerCircleRadius = 0
+
     }
     
     func strokeChart() {
