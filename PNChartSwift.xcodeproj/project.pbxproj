@@ -163,7 +163,7 @@
 				3A9AD0B41E17047700A1732F /* PNPieChartDataItem.swift */,
 				3A9AD0B51E17047700A1732F /* PNValue.swift */,
 			);
-			name = SourceCode;
+			path = SourceCode;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -464,6 +464,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PNChartSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Demo.PNChartSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -476,6 +477,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PNChartSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Demo.PNChartSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -556,6 +558,7 @@
 				3A9AD0A21E17043200A1732F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3A9AD0A31E17043200A1732F /* Build configuration list for PBXNativeTarget "PNChartSwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -564,6 +567,7 @@
 				3A9AD0A51E17043200A1732F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3A9AD0A61E17043200A1732F /* Build configuration list for PBXNativeTarget "PNChartSwiftUITests" */ = {
 			isa = XCConfigurationList;
@@ -572,6 +576,7 @@
 				3A9AD0A81E17043200A1732F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
