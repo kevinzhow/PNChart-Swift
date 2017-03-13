@@ -9,7 +9,10 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'PNChartSwift/**/*.swift'
+  s.source_files = 'PNChartSwift/*'
+  s.module_name = 'PNChartSwift'
+  s.preserve_path = 'PNChartSwift/PNChartSwift.modulemap'
+  s.pod_target_xcconfig = { 'SWIFT_INCLUDE_PATHS' => '$(SRCROOT)/PNChartSwift/**' }
 
   s.requires_arc = true
 end
