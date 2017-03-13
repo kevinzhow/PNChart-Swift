@@ -164,6 +164,7 @@
 				3A9AD0B51E17047700A1732F /* PNValue.swift */,
 			);
 			name = SourceCode;
+			path = PNChartSwift;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -556,6 +557,7 @@
 				3A9AD0A21E17043200A1732F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3A9AD0A31E17043200A1732F /* Build configuration list for PBXNativeTarget "PNChartSwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -564,6 +566,7 @@
 				3A9AD0A51E17043200A1732F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3A9AD0A61E17043200A1732F /* Build configuration list for PBXNativeTarget "PNChartSwiftUITests" */ = {
 			isa = XCConfigurationList;
@@ -572,6 +575,7 @@
 				3A9AD0A81E17043200A1732F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
