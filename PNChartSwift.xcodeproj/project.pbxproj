@@ -99,7 +99,6 @@
 		3A9AD06F1E17043200A1732F = {
 			isa = PBXGroup;
 			children = (
-				3A9AD0AA1E17045F00A1732F /* SourceCode */,
 				3A9AD07A1E17043200A1732F /* PNChartSwift */,
 				3A9AD08F1E17043200A1732F /* PNChartSwiftTests */,
 				3A9AD09A1E17043200A1732F /* PNChartSwiftUITests */,
@@ -120,6 +119,7 @@
 		3A9AD07A1E17043200A1732F /* PNChartSwift */ = {
 			isa = PBXGroup;
 			children = (
+				3A9AD0AA1E17045F00A1732F /* PNChart */,
 				3A9AD07B1E17043200A1732F /* AppDelegate.swift */,
 				3A9AD07D1E17043200A1732F /* ViewController.swift */,
 				3A9AD07F1E17043200A1732F /* Main.storyboard */,
@@ -148,7 +148,7 @@
 			path = PNChartSwiftUITests;
 			sourceTree = "<group>";
 		};
-		3A9AD0AA1E17045F00A1732F /* SourceCode */ = {
+		3A9AD0AA1E17045F00A1732F /* PNChart */ = {
 			isa = PBXGroup;
 			children = (
 				3A9AD0AB1E17047700A1732F /* PNBar.swift */,
@@ -163,8 +163,7 @@
 				3A9AD0B41E17047700A1732F /* PNPieChartDataItem.swift */,
 				3A9AD0B51E17047700A1732F /* PNValue.swift */,
 			);
-			name = SourceCode;
-			path = PNChartSwift;
+			name = PNChart;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
