@@ -97,7 +97,7 @@ Pod::Spec.new do |s|
   #
 
   #s.source_files  = "Classes/**/*.*"
-  s.source_files = "*.{swift}"
+  s.source_files = "PNChartSwift/**/*.{swift}"
  #  s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
