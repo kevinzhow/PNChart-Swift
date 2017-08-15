@@ -7,24 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A30C4FA1F424CC0002F7905 /* PNChartLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A30C4F81F424CC0002F7905 /* PNChartLabel.swift */; };
+		3A30C4FB1F424CC0002F7905 /* PNGenericChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A30C4F91F424CC0002F7905 /* PNGenericChart.swift */; };
+		3A30C4FE1F424D00002F7905 /* PNColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A30C4F21F424C7E002F7905 /* PNColor.swift */; };
+		3A30C4FF1F424D03002F7905 /* PNValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A30C4F11F424C7E002F7905 /* PNValue.swift */; };
+		3A30C5001F424D08002F7905 /* PNPieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A30C4F31F424C91002F7905 /* PNPieChart.swift */; };
+		3A30C5011F424D08002F7905 /* PNPieChartDataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A30C4F41F424C91002F7905 /* PNPieChartDataItem.swift */; };
+		3A30C5021F424D13002F7905 /* PNLineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A30C4F71F424CA2002F7905 /* PNLineChart.swift */; };
+		3A30C5031F424D13002F7905 /* PNLineChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A30C4F51F424CA2002F7905 /* PNLineChartData.swift */; };
+		3A30C5041F424D13002F7905 /* PNLineChartDataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A30C4F61F424CA2002F7905 /* PNLineChartDataItem.swift */; };
+		3A30C5051F424D18002F7905 /* PNBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A30C4FC1F424CE7002F7905 /* PNBar.swift */; };
+		3A30C5061F424D18002F7905 /* PNBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A30C4FD1F424CE7002F7905 /* PNBarChart.swift */; };
+		3A30C5081F4253CC002F7905 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A30C5071F4253CC002F7905 /* MainViewController.swift */; };
+		3A30C50A1F4255EE002F7905 /* ChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A30C5091F4255EE002F7905 /* ChartTableViewCell.swift */; };
+		3A30C50C1F425768002F7905 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A30C50B1F425768002F7905 /* DetailViewController.swift */; };
 		3A9AD07C1E17043200A1732F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9AD07B1E17043200A1732F /* AppDelegate.swift */; };
-		3A9AD07E1E17043200A1732F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9AD07D1E17043200A1732F /* ViewController.swift */; };
 		3A9AD0811E17043200A1732F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A9AD07F1E17043200A1732F /* Main.storyboard */; };
 		3A9AD0831E17043200A1732F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A9AD0821E17043200A1732F /* Assets.xcassets */; };
 		3A9AD0861E17043200A1732F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A9AD0841E17043200A1732F /* LaunchScreen.storyboard */; };
 		3A9AD0911E17043200A1732F /* PNChartSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9AD0901E17043200A1732F /* PNChartSwiftTests.swift */; };
 		3A9AD09C1E17043200A1732F /* PNChartSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9AD09B1E17043200A1732F /* PNChartSwiftUITests.swift */; };
-		3A9AD0B61E17047700A1732F /* PNBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9AD0AB1E17047700A1732F /* PNBar.swift */; };
-		3A9AD0B71E17047700A1732F /* PNBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9AD0AC1E17047700A1732F /* PNBarChart.swift */; };
-		3A9AD0B81E17047700A1732F /* PNChartLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9AD0AD1E17047700A1732F /* PNChartLabel.swift */; };
-		3A9AD0B91E17047700A1732F /* PNColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9AD0AE1E17047700A1732F /* PNColor.swift */; };
-		3A9AD0BA1E17047700A1732F /* PNGenericChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9AD0AF1E17047700A1732F /* PNGenericChart.swift */; };
-		3A9AD0BB1E17047700A1732F /* PNLineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9AD0B01E17047700A1732F /* PNLineChart.swift */; };
-		3A9AD0BC1E17047700A1732F /* PNLineChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9AD0B11E17047700A1732F /* PNLineChartData.swift */; };
-		3A9AD0BD1E17047700A1732F /* PNLineChartDataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9AD0B21E17047700A1732F /* PNLineChartDataItem.swift */; };
-		3A9AD0BE1E17047700A1732F /* PNPieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9AD0B31E17047700A1732F /* PNPieChart.swift */; };
-		3A9AD0BF1E17047700A1732F /* PNPieChartDataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9AD0B41E17047700A1732F /* PNPieChartDataItem.swift */; };
-		3A9AD0C01E17047700A1732F /* PNValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9AD0B51E17047700A1732F /* PNValue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,9 +47,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A30C4F11F424C7E002F7905 /* PNValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PNValue.swift; path = PNChartSwift/Source/PNValue.swift; sourceTree = "<group>"; };
+		3A30C4F21F424C7E002F7905 /* PNColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PNColor.swift; path = PNChartSwift/Source/PNColor.swift; sourceTree = "<group>"; };
+		3A30C4F31F424C91002F7905 /* PNPieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PNPieChart.swift; path = PNChartSwift/Source/PNPieChart.swift; sourceTree = "<group>"; };
+		3A30C4F41F424C91002F7905 /* PNPieChartDataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PNPieChartDataItem.swift; path = PNChartSwift/Source/PNPieChartDataItem.swift; sourceTree = "<group>"; };
+		3A30C4F51F424CA2002F7905 /* PNLineChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PNLineChartData.swift; path = PNChartSwift/Source/PNLineChartData.swift; sourceTree = "<group>"; };
+		3A30C4F61F424CA2002F7905 /* PNLineChartDataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PNLineChartDataItem.swift; path = PNChartSwift/Source/PNLineChartDataItem.swift; sourceTree = "<group>"; };
+		3A30C4F71F424CA2002F7905 /* PNLineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PNLineChart.swift; path = PNChartSwift/Source/PNLineChart.swift; sourceTree = "<group>"; };
+		3A30C4F81F424CC0002F7905 /* PNChartLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PNChartLabel.swift; path = PNChartSwift/Source/PNChartLabel.swift; sourceTree = "<group>"; };
+		3A30C4F91F424CC0002F7905 /* PNGenericChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PNGenericChart.swift; path = PNChartSwift/Source/PNGenericChart.swift; sourceTree = "<group>"; };
+		3A30C4FC1F424CE7002F7905 /* PNBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PNBar.swift; path = PNChartSwift/Source/PNBar.swift; sourceTree = "<group>"; };
+		3A30C4FD1F424CE7002F7905 /* PNBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PNBarChart.swift; path = PNChartSwift/Source/PNBarChart.swift; sourceTree = "<group>"; };
+		3A30C5071F4253CC002F7905 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		3A30C5091F4255EE002F7905 /* ChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTableViewCell.swift; sourceTree = "<group>"; };
+		3A30C50B1F425768002F7905 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		3A9AD0781E17043200A1732F /* PNChartSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PNChartSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A9AD07B1E17043200A1732F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3A9AD07D1E17043200A1732F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3A9AD0801E17043200A1732F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3A9AD0821E17043200A1732F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A9AD0851E17043200A1732F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,17 +73,6 @@
 		3A9AD0971E17043200A1732F /* PNChartSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PNChartSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A9AD09B1E17043200A1732F /* PNChartSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNChartSwiftUITests.swift; sourceTree = "<group>"; };
 		3A9AD09D1E17043200A1732F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3A9AD0AB1E17047700A1732F /* PNBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNBar.swift; sourceTree = "<group>"; };
-		3A9AD0AC1E17047700A1732F /* PNBarChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNBarChart.swift; sourceTree = "<group>"; };
-		3A9AD0AD1E17047700A1732F /* PNChartLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNChartLabel.swift; sourceTree = "<group>"; };
-		3A9AD0AE1E17047700A1732F /* PNColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNColor.swift; sourceTree = "<group>"; };
-		3A9AD0AF1E17047700A1732F /* PNGenericChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNGenericChart.swift; sourceTree = "<group>"; };
-		3A9AD0B01E17047700A1732F /* PNLineChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNLineChart.swift; sourceTree = "<group>"; };
-		3A9AD0B11E17047700A1732F /* PNLineChartData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNLineChartData.swift; sourceTree = "<group>"; };
-		3A9AD0B21E17047700A1732F /* PNLineChartDataItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNLineChartDataItem.swift; sourceTree = "<group>"; };
-		3A9AD0B31E17047700A1732F /* PNPieChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNPieChart.swift; sourceTree = "<group>"; };
-		3A9AD0B41E17047700A1732F /* PNPieChartDataItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNPieChartDataItem.swift; sourceTree = "<group>"; };
-		3A9AD0B51E17047700A1732F /* PNValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNValue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,10 +100,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A30C4EC1F421CE9002F7905 /* Bar */ = {
+			isa = PBXGroup;
+			children = (
+				3A30C4FC1F424CE7002F7905 /* PNBar.swift */,
+				3A30C4FD1F424CE7002F7905 /* PNBarChart.swift */,
+			);
+			name = Bar;
+			sourceTree = "<group>";
+		};
+		3A30C4ED1F422130002F7905 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				3A30C4F21F424C7E002F7905 /* PNColor.swift */,
+				3A30C4F11F424C7E002F7905 /* PNValue.swift */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
+		3A30C4EE1F422171002F7905 /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				3A30C4F81F424CC0002F7905 /* PNChartLabel.swift */,
+				3A30C4F91F424CC0002F7905 /* PNGenericChart.swift */,
+			);
+			name = Chart;
+			sourceTree = "<group>";
+		};
+		3A30C4EF1F422183002F7905 /* Line */ = {
+			isa = PBXGroup;
+			children = (
+				3A30C4F71F424CA2002F7905 /* PNLineChart.swift */,
+				3A30C4F51F424CA2002F7905 /* PNLineChartData.swift */,
+				3A30C4F61F424CA2002F7905 /* PNLineChartDataItem.swift */,
+			);
+			name = Line;
+			sourceTree = "<group>";
+		};
+		3A30C4F01F42219F002F7905 /* Pie */ = {
+			isa = PBXGroup;
+			children = (
+				3A30C4F31F424C91002F7905 /* PNPieChart.swift */,
+				3A30C4F41F424C91002F7905 /* PNPieChartDataItem.swift */,
+			);
+			name = Pie;
+			sourceTree = "<group>";
+		};
 		3A9AD06F1E17043200A1732F = {
 			isa = PBXGroup;
 			children = (
-				3A9AD0AA1E17045F00A1732F /* SourceCode */,
+				3A9AD0AA1E17045F00A1732F /* Source */,
 				3A9AD07A1E17043200A1732F /* PNChartSwift */,
 				3A9AD08F1E17043200A1732F /* PNChartSwiftTests */,
 				3A9AD09A1E17043200A1732F /* PNChartSwiftUITests */,
@@ -121,7 +171,9 @@
 			isa = PBXGroup;
 			children = (
 				3A9AD07B1E17043200A1732F /* AppDelegate.swift */,
-				3A9AD07D1E17043200A1732F /* ViewController.swift */,
+				3A30C5071F4253CC002F7905 /* MainViewController.swift */,
+				3A30C50B1F425768002F7905 /* DetailViewController.swift */,
+				3A30C5091F4255EE002F7905 /* ChartTableViewCell.swift */,
 				3A9AD07F1E17043200A1732F /* Main.storyboard */,
 				3A9AD0821E17043200A1732F /* Assets.xcassets */,
 				3A9AD0841E17043200A1732F /* LaunchScreen.storyboard */,
@@ -148,22 +200,16 @@
 			path = PNChartSwiftUITests;
 			sourceTree = "<group>";
 		};
-		3A9AD0AA1E17045F00A1732F /* SourceCode */ = {
+		3A9AD0AA1E17045F00A1732F /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				3A9AD0AB1E17047700A1732F /* PNBar.swift */,
-				3A9AD0AC1E17047700A1732F /* PNBarChart.swift */,
-				3A9AD0AD1E17047700A1732F /* PNChartLabel.swift */,
-				3A9AD0AE1E17047700A1732F /* PNColor.swift */,
-				3A9AD0AF1E17047700A1732F /* PNGenericChart.swift */,
-				3A9AD0B01E17047700A1732F /* PNLineChart.swift */,
-				3A9AD0B11E17047700A1732F /* PNLineChartData.swift */,
-				3A9AD0B21E17047700A1732F /* PNLineChartDataItem.swift */,
-				3A9AD0B31E17047700A1732F /* PNPieChart.swift */,
-				3A9AD0B41E17047700A1732F /* PNPieChartDataItem.swift */,
-				3A9AD0B51E17047700A1732F /* PNValue.swift */,
+				3A30C4ED1F422130002F7905 /* Helper */,
+				3A30C4F01F42219F002F7905 /* Pie */,
+				3A30C4EF1F422183002F7905 /* Line */,
+				3A30C4EE1F422171002F7905 /* Chart */,
+				3A30C4EC1F421CE9002F7905 /* Bar */,
 			);
-			name = SourceCode;
+			name = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,15 +279,21 @@
 				TargetAttributes = {
 					3A9AD0771E17043200A1732F = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = UK9LSHMD3L;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					3A9AD08B1E17043200A1732F = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = UK9LSHMD3L;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 3A9AD0771E17043200A1732F;
 					};
 					3A9AD0961E17043200A1732F = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = UK9LSHMD3L;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 3A9AD0771E17043200A1732F;
 					};
@@ -299,19 +351,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A9AD0B71E17047700A1732F /* PNBarChart.swift in Sources */,
-				3A9AD0B61E17047700A1732F /* PNBar.swift in Sources */,
-				3A9AD0BF1E17047700A1732F /* PNPieChartDataItem.swift in Sources */,
-				3A9AD0BE1E17047700A1732F /* PNPieChart.swift in Sources */,
-				3A9AD0BA1E17047700A1732F /* PNGenericChart.swift in Sources */,
-				3A9AD0BD1E17047700A1732F /* PNLineChartDataItem.swift in Sources */,
-				3A9AD0B81E17047700A1732F /* PNChartLabel.swift in Sources */,
-				3A9AD0BB1E17047700A1732F /* PNLineChart.swift in Sources */,
-				3A9AD07E1E17043200A1732F /* ViewController.swift in Sources */,
+				3A30C5021F424D13002F7905 /* PNLineChart.swift in Sources */,
+				3A30C4FA1F424CC0002F7905 /* PNChartLabel.swift in Sources */,
+				3A30C5001F424D08002F7905 /* PNPieChart.swift in Sources */,
+				3A30C5011F424D08002F7905 /* PNPieChartDataItem.swift in Sources */,
+				3A30C5031F424D13002F7905 /* PNLineChartData.swift in Sources */,
+				3A30C4FF1F424D03002F7905 /* PNValue.swift in Sources */,
+				3A30C50C1F425768002F7905 /* DetailViewController.swift in Sources */,
+				3A30C5081F4253CC002F7905 /* MainViewController.swift in Sources */,
+				3A30C4FB1F424CC0002F7905 /* PNGenericChart.swift in Sources */,
+				3A30C50A1F4255EE002F7905 /* ChartTableViewCell.swift in Sources */,
+				3A30C4FE1F424D00002F7905 /* PNColor.swift in Sources */,
+				3A30C5051F424D18002F7905 /* PNBar.swift in Sources */,
 				3A9AD07C1E17043200A1732F /* AppDelegate.swift in Sources */,
-				3A9AD0C01E17047700A1732F /* PNValue.swift in Sources */,
-				3A9AD0B91E17047700A1732F /* PNColor.swift in Sources */,
-				3A9AD0BC1E17047700A1732F /* PNLineChartData.swift in Sources */,
+				3A30C5041F424D13002F7905 /* PNLineChartDataItem.swift in Sources */,
+				3A30C5061F424D18002F7905 /* PNBarChart.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,11 +517,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = UK9LSHMD3L;
 				INFOPLIST_FILE = PNChartSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Demo.PNChartSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -475,11 +531,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = UK9LSHMD3L;
 				INFOPLIST_FILE = PNChartSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Demo.PNChartSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -488,11 +546,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = UK9LSHMD3L;
 				INFOPLIST_FILE = PNChartSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Demo.PNChartSwiftTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PNChartSwift.app/PNChartSwift";
 			};
 			name = Debug;
@@ -502,11 +562,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = UK9LSHMD3L;
 				INFOPLIST_FILE = PNChartSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Demo.PNChartSwiftTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PNChartSwift.app/PNChartSwift";
 			};
 			name = Release;
@@ -515,11 +577,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = UK9LSHMD3L;
 				INFOPLIST_FILE = PNChartSwiftUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Demo.PNChartSwiftUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = PNChartSwift;
 			};
 			name = Debug;
@@ -528,11 +592,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = UK9LSHMD3L;
 				INFOPLIST_FILE = PNChartSwiftUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Demo.PNChartSwiftUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = PNChartSwift;
 			};
 			name = Release;
@@ -556,6 +622,7 @@
 				3A9AD0A21E17043200A1732F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3A9AD0A31E17043200A1732F /* Build configuration list for PBXNativeTarget "PNChartSwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -564,6 +631,7 @@
 				3A9AD0A51E17043200A1732F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3A9AD0A61E17043200A1732F /* Build configuration list for PBXNativeTarget "PNChartSwiftUITests" */ = {
 			isa = XCConfigurationList;
@@ -572,6 +640,7 @@
 				3A9AD0A81E17043200A1732F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
