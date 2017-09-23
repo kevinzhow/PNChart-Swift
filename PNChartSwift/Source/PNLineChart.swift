@@ -10,40 +10,39 @@ import UIKit
 import QuartzCore
 
 class PNLineChart: UIView{
-
     public var xLabels: NSArray = []{
         didSet {
-            if showLabel {
-                xLabelWidth = chartCavanWidth! / CGFloat(xLabels.count)
-                for index in 0..<xLabels.count {
-                    let labelText = xLabels[index] as! String
-                    let labelX = 2.0 * chartMargin + (CGFloat(index) * xLabelWidth) - (xLabelWidth / 2.0)
-                    let label: PNChartLabel = PNChartLabel(frame: CGRect(x: CGFloat(labelX), y: CGFloat(chartMargin + chartCavanHeight!), width: CGFloat(xLabelWidth), height: CGFloat(chartMargin)))
+            if self.showLabel {
+                self.xLabelWidth = self.chartCavanWidth/CGFloat(self.xLabels.count)
+                for index in 0..<self.xLabels.count {
+                    let labelText = self.xLabels[index] as! String
+                    let labelX = 2 * self.chartMargin + (CGFloat(index) * self.xLabelWidth) - (self.xLabelWidth/2)
+                    let label: PNChartLabel = PNChartLabel(frame: CGRect(x: CGFloat(labelX), y: CGFloat(self.chartMargin + self.chartCavanHeight), width: CGFloat(self.xLabelWidth), height: CGFloat(self.chartMargin)))
                     label.textAlignment = NSTextAlignment.center
                     label.text = labelText
-                    addSubview(label)
+                    self.addSubview(label)
                 }
             } else {
-                xLabelWidth = frame.size.width / CGFloat(xLabels.count)
+                self.xLabelWidth = frame.size.width / CGFloat(self.xLabels.count)
             }
         }
     }
     
     public var yLabels: NSArray = []{
         didSet {
-            yLabelNum = CGFloat(yLabels.count)
-            let ySetp: CGFloat = (yValueMax - yValueMin) / CGFloat(yLabelNum)
-            let yStepHeight: CGFloat = chartCavanHeight / CGFloat(yLabelNum)
+            self.yLabelNum = CGFloat(self.yLabels.count)
+            let ySetp: CGFloat = (self.yValueMax - self.yValueMin) / CGFloat(self.yLabelNum)
+            let yStepHeight: CGFloat = self.chartCavanHeight / CGFloat(self.yLabelNum)
             
-            var index: CGFloat = 0.0
+            var index: CGFloat = 0
             
             for _ in yLabels {
-                let labelY = chartCavanHeight - (index * yStepHeight)
-                let label: PNChartLabel = PNChartLabel(frame: CGRect(x: CGFloat(0.0), y: labelY, width: chartMargin + 5.0, height: CGFloat(yLabelHeight)))
+                let labelY = self.chartCavanHeight - (index * yStepHeight)
+                let label: PNChartLabel = PNChartLabel(frame: CGRect(x: CGFloat(0), y: labelY, width: self.chartMargin + 5, height: CGFloat(yLabelHeight)))
                 label.textAlignment = .right
-                label.text = String(format: yLabelFormat, Double(yValueMin + (ySetp * index)))
+                label.text = String(format: self.yLabelFormat, Double(self.yValueMin + (ySetp * index)))
                 index += 1
-                addSubview(label)
+                self.addSubview(label)
             }
         }
     }
@@ -51,28 +50,28 @@ class PNLineChart: UIView{
     // Array of LineChartData objects, one for eacg line
     public var chartData: NSArray = []{
         didSet{
-            let yLabelsArray: NSMutableArray = NSMutableArray(capacity: chartData.count)
-            var yMax: CGFloat = 0.0
+            let yLabelsArray: NSMutableArray = NSMutableArray(capacity: self.chartData.count)
+            var yMax: CGFloat = 0
             var yMin: CGFloat = CGFloat.infinity
             var yValue: CGFloat!
             
             // remove all shape layers before adding new ones
-            for layer in chartLineArray {
+            for layer in self.chartLineArray {
                 (layer as! CALayer).removeFromSuperlayer()
             }
             
-            for layer in chartPointArray {
+            for layer in self.chartPointArray {
                 (layer as! CALayer).removeFromSuperlayer()
             }
             
-            chartLineArray = NSMutableArray(capacity: chartData.count)
-            chartPointArray = NSMutableArray(capacity: chartData.count)
+            self.chartLineArray = NSMutableArray(capacity: self.chartData.count)
+            self.chartPointArray = NSMutableArray(capacity: self.chartData.count)
             
             // Set for point stroken
-            let circleStrokeWidth: CGFloat = 2.0
-            let lineWidth: CGFloat = 3.0
+            let circleStrokeWidth: CGFloat = 2
+            let lineWidth: CGFloat = 3
             
-            for chart in chartData {
+            for chart in self.chartData {
                 // Create as many chart line layers as number of data
                 let chartObj = chart as! PNLineChartData
                 let chartLine: CAShapeLayer = CAShapeLayer()
@@ -80,9 +79,9 @@ class PNLineChart: UIView{
                 chartLine.lineJoin = kCALineJoinMiter
                 chartLine.fillColor = UIColor.white.cgColor
                 chartLine.lineWidth = lineWidth
-                chartLine.strokeEnd = 0.0
+                chartLine.strokeEnd = 0
                 layer.addSublayer(chartLine)
-                chartLineArray.add(chartLine)
+                self.chartLineArray.add(chartLine)
                 
                 // Create as many chart point layers as number of data
                 let pointLayer: CAShapeLayer = CAShapeLayer()
@@ -92,7 +91,7 @@ class PNLineChart: UIView{
                 pointLayer.fillColor = nil
                 pointLayer.lineWidth = circleStrokeWidth
                 layer.addSublayer(pointLayer)
-                chartPointArray.add(pointLayer)
+                self.chartPointArray.add(pointLayer)
                 
                 for index in 0..<chartObj.itemCount {
                     yValue = CGFloat(chartObj.getData(index).y)
@@ -111,11 +110,11 @@ class PNLineChart: UIView{
                 yMin = 0.0
             }
             
-            yValueMin = yMin
-            yValueMax = yMax
+            self.yValueMin = yMin
+            self.yValueMax = yMax
             
-            if showLabel {
-                yLabels = yLabelsArray as NSArray
+            if self.showLabel {
+                self.yLabels = yLabelsArray as NSArray
             }
             
             setNeedsDisplay()
@@ -125,24 +124,29 @@ class PNLineChart: UIView{
     var pathPoints: NSMutableArray = []
     
     // X-Axis Info
-    public var xLabelWidth: CGFloat = 0.0
+    public var xLabelWidth: CGFloat = 0
     
     // Y-Axis Info
-    public var yValueMax: CGFloat = 10.0
-    public var yValueMin: CGFloat = 1.0
-    public var yLabelNum: CGFloat = 0.0
-    public var yLabelHeight: CGFloat = 12.0
+    public var yValueMax: CGFloat = 10
+    public var yValueMin: CGFloat = 1
+    public var yLabelNum: CGFloat = 0
+    public var yLabelHeight: CGFloat = 12
     
     // Chart Info
     public var showLabel: Bool = true
     public var showCoordinateAxis: Bool = true
-    public var chartCavanHeight: CGFloat!
-    public var chartCavanWidth: CGFloat!
-    public var chartMargin: CGFloat = 25.0
+    public var chartCavanHeight: CGFloat = {
+        return CGFloat(0)
+        
+    }()
+    public var chartCavanWidth: CGFloat = {
+        return CGFloat(0)
+    }()
+    public var chartMargin: CGFloat = 25
     
     // For Axis
     public var axisColor: UIColor = PNGrey
-    public var axisWidth: CGFloat = 1.0
+    public var axisWidth: CGFloat = 1
     public var xUnit: NSString!
     public var yUnit: NSString!
     
@@ -175,39 +179,36 @@ class PNLineChart: UIView{
         self.pathPoints = NSMutableArray()
         self.isUserInteractionEnabled = true
         
-        self.chartCavanWidth = self.frame.size.width - (chartMargin * 2.0)
-        self.chartCavanHeight = self.frame.size.height - (chartMargin * 2.0)
+        self.chartCavanWidth = self.frame.size.width - (chartMargin * 2)
+        self.chartCavanHeight = self.frame.size.height - (chartMargin * 2)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        touchPoint(touches: touches as NSSet, withEvent: event!)
-        touchKeyPoint(touches: touches as NSSet, withEvent: event!)
+        self.touchPoint(touches: touches as NSSet, withEvent: event!)
+        self.touchKeyPoint(touches: touches as NSSet, withEvent: event!)
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        touchPoint(touches: touches as NSSet, withEvent: event!)
-        touchKeyPoint(touches: touches as NSSet, withEvent: event!)
+        self.touchPoint(touches: touches as NSSet, withEvent: event!)
+        self.touchKeyPoint(touches: touches as NSSet, withEvent: event!)
     }
     
     func touchPoint(touches: NSSet, withEvent event: UIEvent) {
         let touch: UITouch = touches.anyObject() as! UITouch
         let touchPoint = touch.location(in: self)
         
-        for linePoints in pathPoints {
-            let linePointsArray = linePoints as! Array<Any>
-            
+        for linePoints in self.pathPoints {
+            let linePointsArray = linePoints as! [PNValue]
             for index in 0..<(linePointsArray.count - 1) {
-                let p1: CGPoint = (linePointsArray[index] as! PNValue).point
-                let p2: CGPoint = (linePointsArray[index + 1] as! PNValue).point
-                
+                let p1: CGPoint = (linePointsArray[index]).point
+                let p2: CGPoint = (linePointsArray[index + 1]).point
                 // The closest distance from point to value
                 var distance: CGFloat = fabs(((p2.x - p1.x) * (touchPoint.y - p1.y)) - ((p1.x - touchPoint.x) * (p1.y - p2.y)))
                 distance = distance / hypot(p2.x - p1.x, p1.y - p2.y)
-                
-                if distance <= 5.0 {
-                    for path in chartPaths {
+                if distance <= 5 {
+                    for path in self.chartPaths {
                         if (path as AnyObject).contains(p1) {
-                            userClickedOnLinePoint(point: touchPoint, lineIndex: chartPaths.index(of: path))
+                            self.userClickedOnLinePoint(point: touchPoint, lineIndex: self.chartPaths.index(of: path))
                         }
                     }
                 }
@@ -220,18 +221,18 @@ class PNLineChart: UIView{
         let touchPoint = touch.location(in: self)
         
         for linePoints in pathPoints {
-            let linePointsArray = pathPoints as NSArray
+            let linePointsArray = pathPoints as! [PNValue]
             
             for index in 0..<(linePointsArray.count - 1) {
-                let p1: CGPoint = (linePointsArray[index] as! PNValue).point
-                let p2: CGPoint = (linePointsArray[index + 1] as! PNValue).point
+                let p1: CGPoint = (linePointsArray[index]).point
+                let p2: CGPoint = (linePointsArray[index + 1]).point
                 
                 let distanceToP1: CGFloat = fabs(CGFloat(hypot(touchPoint.x - p1.x , touchPoint.y - p1.y )))
                 let distanceToP2: CGFloat = hypot( touchPoint.x - p2.x, touchPoint.y - p2.y)
                 
                 let distance: CGFloat = fmin(distanceToP1, distanceToP2)
-                if distance <= 10.0 {
-                    userClickedOnLineKeyPoint(point: touchPoint, lineIndex: pathPoints.index(of: linePoints), keyPointIndex: (distance == distanceToP2 ? index + 1 : index))
+                if distance <= 10 {
+                    self.userClickedOnLineKeyPoint(point: touchPoint, lineIndex: self.pathPoints.index(of: linePoints), keyPointIndex: (distance == distanceToP2 ? index + 1 : index))
                 }
             }
         }
@@ -263,42 +264,41 @@ class PNLineChart: UIView{
             chartPaths.add(progressLine)
             pointPaths.add(pointPath)
             
-            if !showLabel {
-                chartCavanHeight = self.frame.size.height - 2.0 * yLabelHeight
-                chartCavanWidth = self.frame.size.width
-                chartMargin = 0.0
-                xLabelWidth = (chartCavanWidth / CGFloat(xLabels.count - 1))
+            if !(self.showLabel) {
+                self.chartCavanHeight = self.frame.size.height - 2 * self.yLabelHeight
+                self.chartCavanWidth = self.frame.size.width
+                self.chartMargin = 0
+                self.xLabelWidth = (self.chartCavanWidth / CGFloat(self.xLabels.count - 1))
             }
             
             let linePointsArray = NSMutableArray()
             
-            var lastX: CGFloat = 0.0
-            var lastY: CGFloat = 0.0
+            var lastX: CGFloat = 0
+            var lastY: CGFloat = 0
             let inflexionWidth = chartData.inflexionPointWidth
             
             for index in 0..<chartData.itemCount {
                 yValue = CGFloat(chartData.getData(index).y)
-                innerGrade = (yValue - yValueMin) / (yValueMax - yValueMin)
+                innerGrade = (yValue - self.yValueMin) / (self.yValueMax - self.yValueMin)
                 
-                let x: CGFloat = chartMargin * 2.0 + (CGFloat(index) * xLabelWidth)
-                let y: CGFloat = chartCavanHeight - (innerGrade * chartCavanHeight!)
+                let x: CGFloat = self.chartMargin * 2 + (CGFloat(index) * self.xLabelWidth)
+                let y: CGFloat = self.chartCavanHeight - (innerGrade * self.chartCavanHeight)
                 
                 switch chartData.inflexPointStyle {
                 // Cycle Style Point
                 case .Cycle:
-                    let circleRect = CGRect(x: x - inflexionWidth/2.0, y: y - inflexionWidth/2.0, width: inflexionWidth, height: inflexionWidth)
-                    let circleCenter = CGPoint(x: circleRect.origin.x + circleRect.size.width / 2.0, y: circleRect.origin.y + circleRect.size.height / 2.0)
-                    pointPath.move(to: CGPoint(x: circleCenter.x + inflexionWidth / 2.0, y: circleCenter.y))
-                    pointPath.addArc(withCenter: circleCenter, radius: CGFloat(inflexionWidth/2.0), startAngle: 0.0, endAngle: CGFloat(M_PI*2.0), clockwise: true)
+                    let circleRect = CGRect(x: x - inflexionWidth/2, y: y - inflexionWidth/2, width: inflexionWidth, height: inflexionWidth)
+                    let circleCenter = CGPoint(x: circleRect.origin.x + circleRect.size.width/2, y: circleRect.origin.y + circleRect.size.height/2)
+                    pointPath.move(to: CGPoint(x: circleCenter.x + inflexionWidth/2, y: circleCenter.y))
+                    pointPath.addArc(withCenter: circleCenter, radius: CGFloat(inflexionWidth/2), startAngle: 0, endAngle: CGFloat(Double.pi * 2), clockwise: true)
                     
                     if index != 0 {
                         // Calculate the point for line
-                        
-                        let distance = CGFloat(sqrt(pow(Double(x - lastX), 2.0) + pow(Double(y - lastY), 2.0)))
-                        let lastX1 = lastX + (inflexionWidth/2.0) / distance * (x - lastX)
-                        let lastY1 = lastY + (inflexionWidth/2.0) / distance * (y - lastY)
-                        let x1 = x - (inflexionWidth/2.0) / distance * (x - lastX)
-                        let y1 = y - (inflexionWidth/2.0) / distance * (y - lastY)
+                        let distance = CGFloat(sqrt(pow(Double(x - lastX), 2) + pow(Double(y - lastY), 2)))
+                        let lastX1 = lastX + (inflexionWidth/2) / distance * (x - lastX)
+                        let lastY1 = lastY + (inflexionWidth/2) / distance * (y - lastY)
+                        let x1 = x - (inflexionWidth/2) / distance * (x - lastX)
+                        let y1 = y - (inflexionWidth/2) / distance * (y - lastY)
                         progressLine.move(to: CGPoint(x: lastX1, y: lastY1))
                         progressLine.addLine(to: CGPoint(x: x1, y: y1))
                     }
@@ -308,21 +308,21 @@ class PNLineChart: UIView{
                     
                 // Square Style Point
                 case .Square:
-                    let squareRect = CGRect(x: x - inflexionWidth/2.0, y: y - inflexionWidth/2.0, width: inflexionWidth, height: inflexionWidth)
-                    let squareCenter = CGPoint(x: squareRect.origin.x + (squareRect.size.width / 2.0), y: squareRect.origin.y  + (squareRect.size.height / 2.0))
-                    pointPath.move(to: CGPoint(x: squareCenter.x - (inflexionWidth/2.0), y: squareCenter.y - (inflexionWidth/2.0)))
-                    pointPath.addLine(to: CGPoint(x: squareCenter.x + (inflexionWidth/2.0), y: squareCenter.y - (inflexionWidth/2.0)))
-                    pointPath.addLine(to: CGPoint(x: squareCenter.x + (inflexionWidth/2.0), y: squareCenter.y + (inflexionWidth/2.0)))
-                    pointPath.addLine(to: CGPoint(x: squareCenter.x - (inflexionWidth/2.0), y: squareCenter.y + (inflexionWidth/2.0)))
+                    let squareRect = CGRect(x: x - inflexionWidth/2, y: y - inflexionWidth/2, width: inflexionWidth, height: inflexionWidth)
+                    let squareCenter = CGPoint(x: squareRect.origin.x + (squareRect.size.width/2), y: squareRect.origin.y  + (squareRect.size.height/2))
+                    pointPath.move(to: CGPoint(x: squareCenter.x - (inflexionWidth/2), y: squareCenter.y - (inflexionWidth/2)))
+                    pointPath.addLine(to: CGPoint(x: squareCenter.x + (inflexionWidth/2), y: squareCenter.y - (inflexionWidth/2)))
+                    pointPath.addLine(to: CGPoint(x: squareCenter.x + (inflexionWidth/2), y: squareCenter.y + (inflexionWidth/2)))
+                    pointPath.addLine(to: CGPoint(x: squareCenter.x - (inflexionWidth/2), y: squareCenter.y + (inflexionWidth/2)))
                     pointPath.close()
                     
                     if index != 0 {
                         // Calculate the point for line
-                        let distance = CGFloat(sqrt(pow(x - lastX, 2.0) + pow(y - lastY, 2.0)))
-                        let lastX1 = lastX + (inflexionWidth / 2.0)
-                        let lastY1 = lastY + (inflexionWidth / 2.0) / distance * (y - lastY)
-                        let x1 = x - (inflexionWidth / 2.0)
-                        let y1 = y - (inflexionWidth / 2.0) / distance * (y - lastY)
+                        let distance = CGFloat(sqrt(pow(x - lastX, 2) + pow(y - lastY, 2)))
+                        let lastX1 = lastX + (inflexionWidth / 2)
+                        let lastY1 = lastY + (inflexionWidth / 2) / distance * (y - lastY)
+                        let x1 = x - (inflexionWidth / 2)
+                        let y1 = y - (inflexionWidth / 2) / distance * (y - lastY)
                         
                         progressLine.move(to: CGPoint(x: lastX1, y: lastY1))
                         progressLine.addLine(to: CGPoint(x: x1, y: y1))
@@ -367,86 +367,85 @@ class PNLineChart: UIView{
             
             CATransaction.begin()
             let path = CABasicAnimation(keyPath: "strokeEnd")
-            path.duration = 1.0
+            path.duration = 1
             path.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-            path.fromValue = 0.0
-            path.toValue = 1.0
+            path.fromValue = 0
+            path.toValue = 1
             
             chartLine.add(path, forKey: "strokeEndAnimation")
-            chartLine.strokeEnd = 1.0
+            chartLine.strokeEnd = 1
             
             if chartData.inflexPointStyle != .None {
                 pointLayer.add(path, forKey: "strokeEndAnimation")
             }
             
             CATransaction.commit()
-            
             UIGraphicsEndImageContext()
         }
     }
     
     override func draw(_ rect: CGRect) {
-        if showCoordinateAxis {
-            let yAxisOffset: CGFloat = 10.0
+        if self.showCoordinateAxis {
+            let yAxisOffset: CGFloat = 10
             let ctx = UIGraphicsGetCurrentContext()
             UIGraphicsPushContext(ctx!)
-            ctx?.setLineWidth(axisWidth)
-            ctx?.setStrokeColor(axisColor.cgColor)
+            ctx?.setLineWidth(self.axisWidth)
+            ctx?.setStrokeColor(self.axisColor.cgColor)
             
-            let xAxisWidth: CGFloat = rect.width - chartMargin / 2.0
-            let yAxisHeight: CGFloat = chartMargin + chartCavanHeight
+            let xAxisWidth: CGFloat = rect.width - self.chartMargin/2
+            let yAxisHeight: CGFloat = self.chartMargin + self.chartCavanHeight
             
             // Draw coordinate axis
-            ctx?.move(to: CGPoint(x: chartMargin + yAxisOffset, y: 0.0))
-            ctx?.addLine(to: CGPoint(x: chartMargin + yAxisOffset, y: yAxisHeight))
+            ctx?.move(to: CGPoint(x: self.chartMargin + yAxisOffset, y: 0))
+            ctx?.addLine(to: CGPoint(x: self.chartMargin + yAxisOffset, y: yAxisHeight))
             ctx?.addLine(to: CGPoint(x: xAxisWidth, y: yAxisHeight))
             ctx?.strokePath()
             
             // Draw y axis arrow
-            ctx?.move(to: CGPoint(x: chartMargin + yAxisOffset - 3.0, y: 6.0))
-            ctx?.addLine(to: CGPoint(x: chartMargin + yAxisOffset, y: 0.0))
-            ctx?.addLine(to: CGPoint(x: chartMargin + yAxisOffset + 3.0, y: 6.0))
+            ctx?.move(to: CGPoint(x: self.chartMargin + yAxisOffset - 3, y: 6))
+            ctx?.addLine(to: CGPoint(x: self.chartMargin + yAxisOffset, y: 0))
+            ctx?.addLine(to: CGPoint(x: self.chartMargin + yAxisOffset + 3, y: 6))
             ctx?.strokePath()
             
             // Draw x axis arrow
-            ctx?.move(to: CGPoint(x: xAxisWidth - 6.0, y: yAxisHeight - 3.0))
+            ctx?.move(to: CGPoint(x: xAxisWidth - 6, y: yAxisHeight - 3))
             ctx?.addLine(to: CGPoint(x: xAxisWidth, y: yAxisHeight))
-            ctx?.addLine(to: CGPoint(x: xAxisWidth - 6.0, y: yAxisHeight + 3.0))
+            ctx?.addLine(to: CGPoint(x: xAxisWidth - 6, y: yAxisHeight + 3))
             ctx?.strokePath()
             
-            if showLabel {
+            if self.showLabel {
                 // Draw x axis separator
                 var point: CGPoint!
-                for index in 0..<xLabels.count {
-                    point = CGPoint(x: 2.0 * chartMargin + CGFloat(index) * xLabelWidth, y: chartMargin + chartCavanHeight!)
-                    ctx?.move(to: CGPoint(x: point.x, y: point.y - 2.0))
+                for index in 0..<self.xLabels.count {
+                    point = CGPoint(x: 2 * self.chartMargin + CGFloat(index) * self.xLabelWidth, y: self.chartMargin + self.chartCavanHeight)
+                    ctx?.move(to: CGPoint(x: point.x, y: point.y - 2))
                     ctx?.addLine(to: CGPoint(x: point.x, y: point.y))
                     ctx?.strokePath()
                 }
                 
                 // Draw y axis separator
-                let yStepHeight = chartCavanHeight / yLabelNum
-                for index in 0..<xLabels.count {
-                    point = CGPoint(x: chartMargin + yAxisOffset, y: (chartCavanHeight - CGFloat(index) * yStepHeight + yLabelHeight / 2.0))
+                let yStepHeight = self.chartCavanHeight/self.yLabelNum
+                for index in 0..<self.xLabels.count {
+                    point = CGPoint(x: self.chartMargin + yAxisOffset, y: (self.chartCavanHeight - CGFloat(index) * yStepHeight + self.yLabelHeight/2))
                     ctx?.move(to: CGPoint(x: point.x, y: point.y))
-                    ctx?.addLine(to: CGPoint(x: point.x + 2.0, y: point.y))
+                    ctx?.addLine(to: CGPoint(x: point.x + 2, y: point.y))
                     ctx?.strokePath()
                 }
             }
             
-            let font = UIFont(name: "Avenir-Medium", size: 11.0)
+            let font = UIFont(name: "Avenir-Medium", size: 11)
             
             // Draw y unit
-            if yUnit != nil {
-                let height = heightOfString(text: yUnit, width: 30.0, font: font!)
-                let drawRect = CGRect(x: chartMargin + 15.0, y: 0.0, width: 30.0, height: height)
-                drawTextInContext(ctx: ctx!, text: yUnit, rect: drawRect, font: font!)
+            if self.yUnit != nil {
+                let height = self.heightOfString(text: self.yUnit, width: 30, font: font!)
+                let drawRect = CGRect(x: self.chartMargin + 15, y: 0, width: 30, height: height)
+                self.drawTextInContext(ctx: ctx!, text: self.yUnit, rect: drawRect, font: font!)
             }
             
-            if xUnit != nil {
-                let height = heightOfString(text: xUnit, width: 30.0, font: font!)
-                let drawRect = CGRect(x: rect.width - chartMargin + 5.0, y: chartMargin + chartCavanHeight - height / 2.0, width: 25.0, height: height)
-                drawTextInContext(ctx: ctx!, text: xUnit, rect: drawRect, font: font!)
+            if self.xUnit != nil {
+                let height = self.heightOfString(text: self.xUnit, width: 30, font: font!)
+                let drawRect = CGRect(x: rect.width - self.chartMargin + 5, y: self.chartMargin + self.chartCavanHeight - height/2, width: 25, height: height)
+                self.drawTextInContext(ctx: ctx!, text: self.xUnit, rect: drawRect, font: font!)
             }
         }
         super.draw(rect)
@@ -456,7 +455,7 @@ class PNLineChart: UIView{
 extension PNLineChart {
     func heightOfString(text: NSString, width: CGFloat, font: UIFont) -> CGFloat {
         let size = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
-        let rect = text.boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
+        let rect = text.boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: font], context: nil)
         return rect.size.height
     }
     
@@ -464,7 +463,7 @@ extension PNLineChart {
         let priceParagraphStyle: NSMutableParagraphStyle = NSParagraphStyle.default as! NSMutableParagraphStyle
         priceParagraphStyle.lineBreakMode = .byTruncatingTail
         priceParagraphStyle.alignment = .left
-        text.draw(in: rect, withAttributes: [NSParagraphStyleAttributeName: priceParagraphStyle])
+        text.draw(in: rect, withAttributes: [NSAttributedStringKey.paragraphStyle: priceParagraphStyle])
     }
     
     func userClickedOnLineKeyPoint(point: CGPoint, lineIndex: Int, keyPointIndex: Int) {

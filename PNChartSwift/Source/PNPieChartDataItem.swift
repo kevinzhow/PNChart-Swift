@@ -9,9 +9,9 @@
 import UIKit
 
 class PNPieChartDataItem: NSObject {
-    var color: UIColor!
-    var text: String!
-    var value: CGFloat!
+    var color: UIColor?
+    var text: String?
+    var value: CGFloat?
     
     init(dateColor color: UIColor, description text: String) {
         self.color = color
@@ -19,9 +19,9 @@ class PNPieChartDataItem: NSObject {
     }
     
     init(dateValue value: CGFloat, dateColor color: UIColor, description text: String) {
+        self.value = value
         self.color = color
         self.text = text
-        self.value = value
     }
     
     func setValue(newValue: CGFloat) {
@@ -29,8 +29,6 @@ class PNPieChartDataItem: NSObject {
             print("Value should >= 0")
             return
         }
-        if value != newValue {
-            value =  newValue
-        }
+        self.value = (self.value != newValue) ? newValue : value
     }
 }

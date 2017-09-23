@@ -15,7 +15,7 @@ class PNGenericChart: UIView {
     var legendFont: UIFont!
     var legendFontColor: UIColor!
     var labelRowsInSerialMode: Int!
-    var displayAnimation: Bool!
+    var displayAnimation: Bool = false
     
     func setupDefaultValues() {
         hasLegend = true

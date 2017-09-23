@@ -11,31 +11,30 @@ import UIKit
 class PNBar: UIView {
 
     // Time brfore bar starts to animate
-    var startAnimationTime = 0.0
-    
-    var chartLine: CAShapeLayer!
+    var startAnimationTime: Double = 0
+    var chartLine: CAShapeLayer = {
+        return CAShapeLayer()
+        
+    }()
     
     var barColor = PNFreshGreen
-    
-    var barRadius: CGFloat = 0.0 {
+    var barRadius: CGFloat = 0 {
         didSet {
-            layer.cornerRadius = barRadius
+            layer.cornerRadius = self.barRadius
         }
     }
     
     var grade: CGFloat = 0 {
         didSet {
             UIGraphicsBeginImageContext(self.frame.size)
-            
             let path = CABasicAnimation(keyPath: "strokeEnd")
-            path.duration = 1.0
+            path.duration = 1
             path.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-            path.fromValue = 0.0
-            path.toValue = 1.0
-            chartLine.add(path, forKey: "strokeEndAnimation")
-            chartLine.strokeEnd = 1.0
-            
-            delay(delay: startAnimationTime, closure: {
+            path.fromValue = 0
+            path.toValue = 1
+            self.chartLine.add(path, forKey: "strokeEndAnimation")
+            self.chartLine.strokeEnd = 1
+            self.delay(delay: self.startAnimationTime, closure: {
                 () -> () in
                 self.chartLine.add(path, forKey: "strokeEndAnimation")
                 let progressLine = UIBezierPath()
@@ -45,7 +44,6 @@ class PNBar: UIView {
                 self.chartLine.path = progressLine.cgPath
                 self.chartLine.strokeColor = self.barColor.cgColor
             })
-            
             UIGraphicsEndImageContext()
         }
     }
@@ -56,11 +54,11 @@ class PNBar: UIView {
         self.chartLine.lineCap = kCALineCapButt
         self.chartLine.fillColor = UIColor.white.cgColor
         self.chartLine.lineWidth = self.frame.size.width
-        self.chartLine.strokeEnd = 0.0
+        self.chartLine.strokeEnd = 0
         self.clipsToBounds = true
         self.backgroundColor = PNLightGrey
-        self.layer.addSublayer(chartLine)
-        barRadius = 10.0
+        self.layer.addSublayer(self.chartLine)
+        self.barRadius = 10
     }
     
     required init?(coder aDecoder: NSCoder) {
