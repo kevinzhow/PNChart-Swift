@@ -148,7 +148,7 @@ class PNBarChart: UIView {
         // Add Chart Border Lines
         if self.showChartBorder {
             self.chartBottomLine = CAShapeLayer()
-            self.chartBottomLine.lineCap = kCALineCapButt
+			self.chartBottomLine.lineCap = CAShapeLayerLineCap.butt
             self.chartBottomLine.fillColor = UIColor.white.cgColor
             self.chartBottomLine.lineWidth = 1
             self.chartBottomLine.strokeEnd = 0
@@ -160,7 +160,7 @@ class PNBarChart: UIView {
             self.chartBottomLine.path = progressLine.cgPath
             let path = CABasicAnimation(keyPath: "strokeEnd")
             path.duration = 0.5
-            path.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+			path.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
             path.fromValue = 0
             path.toValue = 1
             self.chartBottomLine.add(path, forKey: "strokeEndAnimation")
@@ -168,7 +168,7 @@ class PNBarChart: UIView {
             self.layer.addSublayer(self.chartBottomLine)
             // Add Left Chart Line
             self.chartLeftLine = CAShapeLayer()
-            self.chartLeftLine.lineCap = kCALineCapButt
+			self.chartLeftLine.lineCap = CAShapeLayerLineCap.butt
             self.chartLeftLine.fillColor = UIColor.white.cgColor
             self.chartLeftLine.lineWidth = 1
             self.chartLeftLine.strokeEnd = 0
@@ -181,7 +181,7 @@ class PNBarChart: UIView {
             self.chartLeftLine.strokeColor = PNLightGrey.cgColor
             let pathLeft = CABasicAnimation(keyPath: "strokeEnd")
             pathLeft.duration = 0.5
-            pathLeft.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+			pathLeft.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
             pathLeft.fromValue = 0
             pathLeft.toValue = 1
             self.chartLeftLine.add(pathLeft, forKey: "strokeEndAnimation")

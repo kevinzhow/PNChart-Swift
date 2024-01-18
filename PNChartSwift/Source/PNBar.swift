@@ -29,7 +29,7 @@ class PNBar: UIView {
             UIGraphicsBeginImageContext(self.frame.size)
             let path = CABasicAnimation(keyPath: "strokeEnd")
             path.duration = 1
-            path.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+			path.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
             path.fromValue = 0
             path.toValue = 1
             self.chartLine.add(path, forKey: "strokeEndAnimation")
@@ -51,7 +51,7 @@ class PNBar: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.chartLine = CAShapeLayer()
-        self.chartLine.lineCap = kCALineCapButt
+		self.chartLine.lineCap = CAShapeLayerLineCap.butt
         self.chartLine.fillColor = UIColor.white.cgColor
         self.chartLine.lineWidth = self.frame.size.width
         self.chartLine.strokeEnd = 0

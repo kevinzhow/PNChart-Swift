@@ -218,7 +218,7 @@ extension PNPieChart {
         
         let center = CGPoint(x: self.outerCircleRadius + distance * CGFloat(sin(rad)), y: self.outerCircleRadius - distance * CGFloat(cos(rad)))
         descriptionLabel.font = self.descriptionTextFont
-        let labelSize = descriptionLabel.text?.size(withAttributes: [NSAttributedStringKey.font: descriptionLabel.font])
+		let labelSize = descriptionLabel.text?.size(withAttributes: [NSAttributedString.Key.font: descriptionLabel.font as Any])
         descriptionLabel.frame = CGRect(x: descriptionLabel.frame.origin.x, y: descriptionLabel.frame.origin.y, width: descriptionLabel.frame.size.width, height: (labelSize?.height)!)
         descriptionLabel.numberOfLines = 0
         descriptionLabel.textColor = self.descriptionTextColor
@@ -241,7 +241,7 @@ extension PNPieChart {
             animation.duration = duration
             animation.fromValue = 0
             animation.toValue = 1
-            animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+			animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
             animation.isRemovedOnCompletion = true
             self.pieLayer.mask?.add(animation, forKey: "circleAnimation")
         }

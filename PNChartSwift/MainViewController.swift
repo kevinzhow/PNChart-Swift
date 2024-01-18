@@ -11,7 +11,9 @@ class MainViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+		if #available(iOS 13.0, *) {
+			self.view.backgroundColor = .systemBackground
+		}
         self.title = "PNChart"
     }
 }
